@@ -1,23 +1,50 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
+import 'package:slectiv_studio_app/app/modules/onboarding_screen/views/widgets/onboarding_dot_navigation.dart';
+import 'package:slectiv_studio_app/app/modules/onboarding_screen/views/widgets/onboarding_next_button.dart';
+import 'package:slectiv_studio_app/app/modules/onboarding_screen/views/widgets/onboarding_page.dart';
+import 'package:slectiv_studio_app/utils/constants/colors.dart';
+import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
+import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 import '../controllers/onboarding_screen_controller.dart';
 
 class OnboardingScreenView extends GetView<OnboardingScreenController> {
   const OnboardingScreenView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final onBoardingcontroller = Get.put(OnboardingScreenController());
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('OnboardingScreenView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'OnboardingScreenView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+      backgroundColor: SlectivColors.backgroundColor,
+      body: Stack(
+        children: [
+          // -- Horizontal Scrollable Pages
+          PageView(
+            controller: onBoardingcontroller.pageController,
+            onPageChanged: onBoardingcontroller.updatePageIndicator,
+            children: const [
+              onBoardingPage(
+                lottie: SlectivImages.onBoardingAnimation1,  
+                title: SlectivTexts.onBoardingTitle1, 
+                subtitle: SlectivTexts.onBoardingSubtitle1
+              ),
+              onBoardingPage(
+                lottie: SlectivImages.onBoardingAnimation2, 
+                title: SlectivTexts.onBoardingTitle2, 
+                subtitle: SlectivTexts.onBoardingSubtitle2,
+              ),
+              onBoardingPage(
+                lottie: SlectivImages.onBoardingAnimation3,
+                title: SlectivTexts.onBoardingTitle3, 
+                subtitle: SlectivTexts.onBoardingSubtitle3,
+              ),
+            ],
+          ),
+
+          // -- Dot Navigation SmoothPageIndicator
+          const onBoardingDotNavigation(),
+          // -- Circular Button
+          const onBoardingNextButton()
+        ],
       ),
     );
   }
