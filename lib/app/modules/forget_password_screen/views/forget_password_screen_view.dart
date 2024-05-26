@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
+import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import '../controllers/forget_password_screen_controller.dart';
 
 class ForgetPasswordScreenView extends GetView<ForgetPasswordScreenController> {
@@ -9,9 +8,9 @@ class ForgetPasswordScreenView extends GetView<ForgetPasswordScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: SlectivColors.backgroundColor,
       appBar: AppBar(
-        title: const Text('ForgetPasswordScreenView'),
-        centerTitle: true,
+        backgroundColor: SlectivColors.backgroundColor,
       ),
       body: Center(
         child: Text(

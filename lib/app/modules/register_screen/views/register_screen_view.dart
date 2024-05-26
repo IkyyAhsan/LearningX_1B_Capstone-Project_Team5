@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
+import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import '../controllers/register_screen_controller.dart';
 
 class RegisterScreenView extends GetView<RegisterScreenController> {
@@ -9,9 +8,9 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: SlectivColors.backgroundColor,
       appBar: AppBar(
-        title: const Text('RegisterScreenView'),
-        centerTitle: true,
+        backgroundColor: SlectivColors.backgroundColor,
       ),
       body: Center(
         child: Text(
