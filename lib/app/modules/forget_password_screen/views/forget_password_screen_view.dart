@@ -4,7 +4,7 @@ import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import '../controllers/forget_password_screen_controller.dart';
 
 class ForgetPasswordScreenView extends GetView<ForgetPasswordScreenController> {
-  const ForgetPasswordScreenView({Key? key}) : super(key: key);
+  const ForgetPasswordScreenView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +12,7 @@ class ForgetPasswordScreenView extends GetView<ForgetPasswordScreenController> {
       appBar: AppBar(
         backgroundColor: SlectivColors.backgroundColor,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'ForgetPasswordScreenView is working',
           style: TextStyle(fontSize: 20),

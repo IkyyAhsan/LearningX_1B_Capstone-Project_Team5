@@ -9,7 +9,7 @@ import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 import '../controllers/onboarding_screen_controller.dart';
 
 class OnboardingScreenView extends GetView<OnboardingScreenController> {
-  const OnboardingScreenView({Key? key}) : super(key: key);
+  const OnboardingScreenView({super.key});
   @override
   Widget build(BuildContext context) {
     final onBoardingcontroller = Get.put(OnboardingScreenController());
@@ -22,17 +22,17 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
             controller: onBoardingcontroller.pageController,
             onPageChanged: onBoardingcontroller.updatePageIndicator,
             children: const [
-              onBoardingPage(
+              OnBoardingPage(
                 lottie: SlectivImages.onBoardingAnimation1,  
                 title: SlectivTexts.onBoardingTitle1, 
                 subtitle: SlectivTexts.onBoardingSubtitle1
               ),
-              onBoardingPage(
+              OnBoardingPage(
                 lottie: SlectivImages.onBoardingAnimation2, 
                 title: SlectivTexts.onBoardingTitle2, 
                 subtitle: SlectivTexts.onBoardingSubtitle2,
               ),
-              onBoardingPage(
+              OnBoardingPage(
                 lottie: SlectivImages.onBoardingAnimation3,
                 title: SlectivTexts.onBoardingTitle3, 
                 subtitle: SlectivTexts.onBoardingSubtitle3,

@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 
-class onBoardingPage extends StatelessWidget {
-  const onBoardingPage({
+class OnBoardingPage extends StatelessWidget {
+  const OnBoardingPage({
     super.key,required this.lottie,required this.title, required this.subtitle, 
   });
 
