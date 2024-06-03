@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "765394348193",
+    "project_id": "slectiv-studio-project",
+    "storage_bucket": "slectiv-studio-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765394348193:android:508a17d9f3af81e8d2e8e0",
+        "android_client_info": {
+          "package_name": "com.example.slectiv_studio_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjUU6-7vmZj6Pom-JBxHeQVluJGRnDigA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -45,12 +45,12 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.REGISTER_SCREEN,
-      page: () => const RegisterScreenView(),
+      page: () => RegisterScreenView(),
       binding: RegisterScreenBinding(),
     ),
     GetPage(
       name: _Paths.FORGET_PASSWORD_SCREEN,
-      page: () => const ForgetPasswordScreenView(),
+      page: () => ForgetPasswordScreenView(),
       binding: ForgetPasswordScreenBinding(),
     ),
     GetPage(

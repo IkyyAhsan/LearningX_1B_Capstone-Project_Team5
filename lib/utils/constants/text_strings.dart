@@ -17,12 +17,28 @@ class SlectivTexts {
   // -- Authentication Heading
   static const String loginTitle = "Welcome!";
   static const String loginSubtitle = "Please login to get started";
+  static const String registerTitle = "Create Account";
+  static const String registerSubtitle = "Please fill in the following form correctly";
+  static const String forgetPasswordTitle = "Forget Password";
+  static const String forgetPasswordSubtitle = "Please fill in the following form correctly";
 
   // -- Authentication Form
   static const String email = "Email";
+  static const String name = "Name";
   static const String password = "Password";
+  static const String phoneNumber = "Phone Number";
+  static const String confirmPassword = "Confirm Password";
   static const String forgetPassword = "Forget Password?";
+  static const String sendForgetPassword = "Send";
   static const String login = "Login";
+  static const String register = "Register";
   static const String dontHaveAccount = "Don't have an account?";
   static const String registerHere = "Register here";
+  static const String alreadyHave = "Already have an account?";
+  static const String loginHere = "Login here";
+  static const String backToLogin = "Cancel";
+
+  // -- Authentication Snackbar
+  static const String registerSuccessfullTitle = "Registration Successfull";
+  static const String registerSuccessfullSubtitle = "Congratulations, your account has been successfully created. Please log in to continue";
 }

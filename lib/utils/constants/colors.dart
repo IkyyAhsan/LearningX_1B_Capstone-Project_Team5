@@ -11,6 +11,9 @@ class SlectivColors{
 
   // -- Button Colors
   static const Color loginButtonColor = Color(0xFF0404B2);
+  static const Color registerButtonColor = Color(0xFFF15A24);
+  static const Color forgetPasswordButtonColor = Color(0xFF198251);
+  static const Color cancelButtonColor = Color(0xFFE21414);
 
   // -- Circular Progress Colors
   static const Color circularProgressColor = Color(0xFFC3C3C3);

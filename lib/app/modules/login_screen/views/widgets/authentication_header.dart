@@ -9,12 +9,14 @@ class SlectivAuthenticationHeader extends StatelessWidget {
     super.key,
   });
 
+
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 46.47,
             width: 125,
             child: Image(
@@ -23,7 +25,7 @@ class SlectivAuthenticationHeader extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16,),
-          Text(SlectivTexts.brandSubtitle, style: GoogleFonts.spaceGrotesk(textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: SlectivColors.blackColor))),
+          Text(SlectivTexts.brandSubtitle, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: SlectivColors.blackColor))),
         ],
       ),
     );

@@ -1,10 +1,16 @@
 // -- Validator on TextFormField
 
 class SlectiValidator {
-  // -- fullname Validation
+  // -- name Validation
   static String? nameValidate(String? value){
     if (value == null || value.isEmpty){
       return 'Nama tidak boleh kosong.';
+    } else if (value.length < 2){
+      return 'Nama harus memiliki minimal 2 karakter';
+    } else if (value.length > 30){
+      return 'Nama harus memiliki maksimal 30 karakter';
+    } else if (!RegExp(r"^[a-zA-Z\s'-]{2,50}$").hasMatch(value)) {
+      return 'Nama tidak boleh mengandung karakter Special';
     }
     return null;
   }
@@ -52,6 +58,16 @@ class SlectiValidator {
         return 'Password terdiri dari minimal 6 karakter';
     } else if (value != password){
       return 'Password tidak sama';
+    }
+    return null;
+  }
+
+  // -- Phone Number Validation
+  static String? phoneNumberValidate(String? value,){
+    if (value == null || value.isEmpty){
+      return 'Konfirmasi Password tidak boleh kosong';
+    } else if (!RegExp(r'^\d{10,15}$').hasMatch(value)){
+      return 'Nomor telepon harus berisi 10 hingga 15 digit angka';
     }
     return null;
   }

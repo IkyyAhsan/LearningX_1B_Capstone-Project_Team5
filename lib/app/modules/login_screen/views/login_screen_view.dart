@@ -32,16 +32,18 @@ class LoginScreenView extends GetView<LoginScreenController> {
               const SlectivAuthenticationHeader(),
               const SizedBox(height: 36,),
 
-              const SlectivLoginHeaderText(),
+              const SlectivLoginHeaderText(title: SlectivTexts.loginTitle, subtitle: SlectivTexts.loginSubtitle,),
               const SizedBox(height: 24,),
 
               Form(
+                key: loginFormKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(SlectivTexts.email, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: SlectivColors.blackColor)),),
-                    const SizedBox(height: 8,),
+
                     // -- Email
+                    Text(SlectivTexts.email, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: SlectivColors.blackColor))),
+                    const SizedBox(height: 8,),
 
                     TextFormField(
                       controller: loginController.emailController,
@@ -82,7 +84,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
                           suffixIcon: IconButton(
                             onPressed: () => loginController.hidePassword.value = !loginController.hidePassword.value,
                             icon: Icon(loginController.hidePassword.value ? FluentIcons.eye_off_20_regular : FluentIcons.eye_20_regular),
-                            )
+                          )
                         ),
                         style: GoogleFonts.plusJakartaSans(
                           textStyle: const TextStyle(
@@ -111,6 +113,15 @@ class LoginScreenView extends GetView<LoginScreenController> {
                           barrierDismissible: false,
                         );
                         await Future.delayed(const Duration(seconds: 3));
+                        Get.snackbar(
+                            "Login Successfull", 
+                            "Congratulations, You have logged in successfully", 
+                            backgroundColor: SlectivColors.loginButtonColor, 
+                            colorText: SlectivColors.whiteColor, 
+                            duration: const Duration(
+                              seconds: 4
+                            ),
+                          );
                       }, 
                       backgroundColor: SlectivColors.loginButtonColor,
                     ),
@@ -118,7 +129,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Don't have an account?", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.blackColor)),),
-                        TextButton(onPressed: () => Get.to(const RegisterScreenView()), 
+                        TextButton(onPressed: () => Get.to(() => RegisterScreenView()), 
                           child: Text("Register here", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.loginButtonColor)),)
                         ),
                       ],
