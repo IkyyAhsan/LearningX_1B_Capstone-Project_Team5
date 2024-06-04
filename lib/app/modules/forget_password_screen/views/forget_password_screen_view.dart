@@ -78,6 +78,12 @@ class ForgetPasswordScreenView extends GetView<ForgetPasswordScreenController> {
                               barrierDismissible: false,
                             );
                             await Future.delayed(const Duration(seconds: 3));
+
+                            forgetPasswordController.resetPassword(forgetPasswordController.emailController.text);
+
+                            Get.back();
+
+                            forgetPasswordController.clearForm();
                           }, 
                           backgroundColor: SlectivColors.forgetPasswordButtonColor,
                         ),

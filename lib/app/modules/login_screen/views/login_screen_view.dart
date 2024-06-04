@@ -113,15 +113,12 @@ class LoginScreenView extends GetView<LoginScreenController> {
                           barrierDismissible: false,
                         );
                         await Future.delayed(const Duration(seconds: 3));
-                        Get.snackbar(
-                            "Login Successfull", 
-                            "Congratulations, You have logged in successfully", 
-                            backgroundColor: SlectivColors.loginButtonColor, 
-                            colorText: SlectivColors.whiteColor, 
-                            duration: const Duration(
-                              seconds: 4
-                            ),
-                          );
+
+                        loginController.loginValidation();
+
+                        Get.back();
+
+                        
                       }, 
                       backgroundColor: SlectivColors.loginButtonColor,
                     ),

@@ -30,6 +30,7 @@ class SlectivTexts {
   static const String confirmPassword = "Confirm Password";
   static const String forgetPassword = "Forget Password?";
   static const String sendForgetPassword = "Send";
+  static const String successfullyResetPassword = "Success";
   static const String login = "Login";
   static const String register = "Register";
   static const String dontHaveAccount = "Don't have an account?";
@@ -41,4 +42,9 @@ class SlectivTexts {
   // -- Authentication Snackbar
   static const String registerSuccessfullTitle = "Registration Successfull";
   static const String registerSuccessfullSubtitle = "Congratulations, your account has been successfully created. Please log in to continue";
+  static const String forgetPasswordWaitingToResetTitle = "Reset Password link has been sent";
+  static const String forgetPasswordWaitingToResetSubtitle = "Your account security is our priority! We've sent you a password reset link to safely change your password and keep your account protected";
+  static const String snackbarErrorTitle = "There is an error";
+  static const String snackbarUnableSendResetLink = "Unable to send password reset link";
+  static const String snackbarInvalidEmail = "The email you entered is invalid";
 }

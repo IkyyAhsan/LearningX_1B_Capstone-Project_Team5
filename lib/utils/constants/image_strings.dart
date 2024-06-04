@@ -8,6 +8,7 @@ class SlectivImages {
   static const String onBoardingAnimation1 = "assets/animations/Onboarding1.json";
   static const String onBoardingAnimation2 = "assets/animations/Onboarding2.json";
   static const String onBoardingAnimation3 = "assets/animations/Onboarding3.json";
+  static const String waitingToResetPassword = "assets/animations/WaitingToResetPassword.json";
 
   // -- Banners
   
