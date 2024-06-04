@@ -35,7 +35,7 @@ class WaitingToResetPassword extends StatelessWidget {
                 SlectivTexts.forgetPasswordWaitingToResetTitle, 
                 textAlign: TextAlign.center,
                 style: GoogleFonts.spaceGrotesk(
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                     fontSize: 28, 
                     fontWeight: FontWeight.bold, 
                     color: SlectivColors.blackColor
@@ -47,7 +47,7 @@ class WaitingToResetPassword extends StatelessWidget {
                 SlectivTexts.forgetPasswordWaitingToResetSubtitle,
                 textAlign: TextAlign.center, 
                 style: GoogleFonts.spaceGrotesk(
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                     fontSize: 16, 
                     fontWeight: FontWeight.w500, 
                     color: SlectivColors.blackColor
