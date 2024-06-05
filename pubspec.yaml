@@ -28,7 +28,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/banners/
-    - assets/images/
+    
     - assets/logos/
     - assets/animations/
   uses-material-design: true
