@@ -47,4 +47,8 @@ class SlectivTexts {
   static const String snackbarErrorTitle = "There is an error";
   static const String snackbarUnableSendResetLink = "Unable to send password reset link";
   static const String snackbarInvalidEmail = "The email you entered is invalid";
+
+  // -- Home Screen
+  static const String newAccountType = "Moment Welcomer";
+  static const String oldAccountType = "Memory Creator";
 }

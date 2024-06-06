@@ -17,4 +17,7 @@ class SlectivColors{
 
   // -- Circular Progress Colors
   static const Color circularProgressColor = Color(0xFFC3C3C3);
+
+  // -- Home Color
+  static const Color accountTypeColor = Color(0xFF2F3542);
 }

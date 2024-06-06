@@ -31,5 +31,6 @@ flutter:
   assets:
     - assets/banners/
     - assets/logos/
+    - assets/images/
     - assets/animations/
   uses-material-design: true
