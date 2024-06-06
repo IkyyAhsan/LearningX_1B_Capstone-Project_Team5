@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/bindings/bottom_navigation_bar_binding.dart';
+import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 
 import '../modules/forget_password_screen/bindings/forget_password_screen_binding.dart';
 import '../modules/forget_password_screen/views/forget_password_screen_view.dart';
@@ -20,7 +22,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH_SCREEN;
+  static const INITIAL = Routes.BOTTOM_NAVIGATION_BAR;
 
   static final routes = [
     GetPage(
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOTTOM_NAVIGATION_BAR,
+      page: () => const BottomNavigationBarView(),
+      binding: BottomNavigationBarBinding(),
     ),
   ];
 }
