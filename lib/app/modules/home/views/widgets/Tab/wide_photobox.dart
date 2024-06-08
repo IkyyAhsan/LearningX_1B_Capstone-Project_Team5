@@ -49,11 +49,11 @@ class SlectivWidePhotobox extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: SlectivColors.blackColor.withOpacity(0.2),
+                          color: SlectivColors.blackColor.withOpacity(0.1),
                         ),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Text("® 15 Minutes Session", 
+                      child: Text(SlectivTexts.minutes15SessionFeature, 
                         style: GoogleFonts.spaceGrotesk(
                           textStyle:const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.blackColor
@@ -70,11 +70,11 @@ class SlectivWidePhotobox extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: SlectivColors.blackColor.withOpacity(0.2),
+                          color: SlectivColors.blackColor.withOpacity(0.1),
                         ),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Text("® Softlite", 
+                      child: Text(SlectivTexts.softliteFeature, 
                         style: GoogleFonts.spaceGrotesk(
                           textStyle:const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.blackColor
@@ -91,11 +91,11 @@ class SlectivWidePhotobox extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: SlectivColors.blackColor.withOpacity(0.2)
+                          color: SlectivColors.blackColor.withOpacity(0.1)
                         ),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Text("® Printed Photo", 
+                      child: Text(SlectivTexts.printedPhotoFeature, 
                         style: GoogleFonts.spaceGrotesk(
                           textStyle:const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.blackColor
@@ -112,11 +112,11 @@ class SlectivWidePhotobox extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: SlectivColors.blackColor.withOpacity(0.2),
+                          color: SlectivColors.blackColor.withOpacity(0.1),
                         ),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Text("® Choose Background", 
+                      child: Text(SlectivTexts.chooseBackgroundFeature, 
                         style: GoogleFonts.spaceGrotesk(
                           textStyle:const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.blackColor

@@ -23,7 +23,7 @@ class SlectivCreative extends StatelessWidget {
               const SizedBox(height: 10,),
               const Center(child: Image(image: AssetImage(SlectivImages.portraitImages))),
               const SizedBox(height: 10,),
-              Text(SlectivTexts.widePhotoboxDescription, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: SlectivColors.blackColor)), textAlign: TextAlign.justify,),
+              Text(SlectivTexts.photoboothDescription, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: SlectivColors.blackColor)), textAlign: TextAlign.justify,),
               const SizedBox(height: 20,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -49,7 +49,7 @@ class SlectivCreative extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: SlectivColors.blackColor.withOpacity(0.2),
+                          color: SlectivColors.blackColor.withOpacity(0.1),
                         ),
                         borderRadius: BorderRadius.circular(5),
                       ),
@@ -70,7 +70,7 @@ class SlectivCreative extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: SlectivColors.blackColor.withOpacity(0.2),
+                          color: SlectivColors.blackColor.withOpacity(0.1),
                         ),
                         borderRadius: BorderRadius.circular(5),
                       ),
@@ -91,7 +91,7 @@ class SlectivCreative extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: SlectivColors.blackColor.withOpacity(0.2)
+                          color: SlectivColors.blackColor.withOpacity(0.1)
                         ),
                         borderRadius: BorderRadius.circular(5),
                       ),
@@ -112,7 +112,7 @@ class SlectivCreative extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: SlectivColors.blackColor.withOpacity(0.2),
+                          color: SlectivColors.blackColor.withOpacity(0.1),
                         ),
                         borderRadius: BorderRadius.circular(5),
                       ),

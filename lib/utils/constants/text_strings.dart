@@ -73,6 +73,10 @@ class SlectivTexts {
   static const String selfPhotoPrice = "75K";
   static const String selfPhotoPerson = "1-3 Person";
   static const String selfPhotoFee = "additional fee 20k/1 person";
+  static const String minutes15SessionFeature = "® 15 Minutes Session";
+  static const String softliteFeature = "® Softlite";
+  static const String printedPhotoFeature = "® Printed Photo";
+  static const String chooseBackgroundFeature = "® Choose Background";
 
   // -- Wide Photobox
   static const String widePhotoboxTitle = "Wide Photobox"; 
