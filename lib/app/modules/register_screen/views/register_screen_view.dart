@@ -51,7 +51,7 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                         controller: registerController.name,
                         validator: (value) => SlectiValidator.nameValidate(value),
                         decoration: InputDecoration(
-                          hintText: "Enter your Name",
+                          hintText: SlectivTexts.nameHintText,
                           hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                           fillColor: const Color(0xFFF6F6F6),
                           filled: true,
@@ -75,7 +75,7 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                         controller: registerController.phoneNumber,
                         validator: (value) => SlectiValidator.phoneNumberValidate(value),
                         decoration: InputDecoration(
-                          hintText: "Enter your Phone Number",
+                          hintText: SlectivTexts.phoneNumberHintText,
                           hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                           fillColor: const Color(0xFFF6F6F6),
                           filled: true,
@@ -99,7 +99,7 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                         controller: registerController.email,
                         validator: (value) => SlectiValidator.emailValidate(value),
                         decoration: InputDecoration(
-                          hintText: "Enter your Email",
+                          hintText: SlectivTexts.emailHintText,
                           hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                           fillColor: const Color(0xFFF6F6F6),
                           filled: true,
@@ -125,7 +125,7 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                           validator: (value) => SlectiValidator.passwordValidate(value),
                           obscureText: registerController.hidePassword.value,
                           decoration: InputDecoration(
-                            hintText: "Enter your Password",
+                            hintText: SlectivTexts.passwordHintText,
                             hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                             fillColor: const Color(0xFFF6F6F6),
                             filled: true,
@@ -157,7 +157,7 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                           validator: (value) => SlectiValidator.confirmPasswordValidate(value, registerController.password.text),
                           obscureText: registerController.hideConfirmPassword.value,
                           decoration: InputDecoration(
-                            hintText: "Confirm your Password",
+                            hintText: SlectivTexts.confirmPasswordHintText,
                             hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                             fillColor: const Color(0xFFF6F6F6),
                             filled: true,
@@ -238,8 +238,8 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
 
                               // Show error snackbar
                               Get.snackbar(
-                                'Error',
-                                'Terjadi kesalahan saat registrasi. Silakan coba lagi.',
+                                SlectivTexts.snackbarErrorTitle,
+                                SlectivTexts.snackbarErrorRegistrationTitle,
                                 backgroundColor: Colors.red,
                                 colorText: Colors.white,
                               );

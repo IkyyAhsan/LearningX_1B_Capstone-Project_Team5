@@ -10,29 +10,29 @@ class ForgetPasswordScreenController extends GetxController {
   FirebaseAuth auth = FirebaseAuth.instance;
 
   void resetPassword(String email) async {
-    if (email.isNotEmpty && GetUtils.isEmail(email)){
-      try{
+    if (email.isNotEmpty && GetUtils.isEmail(email)) {
+      try {
         await auth.sendPasswordResetEmail(email: email);
         Get.to(const WaitingToResetPassword());
-      } catch(e){
+      } catch (e) {
         Get.snackbar(
-          SlectivTexts.snackbarErrorTitle, 
+          SlectivTexts.snackbarErrorTitle,
           SlectivTexts.snackbarUnableSendResetLink,
-          backgroundColor: const Color(0xFFE92027), 
+          backgroundColor: const Color(0xFFE92027),
           colorText: const Color(0xFFFFFFFF)
         );
       }
     } else {
       Get.snackbar(
-        SlectivTexts.snackbarErrorTitle, 
+        SlectivTexts.snackbarErrorTitle,
         SlectivTexts.snackbarInvalidEmail,
-        backgroundColor: const Color(0xFFE92027), 
+        backgroundColor: const Color(0xFFE92027),
         colorText: const Color(0xFFFFFFFF)
-        );
+      );
     }
   }
 
-  void clearForm(){
+  void clearForm() {
     emailController.clear();
   }
 }

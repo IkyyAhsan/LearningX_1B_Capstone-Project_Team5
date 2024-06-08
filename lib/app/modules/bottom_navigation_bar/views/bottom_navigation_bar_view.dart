@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/controllers/bottom_navigation_bar_controller.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
+import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
 class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
   const BottomNavigationBarView({super.key});
@@ -21,10 +22,10 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
             indicatorColor: Colors.transparent,
             onDestinationSelected: (index) => controller.selectedIndex.value = index,
             destinations: const [
-              NavigationDestination(icon: Icon(FluentIcons.home_20_regular), label: "Home", selectedIcon: Icon(FluentIcons.home_20_filled, color: SlectivColors.loginButtonColor,),),
-              NavigationDestination(icon: Icon(FluentIcons.calendar_phone_20_regular), label: "Information", selectedIcon: Icon(FluentIcons.calendar_phone_20_filled, color: SlectivColors.loginButtonColor,)),
-              NavigationDestination(icon: Icon(FluentIcons.document_multiple_20_regular), label: "Portofolio", selectedIcon: Icon(FluentIcons.document_multiple_20_filled, color: SlectivColors.loginButtonColor,)),
-              NavigationDestination(icon: Icon(FluentIcons.person_20_regular), label: "Profile", selectedIcon: Icon(FluentIcons.person_20_filled, color: SlectivColors.loginButtonColor,))
+              NavigationDestination(icon: Icon(FluentIcons.home_20_regular), label: SlectivTexts.homeLabel, selectedIcon: Icon(FluentIcons.home_20_filled, color: SlectivColors.loginButtonColor,),),
+              NavigationDestination(icon: Icon(FluentIcons.calendar_phone_20_regular), label: SlectivTexts.informationLabel, selectedIcon: Icon(FluentIcons.calendar_phone_20_filled, color: SlectivColors.loginButtonColor,)),
+              NavigationDestination(icon: Icon(FluentIcons.document_multiple_20_regular), label: SlectivTexts.portofolioLabel, selectedIcon: Icon(FluentIcons.document_multiple_20_filled, color: SlectivColors.loginButtonColor,)),
+              NavigationDestination(icon: Icon(FluentIcons.person_20_regular), label: SlectivTexts.profileLabel, selectedIcon: Icon(FluentIcons.person_20_filled, color: SlectivColors.loginButtonColor,))
             ]
           ),
         )

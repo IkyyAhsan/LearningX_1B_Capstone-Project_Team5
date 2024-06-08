@@ -12,5 +12,11 @@ class SlectivImages {
 
   // -- Banners
   static const String newMembershipBanners = "assets/images/hakLoyalty.png";
+
+  // -- TabBar Images
+  static const String selfPhotoImages = "assets/images/self_photo.jpg";
+  static const String widePhotoboxImages = "assets/images/wide_photobox.jpg";
+  static const String photoboothImages = "assets/images/photobooth.jpg";
+  static const String portraitImages = "assets/images/portrait.jpg";
   
 }

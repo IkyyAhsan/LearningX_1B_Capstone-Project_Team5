@@ -11,11 +11,10 @@ import 'package:slectiv_studio_app/utils/validators/validation.dart';
 import '../controllers/forget_password_screen_controller.dart';
 
 class ForgetPasswordScreenView extends GetView<ForgetPasswordScreenController> {
-  ForgetPasswordScreenView({
-    super.key
-    });
+  ForgetPasswordScreenView({super.key});
 
-    final GlobalKey<FormState> forgetPasswordFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> forgetPasswordFormKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     final forgetPasswordController = Get.put(ForgetPasswordScreenController());
@@ -24,49 +23,68 @@ class ForgetPasswordScreenView extends GetView<ForgetPasswordScreenController> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 24,),
-                  const SlectivAuthenticationHeader(),
-                  const SizedBox(height: 36,),
-              
-                  const SlectivLoginHeaderText(title: SlectivTexts.forgetPasswordTitle, subtitle: SlectivTexts.forgetPasswordSubtitle,),
-                  const SizedBox(height: 24,),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 24),
+                const SlectivAuthenticationHeader(),
+                const SizedBox(height: 36),
+                const SlectivLoginHeaderText(
+                  title: SlectivTexts.forgetPasswordTitle,
+                  subtitle: SlectivTexts.forgetPasswordSubtitle,
+                ),
+                const SizedBox(height: 24),
+                Form(
+                  key: forgetPasswordFormKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
 
-                  Form(
-                    key: forgetPasswordFormKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // -- Email
-                        Text(SlectivTexts.email, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: SlectivColors.blackColor))),
-                        const SizedBox(height: 8,),
-
-                        TextFormField(
-                          controller: forgetPasswordController.emailController,
-                          validator: (value) => SlectiValidator.emailValidate(value),
-                          decoration: InputDecoration(
-                            hintText: "Enter your Email",
-                            hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
-                            fillColor: const Color(0xFFF6F6F6),
-                            filled: true,
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            focusedBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: SlectivColors.blackColor)
-                            )
+                      // -- Email
+                      
+                      Text(
+                        SlectivTexts.email,
+                        style: GoogleFonts.spaceGrotesk(
+                          textStyle: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            color: SlectivColors.blackColor,
                           ),
                         ),
-                        const SizedBox(height: 48,),
+                      ),
+                      const SizedBox(height: 8),
+                      TextFormField(
+                        controller: forgetPasswordController.emailController,
+                        validator: (value) => SlectiValidator.forgetPasswordEmailValidate(value),
+                        decoration: InputDecoration(
+                          hintText: SlectivTexts.emailHintText,
+                          hintStyle: GoogleFonts.spaceGrotesk(
+                            textStyle: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                              color: SlectivColors.hintColor,
+                            ),
+                          ),
+                          fillColor: const Color(0xFFF6F6F6),
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: SlectivColors.blackColor),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 48),
 
-                        // -- Forget Password Button
-                        SlectiveWidgetButton(
-                          buttonName: SlectivTexts.sendForgetPassword, 
-                          onPressed: () async {
+                      // -- Forget Password Button
+
+                      SlectiveWidgetButton(
+                        buttonName: SlectivTexts.sendForgetPassword,
+                        onPressed: () async {
+                          if (forgetPasswordFormKey.currentState!.validate()) {
                             Get.dialog(
                               const Center(
                                 child: SizedBox(
@@ -86,26 +104,27 @@ class ForgetPasswordScreenView extends GetView<ForgetPasswordScreenController> {
                             Get.back();
 
                             forgetPasswordController.clearForm();
-                          }, 
-                          backgroundColor: SlectivColors.forgetPasswordButtonColor,
-                        ),
+                          }
+                        },
+                        backgroundColor: SlectivColors.forgetPasswordButtonColor,
+                      ),
+                      const SizedBox(height: 24),
 
-                        const SizedBox(height: 24,),
+                      // -- Back to login Button
 
-                        // -- Back to login Button
-                        SlectiveWidgetButton(
-                          buttonName: SlectivTexts.backToLogin, 
-                          onPressed: () => Get.off(() => LoginScreenView()),
-                          backgroundColor: SlectivColors.cancelButtonColor,
-                        ),
-                      ],
-                    )
-                  )
-                ],
-              ),
+                      SlectiveWidgetButton(
+                        buttonName: SlectivTexts.backToLogin,
+                        onPressed: () => Get.off(() => LoginScreenView()),
+                        backgroundColor: SlectivColors.cancelButtonColor,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          )
-        )
+          ),
+        ),
+      ),
     );
   }
 }

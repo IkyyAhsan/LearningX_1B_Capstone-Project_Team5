@@ -26,10 +26,10 @@ class HomeView extends GetView<HomeController> {
               children: [
                 const SizedBox(height: 24,),
                 const SlectivAuthenticationHeader(),
-                const SizedBox(height: 36,),
+                const SizedBox(height: 24,),
                 Text("Hallo, ${controller.name.value}", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700, color: SlectivColors.titleColor)),),
                 Text(SlectivTexts.newAccountType, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: SlectivColors.accountTypeColor)),),
-                const SizedBox(height: 30,),
+                const SizedBox(height: 24,),
                 const Image(image: AssetImage(SlectivImages.newMembershipBanners),
                   width: double.infinity,
                 ),

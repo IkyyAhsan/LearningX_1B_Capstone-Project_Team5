@@ -38,17 +38,47 @@ class SlectivTexts {
   static const String alreadyHave = "Already have an account?";
   static const String loginHere = "Login here";
   static const String backToLogin = "Cancel";
+  static const String nameHintText = "Enter your Name";
+  static const String emailHintText = "Enter your Email";
+  static const String phoneNumberHintText = "Enter your Phone Number";
+  static const String passwordHintText = "Enter your Password";
+  static const String confirmPasswordHintText = "Confirm your Password";
 
   // -- Authentication Snackbar
   static const String registerSuccessfullTitle = "Registration Successfull";
-  static const String registerSuccessfullSubtitle = "Congratulations, your account has been successfully created. Please log in to continue";
-  static const String forgetPasswordWaitingToResetTitle = "Reset Password link has been sent";
-  static const String forgetPasswordWaitingToResetSubtitle = "Your account security is our priority! We've sent you a password reset link to safely change your password and keep your account protected";
-  static const String snackbarErrorTitle = "There is an error";
-  static const String snackbarUnableSendResetLink = "Unable to send password reset link";
-  static const String snackbarInvalidEmail = "The email you entered is invalid";
+  static const String registerSuccessfullSubtitle = "Congratulations, your account has been successfully created. Please log in to continue.";
+  static const String forgetPasswordWaitingToResetTitle = "Reset Password link has been sent.";
+  static const String forgetPasswordWaitingToResetSubtitle = "Your account security is our priority! We've sent you a password reset link to safely change your password and keep your account protected.";
+  static const String snackbarThereIsAnErrorTitle = "There is an error";
+  static const String snackbarUnableSendResetLink = "Unable to send password reset link.";
+  static const String snackbarInvalidEmail = "The email you entered is invalid.";
+  static const String snackbarErrorTitle = "Error";
+  static const String snackbarErrorRegistrationTitle = "Terjadi kesalahan saat registrasi. Silakan coba lagi.";
 
   // -- Home Screen
   static const String newAccountType = "Moment Welcomer";
   static const String oldAccountType = "Memory Creator";
+  static const String hallo = "Hallo";
+
+  // -- Bottom Navigation Bar
+  static const String homeLabel = "Home";
+  static const String informationLabel = "Booking";
+  static const String portofolioLabel = "Gallery";
+  static const String profileLabel = "Profile";
+
+  // -- Tab Bar
+    // -- Self Photo
+  static const String selfPhotoDescription = "Our Self Photo service aims to showcase your unique personality. Whether you need professional headshots, family portraits, or a personal photo shoot, we create images that reflect the true you. We work with you to showcase your best angles and expressions, ensuring every portrait tells your story.";
+  static const String selfPhotoTitle = "Self Photo";
+  static const String selfPhotoPrice = "75K";
+  static const String selfPhotoPerson = "1-3 Person";
+  static const String selfPhotoFee = "additional fee 20k/1 person";
+
+  // -- Wide Photobox
+  static const String widePhotoboxTitle = "Wide Photobox"; 
+  static const String widePhotoboxDescription = "Capture every moment with our Wide Photobox service. Whether it's a family gathering, a corporate event, or a special celebration, our wide-format photography ensures no one is left out of the frame. We bring your events to life with stunning clarity and detail, creating memories that last a lifetime";
+
+  // -- Photobooth 
+  static const String photoboothTitle = "Photobooth"; 
+  static const String photoboothDescription = "Step into our Photobooth and let the fun begin! Perfect for any event, our Photobooth captures spontaneous moments and candid smiles. With a variety of props and backdrops, you and your guests can create unforgettable memories. Strike a pose and take home a keepsake that will make you smile every time you see it."; 
 }
