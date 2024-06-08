@@ -12,17 +12,21 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
     return Scaffold(
       backgroundColor: SlectivColors.backgroundColor,
       bottomNavigationBar: Obx(
-        () => NavigationBar(
-          height: 80,
-          elevation: 0,
-          selectedIndex: controller.selectedIndex.value,
-          onDestinationSelected: (index) => controller.selectedIndex.value = index,
-          destinations: const [
-            NavigationDestination(icon: Icon(FluentIcons.home_20_regular), label: "Home"),
-            NavigationDestination(icon: Icon(FluentIcons.calendar_phone_20_regular), label: "Information"),
-            NavigationDestination(icon: Icon(FluentIcons.document_multiple_20_regular), label: "Portofolio"),
-            NavigationDestination(icon: Icon(FluentIcons.person_20_regular), label: "Profile")
-          ]
+        () => ClipRRect(
+          borderRadius: const BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+          child: NavigationBar(
+            height: 80,
+            elevation: 0,
+            selectedIndex: controller.selectedIndex.value,
+            indicatorColor: Colors.transparent,
+            onDestinationSelected: (index) => controller.selectedIndex.value = index,
+            destinations: const [
+              NavigationDestination(icon: Icon(FluentIcons.home_20_regular), label: "Home", selectedIcon: Icon(FluentIcons.home_20_filled, color: SlectivColors.loginButtonColor,),),
+              NavigationDestination(icon: Icon(FluentIcons.calendar_phone_20_regular), label: "Information", selectedIcon: Icon(FluentIcons.calendar_phone_20_filled, color: SlectivColors.loginButtonColor,)),
+              NavigationDestination(icon: Icon(FluentIcons.document_multiple_20_regular), label: "Portofolio", selectedIcon: Icon(FluentIcons.document_multiple_20_filled, color: SlectivColors.loginButtonColor,)),
+              NavigationDestination(icon: Icon(FluentIcons.person_20_regular), label: "Profile", selectedIcon: Icon(FluentIcons.person_20_filled, color: SlectivColors.loginButtonColor,))
+            ]
+          ),
         )
       ),
       body: Obx(() => controller.screens[controller.selectedIndex.value]),

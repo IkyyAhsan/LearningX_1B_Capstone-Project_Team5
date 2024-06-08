@@ -51,6 +51,8 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                         controller: registerController.name,
                         validator: (value) => SlectiValidator.nameValidate(value),
                         decoration: InputDecoration(
+                          hintText: "Enter your Name",
+                          hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                           fillColor: const Color(0xFFF6F6F6),
                           filled: true,
                           border: OutlineInputBorder(
@@ -73,6 +75,8 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                         controller: registerController.phoneNumber,
                         validator: (value) => SlectiValidator.phoneNumberValidate(value),
                         decoration: InputDecoration(
+                          hintText: "Enter your Phone Number",
+                          hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                           fillColor: const Color(0xFFF6F6F6),
                           filled: true,
                           border: OutlineInputBorder(
@@ -95,6 +99,8 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                         controller: registerController.email,
                         validator: (value) => SlectiValidator.emailValidate(value),
                         decoration: InputDecoration(
+                          hintText: "Enter your Email",
+                          hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                           fillColor: const Color(0xFFF6F6F6),
                           filled: true,
                           border: OutlineInputBorder(
@@ -119,6 +125,8 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                           validator: (value) => SlectiValidator.passwordValidate(value),
                           obscureText: registerController.hidePassword.value,
                           decoration: InputDecoration(
+                            hintText: "Enter your Password",
+                            hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                             fillColor: const Color(0xFFF6F6F6),
                             filled: true,
                             border: OutlineInputBorder(
@@ -146,9 +154,11 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                       Obx(
                         () => TextFormField(
                           controller: registerController.confirmPassword,
-                          validator: (value) => SlectiValidator.confirmPasswordValidate(value, registerController.confirmPassword.text),
+                          validator: (value) => SlectiValidator.confirmPasswordValidate(value, registerController.password.text),
                           obscureText: registerController.hideConfirmPassword.value,
                           decoration: InputDecoration(
+                            hintText: "Confirm your Password",
+                            hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                             fillColor: const Color(0xFFF6F6F6),
                             filled: true,
                             border: OutlineInputBorder(
@@ -173,68 +183,68 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                       SlectiveWidgetButton(
                         buttonName: SlectivTexts.register, 
                         onPressed: () async {
-                          String name = registerController.name.text;
-                          String phoneNumber = registerController.phoneNumber.text;
-                          String email = registerController.email.text;
-                          String password = registerController.password.text;
-                          String confirmPassword = registerController.confirmPassword.text;
-                          
-                          if (
-                            registerController.validateInputs(
-                            name: name, 
-                            phoneNumber: phoneNumber,
-                            email: email, 
-                            password: password,
-                            )){
-                            if (password != confirmPassword){
-                              Get.snackbar("Terjadi kesalahan!", "Password dan Konfirmasi Password berbeda.", backgroundColor: const Color(0xFFE92027), colorText: Colors.white);
-                            }else{
-                              Get.dialog(
-                                const Center(
-                                  child: SizedBox(
-                                    height: 100,
-                                    width: 100,
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(SlectivColors.circularProgressColor),
-                                    ),
+                          if (registerFormKey.currentState?.validate() ?? false) {
+                            // Show loading dialog
+                            Get.dialog(
+                              const Center(
+                                child: SizedBox(
+                                  height: 100,
+                                  width: 100,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(SlectivColors.circularProgressColor),
                                   ),
                                 ),
-                                barrierDismissible: false,
-                              );
+                              ),
+                              barrierDismissible: false,
+                            );
 
-                              await Future.delayed(const Duration(seconds: 2));
-                              Get.off(
-                                () => LoginScreenView(),
-                                transition: Transition.fadeIn,
-                                duration: const Duration(seconds: 1),
-                              );
+                            try {
+                              String name = registerController.name.text;
+                              String phoneNumber = registerController.phoneNumber.text;
+                              String email = registerController.email.text;
+                              String password = registerController.password.text;
 
-                              Get.snackbar(
-                                SlectivTexts.registerSuccessfullTitle, 
-                                SlectivTexts.registerSuccessfullSubtitle,
-                                backgroundColor: SlectivColors.registerButtonColor, 
-                                colorText: SlectivColors.whiteColor, 
-                                duration: const Duration(
-                                  seconds: 4
-                                ),
-                              );
-                              registerController.clearForm();
-                            }
-                          }
-
-                          await registerController.registerUser(
+                              await registerController.registerUser(
                                 name,
                                 phoneNumber,
                                 email,
                                 password,
                               );
-                              
-                          await Future.delayed(const Duration(seconds: 3));
-                          Get.off(
-                            () => LoginScreenView(),
-                            transition: Transition.fadeIn,
-                            duration: const Duration(seconds: 2),
-                          );
+
+                              // Hide loading dialog
+                              Get.back();
+
+                              // Show success snackbar
+                              Get.snackbar(
+                                SlectivTexts.registerSuccessfullTitle, 
+                                SlectivTexts.registerSuccessfullSubtitle,
+                                backgroundColor: SlectivColors.registerButtonColor, 
+                                colorText: SlectivColors.whiteColor, 
+                                duration: const Duration(seconds: 4),
+                              );
+
+                              // Clear form
+                              registerController.clearForm();
+
+                              // Navigate to LoginScreenView
+                              Get.off(
+                                () => LoginScreenView(),
+                                transition: Transition.fadeIn,
+                                duration: const Duration(seconds: 2),
+                              );
+                            } catch (e) {
+                              // Hide loading dialog
+                              Get.back();
+
+                              // Show error snackbar
+                              Get.snackbar(
+                                'Error',
+                                'Terjadi kesalahan saat registrasi. Silakan coba lagi.',
+                                backgroundColor: Colors.red,
+                                colorText: Colors.white,
+                              );
+                            }
+                          }
                         },
                         backgroundColor: SlectivColors.registerButtonColor,
                       ),
@@ -245,7 +255,7 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(SlectivTexts.alreadyHave, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.blackColor)),),
-                          TextButton(onPressed: () => Get.to(() => LoginScreenView()), 
+                          TextButton(onPressed: () => Get.offAll(() => LoginScreenView()), 
                             child: Text(SlectivTexts.loginHere, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.loginButtonColor)),)
                           ),
                         ],

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import 'package:slectiv_studio_app/app/modules/home/views/home_view.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 
@@ -57,7 +58,7 @@ class LoginScreenController extends GetxController {
       );
 
       Get.off(
-        () => const HomeView(),
+        () => const BottomNavigationBarView(),
         transition: Transition.cupertinoDialog,
         duration: const Duration(milliseconds: 500),
       );
@@ -65,7 +66,7 @@ class LoginScreenController extends GetxController {
       clearForm();
     } else {
       Get.snackbar('Error', 'Email atau Password salah',
-          backgroundColor: Color(0xFFE82027), colorText: const Color(0xffffffff));
+          backgroundColor: Color(0xFFE82027), colorText: const Color(0xFFFFFFFF));
     }
   }
 }

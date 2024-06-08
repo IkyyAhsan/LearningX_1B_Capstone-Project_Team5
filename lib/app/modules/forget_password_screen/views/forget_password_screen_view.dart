@@ -48,6 +48,8 @@ class ForgetPasswordScreenView extends GetView<ForgetPasswordScreenController> {
                           controller: forgetPasswordController.emailController,
                           validator: (value) => SlectiValidator.emailValidate(value),
                           decoration: InputDecoration(
+                            hintText: "Enter your Email",
+                            hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                             fillColor: const Color(0xFFF6F6F6),
                             filled: true,
                             border: OutlineInputBorder(

@@ -20,4 +20,7 @@ class SlectivColors{
 
   // -- Home Color
   static const Color accountTypeColor = Color(0xFF2F3542);
+
+  // -- Authentication Colors
+  static const Color hintColor = Color(0xFF717171);
 }
