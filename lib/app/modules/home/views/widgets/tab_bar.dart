@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:slectiv_studio_app/app/modules/home/views/widgets/Tab/creative.dart';
+import 'package:slectiv_studio_app/app/modules/home/views/widgets/Tab/potrait.dart';
 import 'package:slectiv_studio_app/app/modules/home/views/widgets/Tab/photobooth.dart';
 import 'package:slectiv_studio_app/app/modules/home/views/widgets/Tab/self_photo.dart';
 import 'package:slectiv_studio_app/app/modules/home/views/widgets/Tab/wide_photobox.dart';
-import 'package:slectiv_studio_app/app/modules/login_screen/views/login_screen_view.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
+import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
 class TabSection extends StatefulWidget {
   const TabSection({super.key});
@@ -39,10 +39,10 @@ class _TabSectionState extends State<TabSection> with TickerProviderStateMixin {
           child: TabBar(
             controller: _tabController,
             tabs: [
-              Tab(child: Text("Self Photo", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),),),
-              Tab(child: Text("Wide Photobox", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),), ),
-              Tab(child: Text("Photo booth", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),),),
-              Tab(child: Text("Creative", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),),),
+              Tab(child: Text(SlectivTexts.selfPhotoTitle, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),),),
+              Tab(child: Text(SlectivTexts.widePhotoboxTitle, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),), ),
+              Tab(child: Text(SlectivTexts.photoboothTitle, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),),),
+              Tab(child: Text(SlectivTexts.potraitTitle, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),),),
             ],
           ),
         ),
@@ -50,11 +50,11 @@ class _TabSectionState extends State<TabSection> with TickerProviderStateMixin {
           height: 400,
           child: TabBarView(
             controller: _tabController,
-            children: [
-              const SlectivSelfPhoto(),
-              const SlectivWidePhotobox(),
-              const SlectivPhotobooth(),
-              const SlectivCreative(),
+            children: const [
+              SlectivSelfPhoto(),
+              SlectivWidePhotobox(),
+              SlectivPhotobooth(),
+              SlectivPortrait(),
             ],
           ),
         ),

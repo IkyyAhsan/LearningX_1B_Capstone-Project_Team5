@@ -58,7 +58,7 @@ class SlectivTexts {
   // -- Home Screen
   static const String newAccountType = "Moment Welcomer";
   static const String oldAccountType = "Memory Creator";
-  static const String hallo = "Hallo";
+  static const String hallo = "Hallo,";
 
   // -- Bottom Navigation Bar
   static const String homeLabel = "Home";
@@ -70,6 +70,7 @@ class SlectivTexts {
     // -- Self Photo
   static const String selfPhotoDescription = "Our Self Photo service aims to showcase your unique personality. Whether you need professional headshots, family portraits, or a personal photo shoot, we create images that reflect the true you. We work with you to showcase your best angles and expressions, ensuring every portrait tells your story.";
   static const String selfPhotoTitle = "Self Photo";
+  static const String selfPhotoButtonName = "Booking";
   static const String selfPhotoPrice = "75K";
   static const String selfPhotoPerson = "1-3 Person";
   static const String selfPhotoFee = "additional fee 20k/1 person";
@@ -80,9 +81,23 @@ class SlectivTexts {
 
   // -- Wide Photobox
   static const String widePhotoboxTitle = "Wide Photobox"; 
-  static const String widePhotoboxDescription = "Capture every moment with our Wide Photobox service. Whether it's a family gathering, a corporate event, or a special celebration, our wide-format photography ensures no one is left out of the frame. We bring your events to life with stunning clarity and detail, creating memories that last a lifetime";
+  static const String widePhotoboxButtonName = "Available Soon"; 
+  static const String widePhotoboxDescription = "Capture every moment with our Wide Photobox service. Whether it's a family gathering, a corporate event, or a special celebration, our wide-format photography ensures no one is left out of the frame. We bring your events to life with stunning clarity and detail, creating memories that last a lifetime.";
 
   // -- Photobooth 
   static const String photoboothTitle = "Photobooth"; 
+  static const String photoboothButtonName = "Contact Us"; 
   static const String photoboothDescription = "Step into our Photobooth and let the fun begin! Perfect for any event, our Photobooth captures spontaneous moments and candid smiles. With a variety of props and backdrops, you and your guests can create unforgettable memories. Strike a pose and take home a keepsake that will make you smile every time you see it."; 
+  static const String photoboothFeature = "® Photobooth";
+
+  // -- Photobooth 
+  static const String potraitTitle = "Potrait"; 
+  static const String potraitButtonName = "Contact Us"; 
+  static const String potraitDescription = "Step into our Photobooth and let the fun begin! Perfect for any event, our Photobooth captures spontaneous moments and candid smiles. With a variety of props and backdrops, you and your guests can create unforgettable memories. Strike a pose and take home a keepsake that will make you smile every time you see it.";
+  static const String hours1SessionFeature = "® 1 Hours Session";
+  static const String allSoftliteFeature = "® All Softlite";
+  static const String printed4RPhotoFeature = "® 4r Printed Photo";
+  static const String includePhotographerFeature = "® Include Photographer";
+  static const String widePhotoboxFeature = "® Wide Photobox";
+  static const String hightAngleFeature = "® High Angle Photobooth";
 }

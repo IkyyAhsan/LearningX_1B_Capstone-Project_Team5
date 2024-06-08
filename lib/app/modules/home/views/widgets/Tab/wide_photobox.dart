@@ -129,7 +129,7 @@ class SlectivWidePhotobox extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30,),
-              SlectiveWidgetButton(buttonName: "Available Soon", onPressed: (){}, backgroundColor: SlectivColors.blackColor),
+              SlectiveWidgetButton(buttonName: SlectivTexts.widePhotoboxButtonName, onPressed: (){}, backgroundColor: SlectivColors.blackColor),
               const SizedBox(height: 40,),
             ],
           ),

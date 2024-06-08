@@ -40,7 +40,7 @@ class SlectivPhotobooth extends StatelessWidget {
                       ),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: Text("® Photobooth", 
+                    child: Text(SlectivTexts.photoboothFeature, 
                       style: GoogleFonts.spaceGrotesk(
                         textStyle:const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.blackColor
@@ -61,7 +61,7 @@ class SlectivPhotobooth extends StatelessWidget {
                       ),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: Text("® Wide Photobox", 
+                    child: Text(SlectivTexts.widePhotoboxFeature, 
                       style: GoogleFonts.spaceGrotesk(
                         textStyle:const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.blackColor
@@ -82,7 +82,7 @@ class SlectivPhotobooth extends StatelessWidget {
                       ),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: Text("® High Angle Photobooth", 
+                    child: Text(SlectivTexts.hightAngleFeature, 
                       style: GoogleFonts.spaceGrotesk(
                         textStyle:const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.blackColor
@@ -94,7 +94,7 @@ class SlectivPhotobooth extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30,),
-              SlectiveWidgetButton(buttonName: "Contact Us", onPressed: (){}, backgroundColor: SlectivColors.registerButtonColor),
+              SlectiveWidgetButton(buttonName: SlectivTexts.photoboothButtonName, onPressed: (){}, backgroundColor: SlectivColors.registerButtonColor),
               const SizedBox(height: 40,),
             ],
           ),

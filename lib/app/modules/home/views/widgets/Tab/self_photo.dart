@@ -129,7 +129,7 @@ class SlectivSelfPhoto extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30,),
-              SlectiveWidgetButton(buttonName: "Booking", onPressed: (){}, backgroundColor: SlectivColors.loginButtonColor),
+              SlectiveWidgetButton(buttonName: SlectivTexts.selfPhotoButtonName, onPressed: (){}, backgroundColor: SlectivColors.loginButtonColor),
               const SizedBox(height: 40,),
             ],
           ),
