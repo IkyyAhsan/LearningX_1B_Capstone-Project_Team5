@@ -39,10 +39,10 @@ class _TabSectionState extends State<TabSection> with TickerProviderStateMixin {
           child: TabBar(
             controller: _tabController,
             tabs: [
-              Tab(child: Text(SlectivTexts.selfPhotoTitle, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),),),
-              Tab(child: Text(SlectivTexts.widePhotoboxTitle, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),), ),
-              Tab(child: Text(SlectivTexts.photoboothTitle, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),),),
-              Tab(child: Text(SlectivTexts.potraitTitle, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),),),
+              Tab(child: Text(SlectivTexts.selfPhotoTitle, textAlign: TextAlign.center, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),),),
+              Tab(child: Text(SlectivTexts.widePhotoboxTitle, textAlign: TextAlign.center, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),), ),
+              Tab(child: Text(SlectivTexts.photoboothTitle, textAlign: TextAlign.center, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),),),
+              Tab(child: Text(SlectivTexts.potraitTitle, textAlign: TextAlign.center, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: SlectivColors.blackColor)),),),
             ],
           ),
         ),

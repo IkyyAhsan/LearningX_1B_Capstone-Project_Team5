@@ -85,7 +85,7 @@ class SlectivTexts {
   static const String widePhotoboxDescription = "Capture every moment with our Wide Photobox service. Whether it's a family gathering, a corporate event, or a special celebration, our wide-format photography ensures no one is left out of the frame. We bring your events to life with stunning clarity and detail, creating memories that last a lifetime.";
 
   // -- Photobooth 
-  static const String photoboothTitle = "Photobooth"; 
+  static const String photoboothTitle = "Photo booth"; 
   static const String photoboothButtonName = "Contact Us"; 
   static const String photoboothDescription = "Step into our Photobooth and let the fun begin! Perfect for any event, our Photobooth captures spontaneous moments and candid smiles. With a variety of props and backdrops, you and your guests can create unforgettable memories. Strike a pose and take home a keepsake that will make you smile every time you see it."; 
   static const String photoboothFeature = "® Photobooth";

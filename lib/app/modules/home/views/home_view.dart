@@ -35,6 +35,7 @@ class HomeView extends GetView<HomeController> {
                 ),
                 const SizedBox(height: 16,),
                 const TabSection(),
+                const Divider(color: Colors.black, indent: 0, endIndent: 500,),
               ],
             ),
           ),
