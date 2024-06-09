@@ -46,7 +46,7 @@ class SlectivSelfPhoto extends StatelessWidget {
                     Container(
                       width: 180,
                       height: 25,
-                      alignment: Alignment.center,
+                      alignment: Alignment.centerLeft,
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: SlectivColors.blackColor.withOpacity(0.1),
@@ -67,7 +67,7 @@ class SlectivSelfPhoto extends StatelessWidget {
                     Container(
                       width: 180,
                       height: 25,
-                      alignment: Alignment.center,
+                      alignment: Alignment.centerLeft,
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: SlectivColors.blackColor.withOpacity(0.1),
@@ -88,7 +88,7 @@ class SlectivSelfPhoto extends StatelessWidget {
                     Container(
                       width: 180,
                       height: 25,
-                      alignment: Alignment.center,
+                      alignment: Alignment.centerLeft,
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: SlectivColors.blackColor.withOpacity(0.1)
@@ -109,7 +109,7 @@ class SlectivSelfPhoto extends StatelessWidget {
                     Container(
                       width: 180,
                       height: 25,
-                      alignment: Alignment.center,
+                      alignment: Alignment.centerLeft,
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: SlectivColors.blackColor.withOpacity(0.1),
