@@ -14,7 +14,7 @@ class ProfileController extends GetxController {
 
   var name = ''.obs;
   var email = ''.obs;
-  var phoneNumber= ''.obs;
+  var phoneNumber = ''.obs;
   var profileImageUrl = ''.obs;
 
   @override
@@ -104,11 +104,15 @@ class ProfileController extends GetxController {
       try {
         await _userCollection.doc(user.uid).update({'name': newName});
         name.value = newName;
-        Get.snackbar("Success", "Name has been updated", backgroundColor: Color(0xFFE92027), colorText: Colors.white);
+        Get.snackbar("Success", "Name has been updated",
+            backgroundColor: Color(0xFFE92027), colorText: Colors.white);
       } catch (e) {
         Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e");
-        Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e", backgroundColor: Color(0xFFE92027), colorText: Colors.white);
+        Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e",
+            backgroundColor: Color(0xFFE92027), colorText: Colors.white);
       }
     }
   }
+
+  void updatePhoneNumber(String value) {}
 }
