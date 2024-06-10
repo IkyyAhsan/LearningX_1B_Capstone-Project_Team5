@@ -58,7 +58,7 @@ class SlectivTexts {
   // -- Home Screen
   static const String newAccountType = "Moment Welcomer";
   static const String oldAccountType = "Memory Creator";
-  static const String hallo = "Hallo,";
+  static const String hallo = "Hello,";
 
   // -- Bottom Navigation Bar
   static const String homeLabel = "Home";
@@ -100,4 +100,19 @@ class SlectivTexts {
   static const String includePhotographerFeature = "• Include Photographer";
   static const String widePhotoboxFeature = "• Wide Photobox";
   static const String hightAngleFeature = "• High Angle Photobooth";
+
+  // -- Gallery
+  static const String galleryWellcome = "HELLO,";
+  static const String galleryWellcome2 = "WELCOME TO";
+  static const String galleryHsitory = "HISTORY";
+  static const String galleryHsitoryContex1 ='Slectiv Studio was founded on February 1 2023 in Balikpapan with a unique concept as "Balikpapan 1st Wide Self Photo Studio". This studio offers a variety of innovative self-photography products, such as Self Photo Photobooth, WidePhotobox, and studio portraits. The main goal of Selective Studio is to provide a unique and enjoyable photography experience for its visitors, with modern and quality facilities.';
+  static const String galleryHistoryContex2 = "With a wide selection of products, Selective Studio provides visitors with the opportunity to create precious moments through photography. Self Photo Photobooth provides visitors with the opportunity to take selfies with various interesting backgrounds, while WidePhotobox makes it possible to take pictures from a wider viewing angle. In addition, visitors can also choose to create professional studio portraits that capture the beauty of important moments in their lives.";
+  static const String galleryHistoryContex3 = "As one of the leading destinations in Balikpapan, Selective Studio has succeeded in attracting the attention of many people with the personal photography experience they offer. With a combination of modern technology and creativity, this studio has become a popular place to capture special moments with a distinctive and unique style.";
+  static const String galleryPhoto = "Photo Gallery";
+  static const String gallerysub = "SHARED MEMORY SLECTIV STUDIO";
+  
+  // -- Footer Gallery
+  static const String footerContacUs = "CONTAC US";
+  static const String footerPhone = "Phone : 081345383641";
+  static const String footerIG = "Instagram : @slectivstudio";
 }

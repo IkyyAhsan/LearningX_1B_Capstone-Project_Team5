@@ -3,6 +3,8 @@
 class SlectivImages {
   // -- App Logos
   static const String applogo = "assets/logos/slectiv_studio_logo.png";
+  static const String applogoBlue = "assets/logos/slectiv_studio_logo_blue.png";
+  static const String applogoBlue2 = "assets/logos/slectiv_studio_logo_blue2.png";
 
   // -- Animation
   static const String onBoardingAnimation1 = "assets/animations/Onboarding1.json";
@@ -14,9 +16,11 @@ class SlectivImages {
   static const String newMembershipBanners = "assets/images/hakLoyalty.png";
 
   // -- TabBar Images
-  static const String selfPhotoImages = "assets/images/self_photo.jpg";
-  static const String widePhotoboxImages = "assets/images/wide_photobox.jpg";
+  static const String selfPhotoImages = "assets/images/self_photo.png";
+  static const String widePhotoboxImages = "assets/images/wide_photobox.png";
   static const String photoboothImages = "assets/images/photobooth.jpg";
-  static const String portraitImages = "assets/images/portrait.jpg";
-  
+  static const String potraitImages = "assets/images/potrait.png";
+// -- Lines
+  static const String line1 = "assets/lines/line1.png";
+  static const String line2 = "assets/lines/line2.png";
 }

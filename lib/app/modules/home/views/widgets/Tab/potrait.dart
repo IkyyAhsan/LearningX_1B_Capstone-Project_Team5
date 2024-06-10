@@ -21,7 +21,7 @@ class SlectivPortrait extends StatelessWidget {
               const SizedBox(height: 24,),
               Text(SlectivTexts.potraitTitle, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: SlectivColors.blackColor)),),
               const SizedBox(height: 10,),
-              const Center(child: Image(image: AssetImage(SlectivImages.portraitImages))),
+              const Center(child: Image(image: AssetImage(SlectivImages.potraitImages))),
               const SizedBox(height: 10,),
               Text(SlectivTexts.potraitDescription, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: SlectivColors.blackColor)), textAlign: TextAlign.justify,),
               const SizedBox(height: 20,),

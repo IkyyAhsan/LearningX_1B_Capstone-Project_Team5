@@ -26,4 +26,7 @@ class SlectivColors{
 
   // -- Profile Color
   static const Color profileNameColor = Color(0xFF2F3542);
+
+  // -- Gallery Colors
+  static const Color semiWhite = Color(0xFFFCF9F4);
 }

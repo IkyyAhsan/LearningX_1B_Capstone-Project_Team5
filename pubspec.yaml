@@ -3,9 +3,10 @@ version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
 environment:
-  sdk: '>=3.3.4 <4.0.0'
+  sdk: ">=3.3.4 <4.0.0"
 
 dependencies:
+  carousel_slider: ^4.2.1
   cloud_firestore: ^4.17.5
   cupertino_icons: ^1.0.6
   firebase_auth: ^4.20.0
@@ -23,6 +24,7 @@ dependencies:
   line_icons: ^2.0.3
   lottie: ^3.1.2
   smooth_page_indicator: ^1.1.0
+  video_player: ^2.8.6
 
 dev_dependencies:
   flutter_lints: ^3.0.0
@@ -31,8 +33,11 @@ dev_dependencies:
 
 flutter:
   assets:
+    - assets/lines/
     - assets/banners/
     - assets/logos/
+    - assets/videos/
     - assets/images/
+    - assets/images/gallery/
     - assets/animations/
   uses-material-design: true
