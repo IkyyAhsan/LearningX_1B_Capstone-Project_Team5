@@ -23,4 +23,7 @@ class SlectivColors{
 
   // -- Authentication Colors
   static const Color hintColor = Color(0xFF717171);
+
+  // -- Profile Color
+  static const Color profileNameColor = Color(0xFF2F3542);
 }
