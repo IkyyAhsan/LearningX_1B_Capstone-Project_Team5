@@ -2,6 +2,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:slectiv_studio_app/app/modules/login_screen/views/login_screen_view.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import '../controllers/profile_controller.dart';
 
@@ -110,7 +111,7 @@ class ProfileView extends GetView<ProfileController> {
                             Text(
                               profileController.name.value,
                               style: GoogleFonts.spaceGrotesk(
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w700,
                                   color: SlectivColors.profileNameColor,
@@ -118,20 +119,20 @@ class ProfileView extends GetView<ProfileController> {
                               ),
                             ),
                             const SizedBox(width: 8),
-                            const Icon(Icons.edit, color: Colors.grey),
+                            const Icon(FluentIcons.edit_20_filled, color: SlectivColors.accountTypeColor),
                           ],
                         ),
                         const SizedBox(height: 8),
-                        Text(
-                          "Moment Welcomer",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.grey.shade600,
-                          ),
-                        ),
                       ],
                     ),
                   )),
+              Text(
+                "Moment Welcomer",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey.shade600,
+                ),
+              ),
               const SizedBox(height: 20),
               // Phone Number
               Padding(
@@ -142,7 +143,7 @@ class ProfileView extends GetView<ProfileController> {
                       decoration: InputDecoration(
                         labelText: 'Phone',
                         suffixIcon: IconButton(
-                          icon: const Icon(Icons.edit),
+                          icon: const Icon(FluentIcons.edit_20_filled, color: SlectivColors.accountTypeColor),
                           onPressed: () {
                             _showEditDialog(context, 'Phone',
                                 profileController.phoneNumber.value, (value) {
@@ -161,7 +162,7 @@ class ProfileView extends GetView<ProfileController> {
                       controller: TextEditingController(
                         text: profileController.email.value,
                       ),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Email',
                         enabled: false, // Disable editing
                       ),
@@ -175,14 +176,20 @@ class ProfileView extends GetView<ProfileController> {
                   padding: const EdgeInsets.all(16.0),
                   child: ElevatedButton(
                     onPressed: () {
-                      // Implement your exit action here
+                      Get.offAll(() => LoginScreenView());
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
+                      backgroundColor: SlectivColors.loginButtonColor,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 24, vertical: 12),
                     ),
-                    child: const Text('Exit'),
+                    child:  Text('Exit', style: GoogleFonts.spaceGrotesk(
+                                textStyle: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  color: SlectivColors.whiteColor,
+                                ),
+                              ),),
                   ),
                 ),
               ),
