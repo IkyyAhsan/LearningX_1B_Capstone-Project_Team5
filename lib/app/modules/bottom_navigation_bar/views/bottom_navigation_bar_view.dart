@@ -2,14 +2,18 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/controllers/bottom_navigation_bar_controller.dart';
+import 'package:slectiv_studio_app/app/modules/profile/controllers/profile_controller.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
 class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
   const BottomNavigationBarView({super.key});
+
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(BottomNavigationBarController());
+    final profileController = Get.find<ProfileController>(); // Pastikan Anda sudah menginisialisasi ProfileController
+
     return Scaffold(
       backgroundColor: SlectivColors.backgroundColor,
       bottomNavigationBar: Obx(
@@ -21,16 +25,47 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
             selectedIndex: controller.selectedIndex.value,
             indicatorColor: Colors.transparent,
             onDestinationSelected: (index) => controller.selectedIndex.value = index,
-            destinations: const [
-              NavigationDestination(icon: Icon(FluentIcons.home_20_regular), label: SlectivTexts.homeLabel, selectedIcon: Icon(FluentIcons.home_20_filled, color: SlectivColors.loginButtonColor,),),
-              NavigationDestination(icon: Icon(FluentIcons.calendar_phone_20_regular), label: SlectivTexts.informationLabel, selectedIcon: Icon(FluentIcons.calendar_phone_20_filled, color: SlectivColors.loginButtonColor,)),
-              NavigationDestination(icon: Icon(FluentIcons.document_multiple_20_regular), label: SlectivTexts.portofolioLabel, selectedIcon: Icon(FluentIcons.document_multiple_20_filled, color: SlectivColors.loginButtonColor,)),
-              NavigationDestination(icon: Icon(FluentIcons.person_20_regular), label: SlectivTexts.profileLabel, selectedIcon: Icon(FluentIcons.person_20_filled, color: SlectivColors.loginButtonColor,))
-            ]
+            destinations: [
+              const NavigationDestination(
+                icon: Icon(FluentIcons.home_20_regular),
+                label: SlectivTexts.homeLabel,
+                selectedIcon: Icon(FluentIcons.home_20_filled, color: SlectivColors.loginButtonColor,),
+              ),
+              const NavigationDestination(
+                icon: Icon(FluentIcons.calendar_phone_20_regular),
+                label: SlectivTexts.informationLabel,
+                selectedIcon: Icon(FluentIcons.calendar_phone_20_filled, color: SlectivColors.loginButtonColor,),
+              ),
+              const NavigationDestination(
+                icon: Icon(FluentIcons.document_multiple_20_regular),
+                label: SlectivTexts.portofolioLabel,
+                selectedIcon: Icon(FluentIcons.document_multiple_20_filled, color: SlectivColors.loginButtonColor,),
+              ),
+              NavigationDestination(
+                icon: Obx(() => _buildProfileIcon(profileController, false)),
+                label: SlectivTexts.profileLabel,
+                selectedIcon: Obx(() => _buildProfileIcon(profileController, true)),
+              ),
+            ],
           ),
-        )
+        ),
       ),
       body: Obx(() => controller.screens[controller.selectedIndex.value]),
     );
+  }
+
+  Widget _buildProfileIcon(ProfileController profileController, bool isSelected) {
+    final userImage = profileController.profileImageUrl.value;
+
+    return userImage.isNotEmpty
+        ? CircleAvatar(
+            backgroundImage: NetworkImage(userImage),
+            radius: 12,
+            backgroundColor: Colors.transparent,
+          )
+        : Icon(
+            isSelected ? FluentIcons.person_20_filled : FluentIcons.person_20_regular,
+            color: isSelected ? SlectivColors.loginButtonColor : null,
+          );
   }
 }

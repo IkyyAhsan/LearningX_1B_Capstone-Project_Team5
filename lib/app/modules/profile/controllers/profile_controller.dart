@@ -56,6 +56,12 @@ class ProfileController extends GetxController {
     } else {
       print('No image selected.');
     }
+    Get.back();
+  }
+
+  void deleteImage() {
+    profileImageUrl.value = '';
+    Get.back();
   }
 
   Future<void> uploadImage(File image) async {
@@ -114,5 +120,19 @@ class ProfileController extends GetxController {
     }
   }
 
-  void updatePhoneNumber(String value) {}
+  Future<void> updatePhoneNumber(String newPhoneNumber) async {
+    User? user = _auth.currentUser;
+    if (user != null) {
+      try {
+        await _userCollection.doc(user.uid).update({'phone_number': newPhoneNumber});
+        phoneNumber.value = newPhoneNumber;
+        Get.snackbar("Success", "Name has been updated",
+            backgroundColor: Color(0xFFE92027), colorText: Colors.white);
+      } catch (e) {
+        Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e");
+        Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e",
+            backgroundColor: Color(0xFFE92027), colorText: Colors.white);
+      }
+    }
+  }
 }
