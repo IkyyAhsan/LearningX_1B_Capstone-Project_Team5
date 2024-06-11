@@ -152,14 +152,14 @@ class ProfileView extends GetView<ProfileController> {
             onTap: () {
               Get.dialog(
                 AlertDialog(
-                  title: const Text("Ubah Nama"),
+                  title: const Text("Change Name"),
                   content: TextField(
                     controller: TextEditingController(
                       text: profileController.name.value
                     ),
                     decoration: const InputDecoration(
-                      labelText: "Nama Baru",
-                      hintText: "Masukkan nama baru",
+                      labelText: "Change your Name",
+                      hintText: "Put your New Name",
                     ),
                     onChanged: (value) {
                       profileController.name.value = value;
@@ -170,7 +170,7 @@ class ProfileView extends GetView<ProfileController> {
                       onPressed: () {
                         Get.back();
                       },
-                      child: const Text("Batal"),
+                      child: const Text("Cancel"),
                     ),
                     TextButton(
                       onPressed: () {
@@ -179,7 +179,7 @@ class ProfileView extends GetView<ProfileController> {
                         );
                         Get.back();
                       },
-                      child: const Text("Simpan"),
+                      child: const Text("Save"),
                     ),
                   ],
                 ),
