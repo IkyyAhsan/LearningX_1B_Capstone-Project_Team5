@@ -161,7 +161,7 @@ class GalleryView extends GetView<GalleryController> {
                   ],
                 ),
               ),
-              SlectivFooterWidget(),
+              const SlectivFooterWidget(),
             ],
           ),
         )),

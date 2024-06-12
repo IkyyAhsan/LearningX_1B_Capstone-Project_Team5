@@ -282,9 +282,7 @@ class ProfileView extends GetView<ProfileController> {
             )),
           ),
           const Spacer(),
-
           // Exit Button
-          
           Align(
             alignment: Alignment.bottomRight,
             child: Padding(

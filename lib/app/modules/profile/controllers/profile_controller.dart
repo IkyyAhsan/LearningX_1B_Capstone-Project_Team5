@@ -54,17 +54,20 @@ class ProfileController extends GetxController {
     if (pickedFile != null) {
       File image = File(pickedFile.path);
       await uploadImage(image);
+      Get.back();
+      Get.snackbar("Photo Changed", "Your profile photo has been successfully changed.", backgroundColor: SlectivColors.loginButtonColor, colorText: SlectivColors.whiteColor);
     } else {
       print('No image selected.');
     }
-    Get.back();
-    Get.snackbar("Photo Changed", "Your profile photo has been successfully changed.", backgroundColor: SlectivColors.loginButtonColor, colorText: SlectivColors.whiteColor);
   }
+
+
+      
 
   void deleteImage() {
     profileImageUrl.value = '';
     Get.back();
-    Get.snackbar("Photo Deleted", "Your profile photo has been successfully deleted.");
+    Get.snackbar("Photo Deleted", "Your profile photo has been successfully deleted.", backgroundColor: SlectivColors.cancelButtonColor, colorText: SlectivColors.whiteColor);
   }
 
   Future<void> uploadImage(File image) async {
