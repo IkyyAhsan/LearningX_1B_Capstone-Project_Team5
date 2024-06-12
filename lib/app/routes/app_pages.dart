@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
+import 'package:slectiv_studio_app/app/modules/booking/bindings/booking_binding.dart';
+import 'package:slectiv_studio_app/app/modules/booking/views/booking_view.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/bindings/bottom_navigation_bar_binding.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
-
 import '../modules/forget_password_screen/bindings/forget_password_screen_binding.dart';
 import '../modules/forget_password_screen/views/forget_password_screen_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -64,6 +65,11 @@ class AppPages {
       name: _Paths.BOTTOM_NAVIGATION_BAR,
       page: () => const BottomNavigationBarView(),
       binding: BottomNavigationBarBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOOKING,
+      page: () => const BookingView(),
+      binding: BookingBinding(),
     ),
   ];
 }

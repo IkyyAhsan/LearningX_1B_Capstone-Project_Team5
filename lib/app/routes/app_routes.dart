@@ -11,6 +11,7 @@ abstract class Routes {
   static const FORGET_PASSWORD_SCREEN = _Paths.FORGET_PASSWORD_SCREEN;
   static const PROFILE = _Paths.PROFILE;
   static const BOTTOM_NAVIGATION_BAR = _Paths.BOTTOM_NAVIGATION_BAR;
+  static const BOOKING = _Paths.BOOKING;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const FORGET_PASSWORD_SCREEN = '/forget-password-screen';
   static const PROFILE = '/profile';
   static const BOTTOM_NAVIGATION_BAR = '/bottom-navigation-bar';
+  static const BOOKING = '/booking';
 }
