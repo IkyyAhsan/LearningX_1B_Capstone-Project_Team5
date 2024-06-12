@@ -27,19 +27,19 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
             onDestinationSelected: (index) => controller.selectedIndex.value = index,
             destinations: [
               const NavigationDestination(
-                icon: Icon(FluentIcons.home_20_regular),
+                icon: Icon(FluentIcons.home_24_regular),
                 label: SlectivTexts.homeLabel,
-                selectedIcon: Icon(FluentIcons.home_20_filled, color: SlectivColors.loginButtonColor,),
+                selectedIcon: Icon(FluentIcons.home_24_filled, color: SlectivColors.loginButtonColor,),
               ),
               const NavigationDestination(
-                icon: Icon(FluentIcons.calendar_phone_20_regular),
+                icon: Icon(FluentIcons.camera_add_24_regular),
                 label: SlectivTexts.informationLabel,
-                selectedIcon: Icon(FluentIcons.calendar_phone_20_filled, color: SlectivColors.loginButtonColor,),
+                selectedIcon: Icon(FluentIcons.camera_add_24_filled, color: SlectivColors.loginButtonColor,),
               ),
               const NavigationDestination(
-                icon: Icon(FluentIcons.document_multiple_20_regular),
+                icon: Icon(FluentIcons.document_bullet_list_24_regular),
                 label: SlectivTexts.portofolioLabel,
-                selectedIcon: Icon(FluentIcons.document_multiple_20_filled, color: SlectivColors.loginButtonColor,),
+                selectedIcon: Icon(FluentIcons.document_bullet_list_24_filled, color: SlectivColors.loginButtonColor,),
               ),
               NavigationDestination(
                 icon: Obx(() => _buildProfileIcon(profileController, false)),
@@ -64,7 +64,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
             backgroundColor: Colors.transparent,
           )
         : Icon(
-            isSelected ? FluentIcons.person_20_filled : FluentIcons.person_20_regular,
+            isSelected ? FluentIcons.person_24_filled : FluentIcons.person_24_regular,
             color: isSelected ? SlectivColors.loginButtonColor : null,
           );
   }

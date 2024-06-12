@@ -88,7 +88,7 @@ class ProfileView extends GetView<ProfileController> {
                                       backgroundColor: Colors.transparent,
                                     ),
                                     const SizedBox(width: 16,),
-                                    Text("Edit Picture", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: SlectivColors.blackColor)),)
+                                    Text(SlectivTexts.editPicture, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: SlectivColors.blackColor)),)
                                   ],
                                 ),
                                 IconButton(onPressed: () => Get.back(), icon: const Icon(FluentIcons.dismiss_24_regular, color: SlectivColors.blackColor))
@@ -105,7 +105,7 @@ class ProfileView extends GetView<ProfileController> {
                           ),
                           child: ListTile(
                             trailing: const Icon(FluentIcons.image_add_20_filled, color: Colors.black,),
-                            title: Text("Select Photo", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.black)),),
+                            title: Text(SlectivTexts.selectPhoto, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.black)),),
                             onTap: () {
                               profileController.pickImage();
                             },
@@ -121,7 +121,7 @@ class ProfileView extends GetView<ProfileController> {
                           ),
                           child: ListTile(
                             trailing: const Icon(FluentIcons.delete_20_filled, color: SlectivColors.cancelButtonColor,),
-                            title: Text("Delete Photo", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: SlectivColors.cancelButtonColor)),),
+                            title: Text(SlectivTexts.deletePhoto, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: SlectivColors.cancelButtonColor)),),
                             onTap: () {
                               profileController.deleteImage();
                             },
@@ -134,7 +134,7 @@ class ProfileView extends GetView<ProfileController> {
               );
             }, 
             child: Text(
-              "Edit Picture", 
+              SlectivTexts.editPicture, 
               style: GoogleFonts.spaceGrotesk(
                 textStyle: const TextStyle(
                   fontSize: 14, 
@@ -152,14 +152,14 @@ class ProfileView extends GetView<ProfileController> {
             onTap: () {
               Get.dialog(
                 AlertDialog(
-                  title: const Text("Change Name"),
+                  title: const Text(SlectivTexts.changeName),
                   content: TextField(
                     controller: TextEditingController(
                       text: profileController.name.value
                     ),
                     decoration: const InputDecoration(
-                      labelText: "Change your Name",
-                      hintText: "Put your New Name",
+                      labelText: SlectivTexts.changeYourName,
+                      hintText: SlectivTexts.enterNewName,
                     ),
                     onChanged: (value) {
                       profileController.name.value = value;
@@ -170,7 +170,7 @@ class ProfileView extends GetView<ProfileController> {
                       onPressed: () {
                         Get.back();
                       },
-                      child: const Text("Cancel"),
+                      child: const Text(SlectivTexts.cancel),
                     ),
                     TextButton(
                       onPressed: () {
@@ -179,7 +179,7 @@ class ProfileView extends GetView<ProfileController> {
                         );
                         Get.back();
                       },
-                      child: const Text("Save"),
+                      child: const Text(SlectivTexts.save),
                     ),
                   ],
                 ),
@@ -228,14 +228,14 @@ class ProfileView extends GetView<ProfileController> {
                 onTap: () {
                   Get.dialog(
                     AlertDialog(
-                      title: const Text("Change Phone Number"),
+                      title: const Text(SlectivTexts.changePhoneNumber),
                       content: TextField(
                         controller: TextEditingController(
                           text: profileController.phoneNumber.value
                         ),
                         decoration: const InputDecoration(
-                          labelText: "New Phone Number",
-                          hintText: "Add New Phone Number",
+                          labelText: SlectivTexts.changeYourPhoneNumber,
+                          hintText: SlectivTexts.enterNewPhoneNumber,
                         ),
                         onChanged: (value) {
                           profileController.phoneNumber.value = value;
@@ -246,21 +246,21 @@ class ProfileView extends GetView<ProfileController> {
                           onPressed: () {
                             Get.back();
                           },
-                          child: const Text("Cancel")
+                          child: const Text(SlectivTexts.cancel)
                         ),
                         TextButton(
                           onPressed: () {
                             profileController.updatePhoneNumber(profileController.phoneNumber.value);
                             Get.back();
                           },
-                          child: const Text("Save")
+                          child: const Text(SlectivTexts.save)
                         ),
                       ],
                     ),
                   );
                 },
                 decoration: const InputDecoration(
-                  labelText: 'Phone Number',
+                  labelText: SlectivTexts.phoneNumber,
                 ),
               ),
             ),
@@ -276,13 +276,15 @@ class ProfileView extends GetView<ProfileController> {
                 text: profileController.email.value,
               ),
               decoration: const InputDecoration(
-                labelText: 'Email',
+                labelText: SlectivTexts.email,
                 enabled: false, // Disable editing
               ),
             )),
           ),
           const Spacer(),
+
           // Exit Button
+          
           Align(
             alignment: Alignment.bottomRight,
             child: Padding(
@@ -298,7 +300,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                 ),
                 child: Text(
-                  'Exit', 
+                  SlectivTexts.exit, 
                   style: GoogleFonts.spaceGrotesk(
                     textStyle: const TextStyle(
                       fontSize: 16,

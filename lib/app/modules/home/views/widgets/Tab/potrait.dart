@@ -115,7 +115,7 @@ class SlectivPortrait extends StatelessWidget {
                               ),
               const SizedBox(height: 30,),
               SlectiveWidgetButton(buttonName: SlectivTexts.potraitButtonName, onPressed: (){}, backgroundColor: SlectivColors.forgetPasswordButtonColor),
-              const SizedBox(height: 40,),
+              const SizedBox(height: 5,),
             ],
           ),
         ),

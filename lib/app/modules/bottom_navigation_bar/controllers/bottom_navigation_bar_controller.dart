@@ -8,5 +8,5 @@ import 'package:slectiv_studio_app/utils/constants/colors.dart';
 class BottomNavigationBarController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = [const HomeView(), Container(color: SlectivColors.backgroundColor,), GalleryView(), ProfileView()];
+  final screens = [const HomeView(), Container(color: SlectivColors.backgroundColor,), const GalleryView(), ProfileView()];
 }

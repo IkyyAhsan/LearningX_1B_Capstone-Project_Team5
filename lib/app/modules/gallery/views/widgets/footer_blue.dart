@@ -8,17 +8,17 @@ class SlectivFooterBlue2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Column(
         children: [
-          const SizedBox(
+          SizedBox(
             height: 45.22,
             width: 120,
             child: Image(
               image: AssetImage(SlectivImages.applogoBlue2),
             ),
           ),
-          const SizedBox(
+          SizedBox(
             height: 16,
           ),
         ],

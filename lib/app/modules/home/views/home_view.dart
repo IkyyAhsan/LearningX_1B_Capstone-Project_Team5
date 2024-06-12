@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/footer_widget.dart';
 import 'package:slectiv_studio_app/app/modules/home/views/widgets/tab_bar.dart';
 import 'package:slectiv_studio_app/app/modules/login_screen/views/widgets/authentication_header.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';

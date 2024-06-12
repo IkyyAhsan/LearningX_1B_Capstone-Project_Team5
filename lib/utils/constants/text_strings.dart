@@ -115,4 +115,18 @@ class SlectivTexts {
   static const String footerContacUs = "CONTAC US";
   static const String footerPhone = "Phone : 081345383641";
   static const String footerIG = "Instagram : @slectivstudio";
+
+  // -- Profile Screen
+  static const String editPicture = "Edit Picture";
+  static const String selectPhoto = "Select Photo";
+  static const String deletePhoto = "Delete Photo";
+  static const String changeName = "Change Name";
+  static const String changePhoneNumber = "Change Phone Number";
+  static const String changeYourName = "Change Your Name";
+  static const String changeYourPhoneNumber = "Change Your Phone Number";
+  static const String enterNewName = "Enter a new Name";
+  static const String enterNewPhoneNumber = "Enter a new Phone Number";
+  static const String cancel = "Cancel";
+  static const String save = "Save";
+  static const String exit = "Exit";
 }

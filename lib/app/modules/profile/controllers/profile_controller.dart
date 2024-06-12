@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:slectiv_studio_app/utils/constants/colors.dart';
 
 class ProfileController extends GetxController {
   final CollectionReference _userCollection =
@@ -57,11 +58,13 @@ class ProfileController extends GetxController {
       print('No image selected.');
     }
     Get.back();
+    Get.snackbar("Photo Changed", "Your profile photo has been successfully changed.", backgroundColor: SlectivColors.loginButtonColor, colorText: SlectivColors.whiteColor);
   }
 
   void deleteImage() {
     profileImageUrl.value = '';
     Get.back();
+    Get.snackbar("Photo Deleted", "Your profile photo has been successfully deleted.");
   }
 
   Future<void> uploadImage(File image) async {
@@ -72,7 +75,7 @@ class ProfileController extends GetxController {
             height: 100,
             width: 100,
             child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFE92027)),
+              valueColor: AlwaysStoppedAnimation<Color>(SlectivColors.circularProgressColor),
               strokeWidth: 5,
             ),
           ),
@@ -110,12 +113,15 @@ class ProfileController extends GetxController {
       try {
         await _userCollection.doc(user.uid).update({'name': newName});
         name.value = newName;
+        Get.back();
         Get.snackbar("Success", "Name has been updated",
-            backgroundColor: Color(0xFFE92027), colorText: Colors.white);
+            backgroundColor: SlectivColors.registerButtonColor, colorText: SlectivColors.whiteColor
+        );
+        
       } catch (e) {
         Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e");
         Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e",
-            backgroundColor: Color(0xFFE92027), colorText: Colors.white);
+            backgroundColor: SlectivColors.cancelButtonColor, colorText: SlectivColors.whiteColor);
       }
     }
   }
@@ -127,11 +133,11 @@ class ProfileController extends GetxController {
         await _userCollection.doc(user.uid).update({'phone_number': newPhoneNumber});
         phoneNumber.value = newPhoneNumber;
         Get.snackbar("Success", "Name has been updated",
-            backgroundColor: Color(0xFFE92027), colorText: Colors.white);
+            backgroundColor: SlectivColors.forgetPasswordButtonColor, colorText: SlectivColors.whiteColor);
       } catch (e) {
         Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e");
         Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e",
-            backgroundColor: Color(0xFFE92027), colorText: Colors.white);
+            backgroundColor: SlectivColors.cancelButtonColor, colorText: SlectivColors.whiteColor);
       }
     }
   }

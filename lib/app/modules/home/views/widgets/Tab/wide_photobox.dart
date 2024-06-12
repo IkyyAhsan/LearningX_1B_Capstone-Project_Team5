@@ -130,7 +130,7 @@ class SlectivWidePhotobox extends StatelessWidget {
               ),
               const SizedBox(height: 30,),
               SlectiveWidgetButton(buttonName: SlectivTexts.widePhotoboxButtonName, onPressed: (){}, backgroundColor: SlectivColors.blackColor),
-              const SizedBox(height: 40,),
+              const SizedBox(height: 5,),
             ],
           ),
         ),

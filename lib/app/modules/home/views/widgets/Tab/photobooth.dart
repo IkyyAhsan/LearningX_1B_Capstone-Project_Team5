@@ -95,7 +95,7 @@ class SlectivPhotobooth extends StatelessWidget {
               ),
               const SizedBox(height: 30,),
               SlectiveWidgetButton(buttonName: SlectivTexts.photoboothButtonName, onPressed: (){}, backgroundColor: SlectivColors.registerButtonColor),
-              const SizedBox(height: 40,),
+              const SizedBox(height: 5,),
             ],
           ),
         ),
