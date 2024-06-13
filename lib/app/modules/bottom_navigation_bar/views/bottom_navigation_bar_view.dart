@@ -29,17 +29,17 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
               const NavigationDestination(
                 icon: Icon(FluentIcons.home_24_regular),
                 label: SlectivTexts.homeLabel,
-                selectedIcon: Icon(FluentIcons.home_24_filled, color: SlectivColors.loginButtonColor,),
+                selectedIcon: Icon(FluentIcons.home_24_filled, color: SlectivColors.submitButtonColor,),
               ),
               const NavigationDestination(
                 icon: Icon(FluentIcons.camera_add_24_regular),
                 label: SlectivTexts.informationLabel,
-                selectedIcon: Icon(FluentIcons.camera_add_24_filled, color: SlectivColors.loginButtonColor,),
+                selectedIcon: Icon(FluentIcons.camera_add_24_filled, color: SlectivColors.submitButtonColor,),
               ),
               const NavigationDestination(
                 icon: Icon(FluentIcons.document_bullet_list_24_regular),
                 label: SlectivTexts.portofolioLabel,
-                selectedIcon: Icon(FluentIcons.document_bullet_list_24_filled, color: SlectivColors.loginButtonColor,),
+                selectedIcon: Icon(FluentIcons.document_bullet_list_24_filled, color: SlectivColors.submitButtonColor,),
               ),
               NavigationDestination(
                 icon: Obx(() => _buildProfileIcon(profileController, false)),
@@ -65,7 +65,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
           )
         : Icon(
             isSelected ? FluentIcons.person_24_filled : FluentIcons.person_24_regular,
-            color: isSelected ? SlectivColors.loginButtonColor : null,
+            color: isSelected ? SlectivColors.submitButtonColor : null,
           );
   }
 }

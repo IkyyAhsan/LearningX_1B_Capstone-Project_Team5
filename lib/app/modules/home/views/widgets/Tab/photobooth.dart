@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:slectiv_studio_app/app/modules/login_screen/views/widgets/submit_button.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SlectivPhotobooth extends StatelessWidget {
   const SlectivPhotobooth({super.key});
@@ -94,7 +96,17 @@ class SlectivPhotobooth extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30,),
-              SlectiveWidgetButton(buttonName: SlectivTexts.photoboothButtonName, onPressed: (){}, backgroundColor: SlectivColors.registerButtonColor),
+              SlectiveWidgetButton(
+                buttonName: SlectivTexts.photoboothButtonName, 
+                onPressed: () async {
+                  if (await canLaunch(SlectivTexts.adminContactUrl)) {
+                    await launch(SlectivTexts.adminContactUrl);
+                  } else {
+                    Get.snackbar("Please Wait..", "Wait for a minute", backgroundColor: SlectivColors.warningColor);
+                  }
+                }, 
+                backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor
+              ),
               const SizedBox(height: 5,),
             ],
           ),

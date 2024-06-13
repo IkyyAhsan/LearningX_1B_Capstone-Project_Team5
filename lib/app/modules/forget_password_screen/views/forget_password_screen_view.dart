@@ -106,7 +106,7 @@ class ForgetPasswordScreenView extends GetView<ForgetPasswordScreenController> {
                             forgetPasswordController.clearForm();
                           }
                         },
-                        backgroundColor: SlectivColors.forgetPasswordButtonColor,
+                        backgroundColor: SlectivColors.submitButtonColor,
                       ),
                       const SizedBox(height: 24),
 
@@ -115,7 +115,7 @@ class ForgetPasswordScreenView extends GetView<ForgetPasswordScreenController> {
                       SlectiveWidgetButton(
                         buttonName: SlectivTexts.backToLogin,
                         onPressed: () => Get.off(() => LoginScreenView()),
-                        backgroundColor: SlectivColors.cancelButtonColor,
+                        backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
                       ),
                     ],
                   ),

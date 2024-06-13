@@ -120,8 +120,8 @@ class ProfileView extends GetView<ProfileController> {
                             borderRadius: BorderRadius.circular(10)
                           ),
                           child: ListTile(
-                            trailing: const Icon(FluentIcons.delete_20_filled, color: SlectivColors.cancelButtonColor,),
-                            title: Text(SlectivTexts.deletePhoto, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: SlectivColors.cancelButtonColor)),),
+                            trailing: const Icon(FluentIcons.delete_20_filled, color: SlectivColors.cancelAndNegatifSnackbarButtonColor,),
+                            title: Text(SlectivTexts.deletePhoto, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: SlectivColors.cancelAndNegatifSnackbarButtonColor)),),
                             onTap: () {
                               profileController.deleteImage();
                             },
@@ -139,7 +139,7 @@ class ProfileView extends GetView<ProfileController> {
                 textStyle: const TextStyle(
                   fontSize: 14, 
                   fontWeight: FontWeight.w500, 
-                  color: SlectivColors.loginButtonColor
+                  color: SlectivColors.submitButtonColor
                 )
               ),
             )
@@ -292,7 +292,7 @@ class ProfileView extends GetView<ProfileController> {
                   Get.offAll(() => LoginScreenView());
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: SlectivColors.cancelButtonColor,
+                  backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 24, vertical: 12
                   ),

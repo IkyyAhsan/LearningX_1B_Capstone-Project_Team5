@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:slectiv_studio_app/app/modules/gallery/controllers/gallery_controller.dart';
 import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/authentication_header_blue.dart';
-import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/footer_blue.dart';
 import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/footer_widget.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
@@ -39,7 +38,7 @@ class GalleryView extends GetView<GalleryController> {
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
-                          color: SlectivColors.accountTypeColor),
+                          color: SlectivColors.jenisAkunColor),
                     ),
                     const SizedBox(
                       height: 24,
@@ -54,7 +53,7 @@ class GalleryView extends GetView<GalleryController> {
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: SlectivColors.accountTypeColor),
+                          color: SlectivColors.jenisAkunColor),
                     ),
                     const SizedBox(
                       height: 10,
@@ -65,7 +64,7 @@ class GalleryView extends GetView<GalleryController> {
                       style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
-                          color: SlectivColors.accountTypeColor),
+                          color: SlectivColors.jenisAkunColor),
                     ),
                     const SizedBox(
                       height: 10,
@@ -82,7 +81,7 @@ class GalleryView extends GetView<GalleryController> {
                       style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
-                          color: SlectivColors.accountTypeColor),
+                          color: SlectivColors.jenisAkunColor),
                     ),
                     const SizedBox(
                       height: 10,
@@ -99,7 +98,7 @@ class GalleryView extends GetView<GalleryController> {
                       style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
-                          color: SlectivColors.accountTypeColor),
+                          color: SlectivColors.jenisAkunColor),
                     ),
                     const SizedBox(
                       height: 10,

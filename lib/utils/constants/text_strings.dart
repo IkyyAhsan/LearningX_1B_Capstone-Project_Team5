@@ -1,4 +1,8 @@
 class SlectivTexts {
+
+  // -- Admin Contact
+  static const String adminContactUrl = "https://wa.me/6281345383641";
+
   // -- Splash Text
   static const String splashTextDesc = "Balikpapan 1st Wide Self Photo Studio";
 
@@ -129,4 +133,10 @@ class SlectivTexts {
   static const String cancel = "Cancel";
   static const String save = "Save";
   static const String exit = "Exit";
+
+// -- Booking Screen
+  static const String bookingTitle1 = "Select Date";
+  static const String bookingTitle2 = "Select Time";
+  static const String bookingTitle3 = "Color";
+  static const String bookingTitle4 = "Person";
 }

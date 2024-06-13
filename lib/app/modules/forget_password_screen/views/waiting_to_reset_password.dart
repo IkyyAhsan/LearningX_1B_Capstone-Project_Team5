@@ -55,7 +55,7 @@ class WaitingToResetPassword extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 32,),
-              SlectiveWidgetButton(buttonName: SlectivTexts.successfullyResetPassword, onPressed: () => Get.offAll(LoginScreenView()), backgroundColor: SlectivColors.forgetPasswordButtonColor)
+              SlectiveWidgetButton(buttonName: SlectivTexts.successfullyResetPassword, onPressed: () => Get.offAll(LoginScreenView()), backgroundColor: SlectivColors.submitButtonColor)
             ],
           ),
         )

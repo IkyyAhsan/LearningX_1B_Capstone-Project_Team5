@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/footer_widget.dart';
 import 'package:slectiv_studio_app/app/modules/home/views/widgets/tab_bar.dart';
 import 'package:slectiv_studio_app/app/modules/login_screen/views/widgets/authentication_header.dart';
+import 'package:slectiv_studio_app/app/modules/profile/controllers/profile_controller.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
@@ -14,7 +15,7 @@ class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(HomeController());
+    final profileController = Get.put(ProfileController());
     return Scaffold(
       backgroundColor: SlectivColors.backgroundColor,
       body: SafeArea(
@@ -28,15 +29,15 @@ class HomeView extends GetView<HomeController> {
                 const SizedBox(height: 24,),
                 const SlectivAuthenticationHeader(),
                 const SizedBox(height: 24,),
-                Text("${SlectivTexts.hallo} ${controller.name.value}", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700, color: SlectivColors.titleColor)),),
-                Text(SlectivTexts.newAccountType, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: SlectivColors.accountTypeColor)),),
+                Obx(() => Text("${SlectivTexts.hallo} ${profileController.name.value}", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700, color: SlectivColors.titleColor)),)),
+                Text(SlectivTexts.newAccountType, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: SlectivColors.jenisAkunColor)),),
                 const SizedBox(height: 24,),
                 const Image(image: AssetImage(SlectivImages.newMembershipBanners),
                   width: double.infinity,
                 ),
                 const SizedBox(height: 16,),
                 const TabSection(),
-                const Divider(color: Colors.black, indent: 0, endIndent: 500,),
+                const Divider(color: SlectivColors.blackColor, indent: 0, endIndent: 500,),
               ],
             ),
           ),

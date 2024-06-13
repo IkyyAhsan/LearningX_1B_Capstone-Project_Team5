@@ -29,7 +29,7 @@ class SlectivFooterWidget extends StatelessWidget {
                     SlectivTexts.splashTextDesc,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: SlectivColors.loginButtonColor,
+                      color: SlectivColors.submitButtonColor,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),

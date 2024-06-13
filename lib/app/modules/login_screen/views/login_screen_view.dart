@@ -124,14 +124,14 @@ class LoginScreenView extends GetView<LoginScreenController> {
 
                         
                       }, 
-                      backgroundColor: SlectivColors.loginButtonColor,
+                      backgroundColor: SlectivColors.submitButtonColor,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Don't have an account?", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.blackColor)),),
                         TextButton(onPressed: () => Get.to(() => RegisterScreenView()), 
-                          child: Text("Register here", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.loginButtonColor)),)
+                          child: Text("Register here", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.submitButtonColor)),)
                         ),
                       ],
                     )

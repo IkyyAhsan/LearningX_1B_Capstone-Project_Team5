@@ -53,5 +53,13 @@
 	<true/>
 	<key>UIStatusBarHidden</key>
 	<false/>
+
+	<!-- Tambahkan ini -->
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>https</string>
+		<string>http</string>
+		<string>whatsapp</string> <!-- jika menggunakan WhatsApp -->
+	</array>
 </dict>
 </plist>

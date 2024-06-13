@@ -218,7 +218,7 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                               Get.snackbar(
                                 SlectivTexts.registerSuccessfullTitle, 
                                 SlectivTexts.registerSuccessfullSubtitle,
-                                backgroundColor: SlectivColors.registerButtonColor, 
+                                backgroundColor: SlectivColors.positifSnackbarColor, 
                                 colorText: SlectivColors.whiteColor, 
                                 duration: const Duration(seconds: 4),
                               );
@@ -240,13 +240,13 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                               Get.snackbar(
                                 SlectivTexts.snackbarErrorTitle,
                                 SlectivTexts.snackbarErrorRegistrationTitle,
-                                backgroundColor: Colors.red,
+                                backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
                                 colorText: Colors.white,
                               );
                             }
                           }
                         },
-                        backgroundColor: SlectivColors.registerButtonColor,
+                        backgroundColor: SlectivColors.submitButtonColor,
                       ),
 
                       // -- Already Have a Account ??
@@ -256,7 +256,7 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                         children: [
                           Text(SlectivTexts.alreadyHave, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.blackColor)),),
                           TextButton(onPressed: () => Get.offAll(() => LoginScreenView()), 
-                            child: Text(SlectivTexts.loginHere, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.loginButtonColor)),)
+                            child: Text(SlectivTexts.loginHere, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.submitButtonColor)),)
                           ),
                         ],
                       )

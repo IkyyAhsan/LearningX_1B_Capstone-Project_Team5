@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:slectiv_studio_app/app/modules/login_screen/views/widgets/submit_button.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SlectivWidePhotobox extends StatelessWidget {
   const SlectivWidePhotobox({super.key});
@@ -129,7 +131,16 @@ class SlectivWidePhotobox extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30,),
-              SlectiveWidgetButton(buttonName: SlectivTexts.widePhotoboxButtonName, onPressed: (){}, backgroundColor: SlectivColors.blackColor),
+              SlectiveWidgetButton(
+                buttonName: SlectivTexts.widePhotoboxButtonName, 
+                onPressed: () async {
+                  // if (await canLaunch(SlectivTexts.adminContactUrl)) {
+                  //   await launch(SlectivTexts.adminContactUrl);
+                  // } else {
+                  //   Get.snackbar("Please Wait..", "Wait for a minute", backgroundColor: SlectivColors.registerButtonColor);
+                  // }
+                }, 
+                backgroundColor: SlectivColors.submitButtonColor),
               const SizedBox(height: 5,),
             ],
           ),
