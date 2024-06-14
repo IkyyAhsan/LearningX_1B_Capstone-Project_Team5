@@ -70,7 +70,7 @@ class BookingView extends GetView<BookingController> {
                         outsideTextStyle: TextStyle(color: Colors.grey),
                         holidayTextStyle: TextStyle(color: Colors.black),
                         selectedDecoration: BoxDecoration(
-                          color: Colors.orange,
+                          color: SlectivColors.warningColor,
                           shape: BoxShape.rectangle,
                         ),
                       ),
