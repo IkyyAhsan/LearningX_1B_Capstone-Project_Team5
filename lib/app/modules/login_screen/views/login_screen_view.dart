@@ -50,7 +50,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
                       validator: (value) => SlectiValidator.emailValidate(value),
                       decoration: InputDecoration(
                         hintText: "Enter your Email",
-                        hintStyle: GoogleFonts.spaceGrotesk(textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
+                        hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                         fillColor: const Color(0xFFF6F6F6),
                         filled: true,
                         border: OutlineInputBorder(
@@ -75,7 +75,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
                         obscureText: loginController.hidePassword.value,
                         decoration: InputDecoration(
                           hintText: "Enter your Password",
-                          hintStyle: GoogleFonts.spaceGrotesk(textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
+                          hintStyle: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: SlectivColors.hintColor)),
                           fillColor: const Color(0xFFF6F6F6),
                           filled: true,
                           border: OutlineInputBorder(
@@ -121,7 +121,6 @@ class LoginScreenView extends GetView<LoginScreenController> {
                         loginController.loginValidation();
 
                         Get.back();
-
                         
                       }, 
                       backgroundColor: SlectivColors.submitButtonColor,

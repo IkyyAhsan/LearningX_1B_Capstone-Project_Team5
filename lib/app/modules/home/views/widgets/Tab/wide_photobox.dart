@@ -137,10 +137,10 @@ class SlectivWidePhotobox extends StatelessWidget {
                   // if (await canLaunch(SlectivTexts.adminContactUrl)) {
                   //   await launch(SlectivTexts.adminContactUrl);
                   // } else {
-                  //   Get.snackbar("Please Wait..", "Wait for a minute", backgroundColor: SlectivColors.registerButtonColor);
+                  //   Get.snackbar("Please Wait..", "Wait for a minute", backgroundColor: SlectivColors.warningColor);
                   // }
                 }, 
-                backgroundColor: SlectivColors.submitButtonColor),
+                backgroundColor: SlectivColors.titleColor),
               const SizedBox(height: 5,),
             ],
           ),

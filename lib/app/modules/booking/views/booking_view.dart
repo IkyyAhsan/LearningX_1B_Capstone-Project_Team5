@@ -9,7 +9,7 @@ import 'package:table_calendar/table_calendar.dart';
 import '../controllers/booking_controller.dart';
 
 class BookingView extends GetView<BookingController> {
-  const BookingView({super.key});
+  const BookingView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,15 +42,6 @@ class BookingView extends GetView<BookingController> {
                   focusedDay: DateTime.now(), 
                   firstDay: DateTime.utc(2024, 1, 1), 
                   lastDay: DateTime.utc(2024, 12, 31),
-                ),
-                const SizedBox(height: 30),
-                const Text(
-                  SlectivTexts.bookingTitle2,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: SlectivColors.titleColor,
-                  ),
                 ),
                 const SizedBox(height: 10),
                 const Row(
@@ -126,7 +117,7 @@ class BookingView extends GetView<BookingController> {
                           hint: const Padding(
                             padding:
                                 EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Text("Select an option..."),
+                            child: const Text("Select an option..."),
                           ),
                           value: controller.selectedOption.value,
                           onChanged: (String? newValue) {

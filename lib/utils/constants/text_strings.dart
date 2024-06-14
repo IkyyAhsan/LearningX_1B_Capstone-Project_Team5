@@ -133,6 +133,8 @@ class SlectivTexts {
   static const String cancel = "Cancel";
   static const String save = "Save";
   static const String exit = "Exit";
+  static const String profileSuccessLogoutTitleButton = "Logout Successful";
+  static const String profileSuccessLogoutSubtitleButton = "You have been logged out successfully";
 
 // -- Booking Screen
   static const String bookingTitle1 = "Select Date";

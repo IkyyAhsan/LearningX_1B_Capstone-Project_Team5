@@ -105,7 +105,7 @@ class SlectivPhotobooth extends StatelessWidget {
                     Get.snackbar("Please Wait..", "Wait for a minute", backgroundColor: SlectivColors.warningColor);
                   }
                 }, 
-                backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor
+                backgroundColor: SlectivColors.submitButtonColor
               ),
               const SizedBox(height: 5,),
             ],

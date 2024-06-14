@@ -55,7 +55,7 @@ class ProfileController extends GetxController {
       File image = File(pickedFile.path);
       await uploadImage(image);
       Get.back();
-      Get.snackbar("Photo Changed", "Your profile photo has been successfully changed.", backgroundColor: SlectivColors.submitButtonColor, colorText: SlectivColors.whiteColor);
+      Get.snackbar("Photo Changed", "Your profile photo has been successfully changed.", backgroundColor: SlectivColors.positifSnackbarColor, colorText: SlectivColors.whiteColor);
     } else {
       print('No image selected.');
     }
@@ -67,7 +67,7 @@ class ProfileController extends GetxController {
   void deleteImage() {
     profileImageUrl.value = '';
     Get.back();
-    Get.snackbar("Photo Deleted", "Your profile photo has been successfully deleted.", backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor, colorText: SlectivColors.whiteColor);
+    Get.snackbar("Photo Deleted", "Your profile photo has been successfully deleted.", backgroundColor: SlectivColors.positifSnackbarColor, colorText: SlectivColors.whiteColor);
   }
 
   Future<void> uploadImage(File image) async {
@@ -118,7 +118,7 @@ class ProfileController extends GetxController {
         name.value = newName;
         Get.back();
         Get.snackbar("Success", "Name has been updated",
-            backgroundColor: SlectivColors.submitButtonColor, colorText: SlectivColors.whiteColor
+            backgroundColor: SlectivColors.positifSnackbarColor, colorText: SlectivColors.whiteColor
         );
         
       } catch (e) {
@@ -136,7 +136,7 @@ class ProfileController extends GetxController {
         await _userCollection.doc(user.uid).update({'phone_number': newPhoneNumber});
         phoneNumber.value = newPhoneNumber;
         Get.snackbar("Success", "Name has been updated",
-            backgroundColor: SlectivColors.submitButtonColor, colorText: SlectivColors.whiteColor);
+            backgroundColor: SlectivColors.positifSnackbarColor, colorText: SlectivColors.whiteColor);
       } catch (e) {
         Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e");
         Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e",

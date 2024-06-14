@@ -38,7 +38,7 @@ class LoginScreenController extends GetxController {
     if (email.isEmpty || password.isEmpty) {
       Get.snackbar('Error', 'Email atau Password tidak boleh kosong',
           backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor, 
-          colorText: const Color(0xffffffff),
+          colorText: SlectivColors.whiteColor,
       );
       return;
     }
@@ -47,9 +47,9 @@ class LoginScreenController extends GetxController {
 
     if (isValidCredentials) {
       Get.snackbar(
-        "Login Successfull", 
+        "Login Successful", 
         "Congratulations, You have logged in successfully", 
-        backgroundColor: SlectivColors.submitButtonColor, 
+        backgroundColor: SlectivColors.positifSnackbarColor, 
         colorText: SlectivColors.whiteColor, 
         duration: const Duration(
           seconds: 4
@@ -66,7 +66,7 @@ class LoginScreenController extends GetxController {
     } else {
       Get.snackbar('Error', 'Email atau Password salah',
         backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor, 
-        colorText: const Color(0xFFFFFFFF)
+        colorText: SlectivColors.whiteColor
       );
     }
   }
