@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 import 'package:slectiv_studio_app/app/modules/login_screen/views/widgets/submit_button.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
@@ -170,7 +172,13 @@ class _SlectivPhotoboothState extends State<SlectivPhotobooth> {
               ),
               SlectiveWidgetButton(
                   buttonName: SlectivTexts.photoboothButtonName,
-                  onPressed: () {},
+                  onPressed: () async {
+                  if (await canLaunch(SlectivTexts.adminContactUrl)) {
+                    await launch(SlectivTexts.adminContactUrl);
+                    } else {
+                      Get.snackbar("Please Wait..", "Wait for a minute", backgroundColor: SlectivColors.warningColor);
+                    }
+                  }, 
                   backgroundColor: SlectivColors.submitButtonColor),
               const SizedBox(
                 height: 40,

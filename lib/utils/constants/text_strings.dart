@@ -137,8 +137,16 @@ class SlectivTexts {
   static const String profileSuccessLogoutSubtitleButton = "You have been logged out successfully";
 
 // -- Booking Screen
+  static const String bookingNow = "Booking Now";
+  static const String bookingTitle = "Booking Studio Photo";
   static const String bookingTitle1 = "Select Date";
   static const String bookingTitle2 = "Select Time";
   static const String bookingTitle3 = "Color";
   static const String bookingTitle4 = "Person";
+  static const String confirmedBookTitle = "Booking Confirmed!";
+  static const String confirmedBookSubtitle = "Your studio booking has been successfully confirmed. We look forward to seeing you!";
+  static const String selectAnOption = "Select an option...";
+  static const String person = "Person";
+  static const String color = "Color";
+  static const String chooseDate = "Choose a date above to see available times.";
 }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import 'package:slectiv_studio_app/app/modules/login_screen/views/widgets/submit_button.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
+import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../controllers/booking_controller.dart';
 import 'widgets/time_card.dart';
 
 class BookingView extends GetView<BookingController> {
-  const BookingView({Key? key}) : super(key: key);
+  const BookingView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class BookingView extends GetView<BookingController> {
               children: [
                 const SizedBox(height: 24),
                 const Text(
-                  'Booking Studio Photo',
+                  SlectivTexts.bookingTitle,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
@@ -34,6 +34,7 @@ class BookingView extends GetView<BookingController> {
                   ),
                 ),
                 const SizedBox(height: 10),
+
                 // Calendar
                 Obx(() => TableCalendar(
                       focusedDay: controller.focusedDay.value,
@@ -46,36 +47,37 @@ class BookingView extends GetView<BookingController> {
                         if (selectedDay.isAfter(DateTime.now().subtract(const Duration(days: 1)))) {
                           controller.selectedDay.value = selectedDay;
                           controller.focusedDay.value = focusedDay;
+                          controller.selectedTime.value = ''; // Reset selected time when date changes
                         }
                       },
                       enabledDayPredicate: (day) {
                         return day.isAfter(DateTime.now().subtract(const Duration(days: 1)));
                       },
                       calendarStyle: const CalendarStyle(
-                        todayTextStyle: TextStyle(color: Colors.white),
+                        todayTextStyle: TextStyle(color: SlectivColors.whiteColor),
                         todayDecoration: BoxDecoration(
-                          color: Colors.black,
+                          color: SlectivColors.blackColor,
                           shape: BoxShape.rectangle,
                         ),
-                        defaultTextStyle: TextStyle(color: Colors.black),
+                        defaultTextStyle: TextStyle(color: SlectivColors.blackColor),
                         defaultDecoration: BoxDecoration(
-                          color: Colors.white,
+                          color: SlectivColors.whiteColor,
                           shape: BoxShape.rectangle,
                         ),
-                        weekendTextStyle: TextStyle(color: Colors.black),
+                        weekendTextStyle: TextStyle(color: SlectivColors.blackColor),
                         weekendDecoration: BoxDecoration(
-                          color: Colors.white,
+                          color: SlectivColors.whiteColor,
                           shape: BoxShape.rectangle,
                         ),
-                        outsideTextStyle: TextStyle(color: Colors.grey),
-                        holidayTextStyle: TextStyle(color: Colors.black),
+                        outsideTextStyle: TextStyle(color: SlectivColors.greyBooking),
+                        holidayTextStyle: TextStyle(color: SlectivColors.blackColor),
                         selectedDecoration: BoxDecoration(
                           color: SlectivColors.warningColor,
                           shape: BoxShape.rectangle,
                         ),
                       ),
                       daysOfWeekStyle: const DaysOfWeekStyle(
-                        weekendStyle: TextStyle(color: Colors.red),
+                        weekendStyle: TextStyle(color: SlectivColors.cancelAndNegatifSnackbarButtonColor),
                       ),
                       headerStyle: const HeaderStyle(
                         formatButtonVisible: false,
@@ -95,13 +97,13 @@ class BookingView extends GetView<BookingController> {
                             return Center(
                               child: Container(
                                 decoration: const BoxDecoration(
-                                  color: Colors.black,
+                                  color: SlectivColors.blackColor,
                                   shape: BoxShape.rectangle,
                                 ),
                                 child: Center(
                                   child: Text(
                                     '${day.day}',
-                                    style: const TextStyle(color: Colors.white),
+                                    style: const TextStyle(color: SlectivColors.whiteColor),
                                   ),
                                 ),
                               ),
@@ -112,13 +114,13 @@ class BookingView extends GetView<BookingController> {
                           return Center(
                             child: Container(
                               decoration: const BoxDecoration(
-                                color: Colors.black,
+                                color: SlectivColors.blackColor,
                                 shape: BoxShape.rectangle,
                               ),
                               child: Center(
                                 child: Text(
                                   '${day.day}',
-                                  style: const TextStyle(color: Colors.white),
+                                  style: const TextStyle(color: SlectivColors.whiteColor),
                                 ),
                               ),
                             ),
@@ -128,10 +130,10 @@ class BookingView extends GetView<BookingController> {
                     )),
                 const SizedBox(height: 20),
                 const Text(
-                  "Choose a date above to see available times.",
+                  SlectivTexts.chooseDate,
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.black,
+                    color: SlectivColors.blackColor,
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -200,11 +202,11 @@ class BookingView extends GetView<BookingController> {
                 const SizedBox(height: 20),
                 // Dropdowns
                 const Text(
-                  "Color",
+                  SlectivTexts.color,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: Colors.black,
+                    color: SlectivColors.blackColor,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -213,14 +215,14 @@ class BookingView extends GetView<BookingController> {
                         width: double.infinity,
                         height: 48.65,
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
+                          border: Border.all(color: SlectivColors.blackColor),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: DropdownButton<String>(
                           isExpanded: true,
                           hint: const Padding(
                             padding: EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Text("Select an option..."),
+                            child: Text(SlectivTexts.selectAnOption),
                           ),
                           value: controller.selectedOption.value.isEmpty ? null : controller.selectedOption.value,
                           onChanged: (String? newValue) {
@@ -247,11 +249,11 @@ class BookingView extends GetView<BookingController> {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  "Person",
+                  SlectivTexts.person,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: Colors.black,
+                    color: SlectivColors.blackColor,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -260,14 +262,14 @@ class BookingView extends GetView<BookingController> {
                         width: double.infinity,
                         height: 48.65,
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
+                          border: Border.all(color: SlectivColors.blackColor),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: DropdownButton<String>(
                           isExpanded: true,
                           hint: const Padding(
                             padding: EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Text("Select an option..."),
+                            child: Text(SlectivTexts.selectAnOption),
                           ),
                           value: controller.selectedQuantity.value.isEmpty ? null : controller.selectedQuantity.value,
                           onChanged: (String? newValue) {
@@ -299,13 +301,37 @@ class BookingView extends GetView<BookingController> {
                 const SizedBox(height: 32),
                 Center(
                   child: SlectiveWidgetButton(
-                    buttonName: "Book Now", 
+                    buttonName: SlectivTexts.bookingNow, 
                     onPressed: () async {
-                      await controller.saveBooking();
-                      Get.offAll(BottomNavigationBarView());
+                      Get.dialog(
+                          const Center(
+                            child: SizedBox(
+                              height: 100,
+                              width: 100,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(SlectivColors.circularProgressColor),
+                              ),
+                            ),
+                          ),
+                          barrierDismissible: false,
+                        );
+                        await Future.delayed(const Duration(seconds: 3));
+
+                        await controller.SlectivBookingValidation(controller);
+
+                        Get.back();
+
+                        Get.snackbar(
+                          SlectivTexts.confirmedBookTitle,
+                          SlectivTexts.confirmedBookSubtitle,
+                          backgroundColor: SlectivColors.positifSnackbarColor,
+                          colorText: Colors.white,
+                          duration: const Duration(seconds: 3),
+                        );
+
                     }, 
                     backgroundColor: SlectivColors.submitButtonColor
-                  )
+                  ),
                 ),
                 const SizedBox(height: 24),
               ],

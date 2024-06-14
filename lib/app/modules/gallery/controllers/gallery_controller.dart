@@ -1,8 +1,11 @@
+import 'package:carousel_slider/carousel_controller.dart';
 import 'package:get/get.dart';
 
 class GalleryController extends GetxController {
   // Observable list to hold image paths
   final imageList = <String>[].obs;
+  final carouselController = CarouselController();
+  final currentSlideIndex = 0.obs;
 
   @override
   void onInit() {

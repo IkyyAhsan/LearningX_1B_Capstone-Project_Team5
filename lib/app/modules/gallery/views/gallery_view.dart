@@ -133,25 +133,55 @@ class GalleryView extends GetView<GalleryController> {
                       height: 15,
                     ),
                     Obx(() {
-                      return CarouselSlider(
-                        options: CarouselOptions(
-                          autoPlay: true,
-                          viewportFraction: 1,
-                          enlargeCenterPage: true,
-                          height: 330,
-                          initialPage: 0,
-                        ),
-                        items: controller.imageList.map((item) {
-                          return Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 1),
-                            margin: const EdgeInsets.symmetric(horizontal: 1),
-                            child: Center(
-                              child: Image.asset(
-                                item,
-                              ),
+                      return Stack(
+                        children: [
+                          CarouselSlider(
+                            carouselController: controller.carouselController,
+                            options: CarouselOptions(
+                              autoPlay: true,
+                              viewportFraction: 1,
+                              enlargeCenterPage: true,
+                              height: 330,
+                              initialPage: 0,
+                              onPageChanged: (index, reason) {
+                                controller.currentSlideIndex.value = index;
+                              },
                             ),
-                          );
-                        }).toList(),
+                            items: controller.imageList.map((item) {
+                              return Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 1),
+                                margin: const EdgeInsets.symmetric(horizontal: 1),
+                                child: Center(
+                                  child: Image.asset(
+                                    item,
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                          Positioned(
+                            left: 0,
+                            top: 0,
+                            bottom: 0,
+                            child: IconButton(
+                              icon: const Icon(Icons.arrow_left, size: 40, color: SlectivColors.titleColor),
+                              onPressed: () {
+                                controller.carouselController.previousPage();
+                              },
+                            ),
+                          ),
+                          Positioned(
+                            right: 0,
+                            top: 0,
+                            bottom: 0,
+                            child: IconButton(
+                              icon: const Icon(Icons.arrow_right, size: 40, color: SlectivColors.titleColor),
+                              onPressed: () {
+                                controller.carouselController.nextPage();
+                              },
+                            ),
+                          ),
+                        ],
                       );
                     }),
                     const SizedBox(

@@ -14,15 +14,20 @@ class TimeCard extends StatelessWidget {
 
     return Obx(() {
       final isSelected = controller.selectedTime.value == time;
+      final isBooked = controller.isTimeBooked(controller.selectedDay.value, time);
+      final isPassed = controller.isTimePassed(controller.selectedDay.value, time);
+
       return GestureDetector(
         onTap: () {
-          controller.selectedTime.value = time;
+          if (!isBooked && !isPassed) {
+            controller.selectedTime.value = time;
+          }
         },
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 8),
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: isSelected ? SlectivColors.warningColor : Colors.white,
+            color: isBooked || isPassed ? Colors.grey : isSelected ? SlectivColors.warningColor : Colors.white,
             border: Border.all(color: Colors.black),
             borderRadius: BorderRadius.circular(8),
           ),
@@ -30,7 +35,7 @@ class TimeCard extends StatelessWidget {
             time,
             style: TextStyle(
               fontSize: 16,
-              color: isSelected ? Colors.white : Colors.black,
+              color: isBooked || isPassed ? Colors.white : isSelected ? Colors.white : Colors.black,
             ),
           ),
         ),

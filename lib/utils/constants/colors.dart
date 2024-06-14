@@ -29,4 +29,7 @@ class SlectivColors{
 
   // -- Gallery Colors
   static const Color semiWhite = Color(0xFFFCF9F4);
+
+  // -- Booking Colors
+  static const Color greyBooking = Colors.grey;
 }
