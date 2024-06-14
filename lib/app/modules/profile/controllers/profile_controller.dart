@@ -55,19 +55,22 @@ class ProfileController extends GetxController {
       File image = File(pickedFile.path);
       await uploadImage(image);
       Get.back();
-      Get.snackbar("Photo Changed", "Your profile photo has been successfully changed.", backgroundColor: SlectivColors.positifSnackbarColor, colorText: SlectivColors.whiteColor);
+      Get.snackbar(
+          "Photo Changed", "Your profile photo has been successfully changed.",
+          backgroundColor: SlectivColors.positifSnackbarColor,
+          colorText: SlectivColors.whiteColor);
     } else {
       print('No image selected.');
     }
   }
 
-
-      
-
   void deleteImage() {
     profileImageUrl.value = '';
     Get.back();
-    Get.snackbar("Photo Deleted", "Your profile photo has been successfully deleted.", backgroundColor: SlectivColors.positifSnackbarColor, colorText: SlectivColors.whiteColor);
+    Get.snackbar(
+        "Photo Deleted", "Your profile photo has been successfully deleted.",
+        backgroundColor: SlectivColors.positifSnackbarColor,
+        colorText: SlectivColors.whiteColor);
   }
 
   Future<void> uploadImage(File image) async {
@@ -78,7 +81,8 @@ class ProfileController extends GetxController {
             height: 100,
             width: 100,
             child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(SlectivColors.circularProgressColor),
+              valueColor: AlwaysStoppedAnimation<Color>(
+                  SlectivColors.circularProgressColor),
               strokeWidth: 5,
             ),
           ),
@@ -118,13 +122,13 @@ class ProfileController extends GetxController {
         name.value = newName;
         Get.back();
         Get.snackbar("Success", "Name has been updated",
-            backgroundColor: SlectivColors.positifSnackbarColor, colorText: SlectivColors.whiteColor
-        );
-        
+            backgroundColor: SlectivColors.positifSnackbarColor,
+            colorText: SlectivColors.whiteColor);
       } catch (e) {
         Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e");
         Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e",
-            backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor, colorText: SlectivColors.whiteColor);
+            backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
+            colorText: SlectivColors.whiteColor);
       }
     }
   }
@@ -133,14 +137,18 @@ class ProfileController extends GetxController {
     User? user = _auth.currentUser;
     if (user != null) {
       try {
-        await _userCollection.doc(user.uid).update({'phone_number': newPhoneNumber});
+        await _userCollection
+            .doc(user.uid)
+            .update({'phone_number': newPhoneNumber});
         phoneNumber.value = newPhoneNumber;
-        Get.snackbar("Success", "Name has been updated",
-            backgroundColor: SlectivColors.positifSnackbarColor, colorText: SlectivColors.whiteColor);
+        Get.snackbar("Success", "Phone Number has been updated",
+            backgroundColor: SlectivColors.positifSnackbarColor,
+            colorText: SlectivColors.whiteColor);
       } catch (e) {
         Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e");
         Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e",
-            backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor, colorText: SlectivColors.whiteColor);
+            backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
+            colorText: SlectivColors.whiteColor);
       }
     }
   }
