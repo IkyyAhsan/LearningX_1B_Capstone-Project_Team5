@@ -7,10 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
+import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
 class ProfileController extends GetxController {
   final CollectionReference _userCollection =
-      FirebaseFirestore.instance.collection('user');
+      FirebaseFirestore.instance.collection(SlectivTexts.profileUser);
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   var name = ''.obs;
@@ -32,18 +33,18 @@ class ProfileController extends GetxController {
             await _userCollection.doc(user.uid).get();
         if (userSnapshot.exists) {
           var userData = userSnapshot.data() as Map<String, dynamic>;
-          name.value = userData['name'] ?? '';
-          email.value = userData['email'] ?? '';
-          phoneNumber.value = userData['phone_number'] ?? '';
-          profileImageUrl.value = userData['profileImageUrl'] ?? '';
+          name.value = userData[SlectivTexts.profileName] ?? '';
+          email.value = userData[SlectivTexts.profileEmail] ?? '';
+          phoneNumber.value = userData[SlectivTexts.profilePhoneNumber] ?? '';
+          profileImageUrl.value = userData[SlectivTexts.profileImageUrl] ?? '';
         } else {
-          print('No user data found.');
+          print(SlectivTexts.profileNoUserDataFound);
         }
       } else {
-        print('No user logged in.');
+        print(SlectivTexts.profileNoUserLoggedIn);
       }
     } catch (e) {
-      print('Error fetching user data: $e');
+      print("${SlectivTexts.profileErrorFetchingUserData} $e");
     }
   }
 
@@ -56,11 +57,11 @@ class ProfileController extends GetxController {
       await uploadImage(image);
       Get.back();
       Get.snackbar(
-          "Photo Changed", "Your profile photo has been successfully changed.",
+          SlectivTexts.profileSuccessFotoChangedTitle, SlectivTexts.profileSuccessFotoChangedSubtitle,
           backgroundColor: SlectivColors.positifSnackbarColor,
           colorText: SlectivColors.whiteColor);
     } else {
-      print('No image selected.');
+      print(SlectivTexts.profileNoImageSelected);
     }
   }
 
@@ -68,8 +69,8 @@ class ProfileController extends GetxController {
     profileImageUrl.value = '';
     Get.back();
     Get.snackbar(
-        "Photo Deleted", "Your profile photo has been successfully deleted.",
-        backgroundColor: SlectivColors.positifSnackbarColor,
+        SlectivTexts.profileSuccessFotoDeletedTitle, SlectivTexts.profileSuccessFotoDeletedSubtitle,
+        backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
         colorText: SlectivColors.whiteColor);
   }
 
@@ -92,7 +93,7 @@ class ProfileController extends GetxController {
 
       firebase_storage.Reference ref = firebase_storage.FirebaseStorage.instance
           .ref()
-          .child('profile_images')
+          .child(SlectivTexts.profileImages)
           .child('${DateTime.now().millisecondsSinceEpoch}.jpg');
 
       await ref.putFile(image);
@@ -104,13 +105,13 @@ class ProfileController extends GetxController {
       User? user = _auth.currentUser;
       if (user != null) {
         await _userCollection.doc(user.uid).update({
-          'profileImageUrl': imageUrl,
+          SlectivTexts.profileImageUrl: imageUrl,
         });
       }
 
       Get.back();
     } catch (e) {
-      print('Error uploading image: $e');
+      print('${SlectivTexts.profileErrorUploadingImage} $e');
     }
   }
 
@@ -118,15 +119,14 @@ class ProfileController extends GetxController {
     User? user = _auth.currentUser;
     if (user != null) {
       try {
-        await _userCollection.doc(user.uid).update({'name': newName});
+        await _userCollection.doc(user.uid).update({SlectivTexts.profileName: newName});
         name.value = newName;
         Get.back();
-        Get.snackbar("Success", "Name has been updated",
+        Get.snackbar(SlectivTexts.profileSuccess, SlectivTexts.profileUpdateNameSubtitle,
             backgroundColor: SlectivColors.positifSnackbarColor,
             colorText: SlectivColors.whiteColor);
       } catch (e) {
-        Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e");
-        Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e",
+        Get.snackbar(SlectivTexts.snackbarErrorTitle, "${SlectivTexts.snackbarErrorUpdateNameSubtitle} $e",
             backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
             colorText: SlectivColors.whiteColor);
       }
@@ -139,14 +139,13 @@ class ProfileController extends GetxController {
       try {
         await _userCollection
             .doc(user.uid)
-            .update({'phone_number': newPhoneNumber});
+            .update({SlectivTexts.profilePhoneNumber: newPhoneNumber});
         phoneNumber.value = newPhoneNumber;
-        Get.snackbar("Success", "Phone Number has been updated",
+        Get.snackbar(SlectivTexts.profileSuccess, SlectivTexts.profileUpdatePhoneNumberSubtitle,
             backgroundColor: SlectivColors.positifSnackbarColor,
             colorText: SlectivColors.whiteColor);
       } catch (e) {
-        Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e");
-        Get.snackbar("Kesalahan", "Gagal memperbarui nama: $e",
+        Get.snackbar(SlectivTexts.snackbarErrorTitle, "${SlectivTexts.snackbarErrorUpdateNameSubtitle} $e",
             backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
             colorText: SlectivColors.whiteColor);
       }

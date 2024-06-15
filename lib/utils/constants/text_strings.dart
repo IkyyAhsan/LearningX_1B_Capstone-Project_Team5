@@ -1,4 +1,6 @@
 class SlectivTexts {
+  // -- Main Title
+  static const String mobileApplicationMainTitle = "Slectiv Studio App";
 
   // -- Admin Contact
   static const String adminContactUrl = "https://wa.me/6281345383641";
@@ -47,6 +49,7 @@ class SlectivTexts {
   static const String phoneNumberHintText = "Enter your Phone Number";
   static const String passwordHintText = "Enter your Password";
   static const String confirmPasswordHintText = "Confirm your Password";
+  static const String regExp = r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$';
 
   // -- Authentication Snackbar
   static const String registerSuccessfullTitle = "Registration Successfull";
@@ -57,7 +60,15 @@ class SlectivTexts {
   static const String snackbarUnableSendResetLink = "Unable to send password reset link.";
   static const String snackbarInvalidEmail = "The email you entered is invalid.";
   static const String snackbarErrorTitle = "Error";
-  static const String snackbarErrorRegistrationTitle = "Terjadi kesalahan saat registrasi. Silakan coba lagi.";
+  static const String snackbarErrorSubtitle = "Email or Password cannot be empty";
+  static const String snackbarLoginSuccessfulTitle = "Login Successful";
+  static const String snackbarLoginSuccessfulSubtitle = "Congratulations, You have logged in successfully";
+  static const String snackbarIncorrectEmailSubtitle = "Congratulations, You have logged in successfully";
+  static const String snackbarErrorRegistrationSubtitle = "An error occurred during registration. Please try again.";
+  static const String snackbarErrorUpdateNameSubtitle = "Failed to update name:";
+  static const String snackbarErrorNotCompleteAllColumnSubtitle = "Please complete all columns first.";
+  static const String snackbarErrorNotValidEmailSubtitle = "Please use a valid email format.";
+  static const String snackbarErrorMustConsistsPasswordSubtitle = "The password consists of a minimum of 8 characters.";
 
   // -- Home Screen
   static const String newAccountType = "Moment Welcomer";
@@ -71,7 +82,11 @@ class SlectivTexts {
   static const String profileLabel = "Profile";
 
   // -- Tab Bar
-    // -- Self Photo
+
+  static const String buttonExecutionTitle = "Please Wait..";
+  static const String buttonExecutionSubtitle = "Wait for a minute";
+
+  // -- Self Photo
   static const String selfPhotoDescription = "Our Self Photo service aims to showcase your unique personality. Whether you need professional headshots, family portraits, or a personal photo shoot, we create images that reflect the true you. We work with you to showcase your best angles and expressions, ensuring every portrait tells your story.";
   static const String selfPhotoTitle = "Self Photo";
   static const String selfPhotoButtonName = "Booking";
@@ -135,10 +150,29 @@ class SlectivTexts {
   static const String exit = "Exit";
   static const String profileSuccessLogoutTitleButton = "Logout Successful";
   static const String profileSuccessLogoutSubtitleButton = "You have been logged out successfully";
+  static const String profileId = "id";
+  static const String profileName = "name";
+  static const String profileImages = "profile_images";
+  static const String profileUser = "user";
+  static const String profileEmail = "email";
+  static const String profilePhoneNumber = "phone_number";
+  static const String profileImageUrl = "profileImageUrl";
+  static const String profileNoUserDataFound = "No user data found.";
+  static const String profileNoUserLoggedIn = "No user logged in.";
+  static const String profileErrorUploadingImage = "Error uploading image:";
+  static const String profileErrorFetchingUserData = "Error fetching user data:";
+  static const String profileNoImageSelected = "No image selected.";
+  static const String profileSuccessFotoChangedTitle = "Photo Changed";
+  static const String profileSuccessFotoChangedSubtitle = "Your profile photo has been successfully changed.";
+  static const String profileSuccessFotoDeletedTitle = "Photo Deleted";
+  static const String profileSuccessFotoDeletedSubtitle = "Your profile photo has been successfully deleted.";
+  static const String profileSuccess = "Success";
+  static const String profileUpdateNameSubtitle = "Name has been updated";
+  static const String profileUpdatePhoneNumberSubtitle = "Phone Number has been updated";
 
 // -- Booking Screen
   static const String bookingNow = "Booking Now";
-  static const String bookingTitle = "Booking Studio Photo";
+  static const String bookingTitle = "Self Photo Reservation";
   static const String bookingTitle1 = "Select Date";
   static const String bookingTitle2 = "Select Time";
   static const String bookingTitle3 = "Color";
@@ -149,4 +183,11 @@ class SlectivTexts {
   static const String person = "Person";
   static const String color = "Color";
   static const String chooseDate = "Choose a date above to see available times.";
+  static const String errorBookingValidationTitle = "Error";
+  static const String errorBookingValidationSubtitle = "Please select all options before booking.";
+  static const String bookings = "bookings";
+  static const String bookingDate = "date";
+  static const String bookingTime = "time";
+  static const String bookingColor = "color";
+  static const String bookingPerson = "person";
 }

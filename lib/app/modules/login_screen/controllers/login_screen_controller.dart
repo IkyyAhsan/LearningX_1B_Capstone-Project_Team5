@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
+import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
 class LoginScreenController extends GetxController {
   // -- Variables
@@ -36,7 +37,7 @@ class LoginScreenController extends GetxController {
     String password = passwordController.text;
 
     if (email.isEmpty || password.isEmpty) {
-      Get.snackbar('Error', 'Email atau Password tidak boleh kosong',
+      Get.snackbar(SlectivTexts.snackbarErrorTitle, SlectivTexts.snackbarErrorSubtitle,
           backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor, 
           colorText: SlectivColors.whiteColor,
       );
@@ -47,8 +48,8 @@ class LoginScreenController extends GetxController {
 
     if (isValidCredentials) {
       Get.snackbar(
-        "Login Successful", 
-        "Congratulations, You have logged in successfully", 
+        SlectivTexts.snackbarLoginSuccessfulTitle, 
+        SlectivTexts.snackbarLoginSuccessfulSubtitle, 
         backgroundColor: SlectivColors.positifSnackbarColor, 
         colorText: SlectivColors.whiteColor, 
         duration: const Duration(
@@ -64,7 +65,7 @@ class LoginScreenController extends GetxController {
 
       clearForm();
     } else {
-      Get.snackbar('Error', 'Email atau Password salah',
+      Get.snackbar(SlectivTexts.snackbarErrorTitle, SlectivTexts.snackbarIncorrectEmailSubtitle,
         backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor, 
         colorText: SlectivColors.whiteColor
       );

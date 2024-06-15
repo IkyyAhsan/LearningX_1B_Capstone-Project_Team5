@@ -137,7 +137,7 @@ class SlectivSelfPhoto extends StatelessWidget {
                   if (await canLaunch(SlectivTexts.adminContactUrl)) {
                     await launch(SlectivTexts.adminContactUrl);
                   } else {
-                    Get.snackbar("Please Wait..", "Wait for a minute", backgroundColor: SlectivColors.warningColor);
+                    Get.snackbar(SlectivTexts.buttonExecutionTitle, SlectivTexts.buttonExecutionSubtitle, backgroundColor: SlectivColors.warningColor);
                   }
                 }, 
                 backgroundColor: SlectivColors.submitButtonColor

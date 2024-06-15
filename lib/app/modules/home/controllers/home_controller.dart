@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
 class HomeController extends GetxController {
   final CollectionReference _userCollection =
-      FirebaseFirestore.instance.collection('user');
+      FirebaseFirestore.instance.collection(SlectivTexts.profileUser);
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   var name = ''.obs;
@@ -25,17 +26,17 @@ class HomeController extends GetxController {
             await _userCollection.doc(user.uid).get();
         if (userSnapshot.exists) {
           var userData = userSnapshot.data() as Map<String, dynamic>;
-          name.value = userData['name'] ?? '';
-          email.value = userData['email'] ?? '';
-          phoneNumber.value = userData['phone_number'] ?? '';
+          name.value = userData[SlectivTexts.profileName] ?? '';
+          email.value = userData[SlectivTexts.profileEmail] ?? '';
+          phoneNumber.value = userData[SlectivTexts.profilePhoneNumber] ?? '';
         } else {
-          print('No user data found.');
+          print(SlectivTexts.profileNoUserDataFound);
         }
       } else {
-        print('No user logged in.');
+        print(SlectivTexts.profileNoUserLoggedIn);
       }
     } catch (e) {
-      print('Error fetching user data: $e');
+      print('${SlectivTexts.profileErrorFetchingUserData} $e');
     }
   }
 }

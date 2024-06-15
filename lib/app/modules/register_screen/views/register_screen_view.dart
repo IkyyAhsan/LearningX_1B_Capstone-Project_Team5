@@ -239,7 +239,7 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
                               // Show error snackbar
                               Get.snackbar(
                                 SlectivTexts.snackbarErrorTitle,
-                                SlectivTexts.snackbarErrorRegistrationTitle,
+                                SlectivTexts.snackbarErrorRegistrationSubtitle,
                                 backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
                                 colorText: Colors.white,
                               );

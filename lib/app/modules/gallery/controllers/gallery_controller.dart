@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:get/get.dart';
+import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
 
 class GalleryController extends GetxController {
   // Observable list to hold image paths
@@ -12,15 +13,15 @@ class GalleryController extends GetxController {
     super.onInit();
     // Initialize the image list
     imageList.addAll([
-      'assets/images/gallery/image1.png',
-      'assets/images/gallery/image2.png',
-      'assets/images/gallery/image3.png',
-      'assets/images/gallery/image4.png',
-      'assets/images/gallery/image5.png',
-      'assets/images/gallery/image6.png',
-      'assets/images/gallery/image7.png',
-      'assets/images/gallery/image8.png',
-      'assets/images/gallery/image9.png',
+      SlectivImages.galeryImage1,
+      SlectivImages.galeryImage2,
+      SlectivImages.galeryImage3,
+      SlectivImages.galeryImage4,
+      SlectivImages.galeryImage5,
+      SlectivImages.galeryImage6,
+      SlectivImages.galeryImage7,
+      SlectivImages.galeryImage8,
+      SlectivImages.galeryImage9,
     ]);
   }
 

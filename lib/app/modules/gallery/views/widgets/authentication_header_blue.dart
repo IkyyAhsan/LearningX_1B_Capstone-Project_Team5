@@ -8,17 +8,17 @@ class SlectivAuthenticationHeaderBlue extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Column(
         children: [
-          const SizedBox(
+          SizedBox(
             height: 145,
             width: 328,
             child: Image(
               image: AssetImage(SlectivImages.applogoBlue),
             ),
           ),
-          const SizedBox(
+          SizedBox(
             height: 16,
           ),
         ],
