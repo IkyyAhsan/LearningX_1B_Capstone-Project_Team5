@@ -15,7 +15,7 @@ class WaitingToResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ForgetPasswordController = Get.put(ForgetPasswordScreenController());
+    final forgetPasswordController = Get.put(ForgetPasswordScreenController());
     return Scaffold(
       backgroundColor: SlectivColors.backgroundColor,
       body: SafeArea(
@@ -29,7 +29,7 @@ class WaitingToResetPassword extends StatelessWidget {
               const SizedBox(height: 36,),
 
               Lottie.asset(SlectivImages.waitingToResetPassword),
-              Text(ForgetPasswordController.emailController.text),
+              Text(forgetPasswordController.emailController.text),
               const SizedBox(height: 5,),
               Text(
                 SlectivTexts.forgetPasswordWaitingToResetTitle, 

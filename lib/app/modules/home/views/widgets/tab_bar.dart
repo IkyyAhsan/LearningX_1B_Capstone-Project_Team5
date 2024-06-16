@@ -7,14 +7,14 @@ import 'package:slectiv_studio_app/app/modules/home/views/widgets/Tab/wide_photo
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
-class TabSection extends StatefulWidget {
-  const TabSection({super.key});
+class SlectivTabSection extends StatefulWidget {
+  const SlectivTabSection({super.key});
 
   @override
   _TabSectionState createState() => _TabSectionState();
 }
 
-class _TabSectionState extends State<TabSection> with TickerProviderStateMixin {
+class _TabSectionState extends State<SlectivTabSection> with TickerProviderStateMixin {
   late TabController _tabController;
 
   @override

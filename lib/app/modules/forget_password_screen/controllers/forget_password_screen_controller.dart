@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:slectiv_studio_app/app/modules/forget_password_screen/views/waiting_to_reset_password.dart';
+import 'package:slectiv_studio_app/app/modules/forget_password_screen/views/widgets/waiting_to_reset_password.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 

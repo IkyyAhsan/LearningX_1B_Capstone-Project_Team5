@@ -77,8 +77,8 @@ class SlectivTexts {
 
   // -- Bottom Navigation Bar
   static const String homeLabel = "Home";
-  static const String informationLabel = "Booking";
-  static const String portofolioLabel = "Gallery";
+  static const String bookingLabel = "Booking";
+  static const String galleyLabel = "Gallery";
   static const String profileLabel = "Profile";
 
   // -- Tab Bar
@@ -172,7 +172,7 @@ class SlectivTexts {
 
 // -- Booking Screen
   static const String bookingNow = "Booking Now";
-  static const String bookingTitle = "Self Photo Reservation";
+  static const String bookingTitle = "Select Date";
   static const String bookingTitle1 = "Select Date";
   static const String bookingTitle2 = "Select Time";
   static const String bookingTitle3 = "Color";

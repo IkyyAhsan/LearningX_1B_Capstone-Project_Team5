@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:slectiv_studio_app/app/modules/home/controllers/home_controller.dart';
+import 'package:slectiv_studio_app/app/modules/home/views/widgets/account_type.dart';
+import 'package:slectiv_studio_app/app/modules/home/views/widgets/membership_banner.dart';
 import 'package:slectiv_studio_app/app/modules/home/views/widgets/tab_bar.dart';
+import 'package:slectiv_studio_app/app/modules/home/views/widgets/welcome_user.dart';
 import 'package:slectiv_studio_app/app/modules/login_screen/views/widgets/authentication_header.dart';
 import 'package:slectiv_studio_app/app/modules/profile/controllers/profile_controller.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
-import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
-import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
-
-import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -25,17 +24,27 @@ class HomeView extends GetView<HomeController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+
+                // -- Authentication Header
                 const SizedBox(height: 24,),
                 const SlectivAuthenticationHeader(),
+
+                // -- String Hello to User
                 const SizedBox(height: 24,),
-                Obx(() => Text("${SlectivTexts.hallo} ${profileController.name.value}", style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700, color: SlectivColors.titleColor)),)),
-                Text(SlectivTexts.newAccountType, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: SlectivColors.jenisAkunColor)),),
+                SlectivHelloToUser(profileController: profileController),
+                
+                // -- Account Type
+                const SlectivTypeAccount(),
                 const SizedBox(height: 24,),
-                const Image(image: AssetImage(SlectivImages.newMembershipBanners),
-                  width: double.infinity,
-                ),
+
+                // -- Membership Banner
+                const SlectivMembershipBanner(),
                 const SizedBox(height: 16,),
-                const TabSection(),
+
+                // -- Tab Bar 
+                const SlectivTabSection(),
+
+                // -- Divider
                 const Divider(color: SlectivColors.blackColor, indent: 0, endIndent: 500,),
               ],
             ),
@@ -45,3 +54,9 @@ class HomeView extends GetView<HomeController> {
     );
   }
 }
+
+
+
+
+
+

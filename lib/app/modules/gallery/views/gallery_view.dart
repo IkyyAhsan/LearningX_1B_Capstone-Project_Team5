@@ -1,12 +1,18 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:slectiv_studio_app/app/modules/gallery/controllers/gallery_controller.dart';
 import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/authentication_header_blue.dart';
+import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/first_galley_history.dart';
+import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/first_welcome_gallery.dart';
 import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/footer_widget.dart';
+import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/gallery_history_header.dart';
+import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/history_divider.dart';
+import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/lines_divider.dart';
+import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/photo_gallery.dart';
+import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/second_gallery_history.dart';
+import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/second_welcome_gallery.dart';
+import 'package:slectiv_studio_app/app/modules/gallery/views/widgets/third_gallery_history.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
-import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
-import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
 class GalleryView extends GetView<GalleryController> {
   const GalleryView({super.key});
@@ -25,175 +31,76 @@ class GalleryView extends GetView<GalleryController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    const Text(SlectivTexts.galleryWellcome,
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            color: SlectivColors.titleColor)),
-                    const Text(
-                      SlectivTexts.galleryWellcome2,
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                          color: SlectivColors.jenisAkunColor),
-                    ),
-                    const SizedBox(
-                      height: 24,
-                    ),
+
+                    // -- Welcome Gallery Text
+                    const SizedBox(height: 24,),
+                    const SlectiveFirstWelcomeGallery(),
+                    
+                    const SlectivSecondWelcomeGallery(),
+                    const SizedBox(height: 24,),
+
+                    // -- Blue App Logo
                     const SlectivAuthenticationHeaderBlue(),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    const Text(
-                      SlectivTexts.galleryHsitory,
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                          color: SlectivColors.jenisAkunColor),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      SlectivTexts.galleryHsitoryContex1,
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: SlectivColors.jenisAkunColor),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Center(
-                      child: Image(image: AssetImage(SlectivImages.line1)),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      SlectivTexts.galleryHistoryContex2,
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: SlectivColors.jenisAkunColor),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Center(
-                      child: Image(image: AssetImage(SlectivImages.line1)),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      SlectivTexts.galleryHistoryContex3,
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: SlectivColors.jenisAkunColor),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    const Center(
-                      child: Image(image: AssetImage(SlectivImages.line2)),
-                    ),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    const Center(
-                      child: Text(SlectivTexts.galleryPhoto,
-                          style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w400,
-                              color: SlectivColors.titleColor)),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Center(
-                      child: Text(SlectivTexts.gallerysub,
-                          style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: SlectivColors.titleColor)),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Obx(() {
-                      return Stack(
-                        children: [
-                          CarouselSlider(
-                            carouselController: controller.carouselController,
-                            options: CarouselOptions(
-                              autoPlay: true,
-                              viewportFraction: 1,
-                              enlargeCenterPage: true,
-                              height: 330,
-                              initialPage: 0,
-                              onPageChanged: (index, reason) {
-                                controller.currentSlideIndex.value = index;
-                              },
-                            ),
-                            items: controller.imageList.map((item) {
-                              return Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 1),
-                                margin: const EdgeInsets.symmetric(horizontal: 1),
-                                child: Center(
-                                  child: Image.asset(
-                                    item,
-                                  ),
-                                ),
-                              );
-                            }).toList(),
-                          ),
-                          Positioned(
-                            left: 0,
-                            top: 0,
-                            bottom: 0,
-                            child: IconButton(
-                              icon: const Icon(Icons.arrow_left, size: 40, color: SlectivColors.titleColor),
-                              onPressed: () {
-                                controller.carouselController.previousPage();
-                              },
-                            ),
-                          ),
-                          Positioned(
-                            right: 0,
-                            top: 0,
-                            bottom: 0,
-                            child: IconButton(
-                              icon: const Icon(Icons.arrow_right, size: 40, color: SlectivColors.titleColor),
-                              onPressed: () {
-                                controller.carouselController.nextPage();
-                              },
-                            ),
-                          ),
-                        ],
-                      );
-                    }),
-                    const SizedBox(
-                      height: 24,
-                    ),
+                    const SizedBox(height: 24),
+
+                    // -- History Header Text
+                    const SlectivGalleryHistoryHeader(),
+                    const SizedBox(height: 10,),
+
+                    // -- First Paragraph of History
+                    const SlectivFirstParagraphGalleryHistory(),
+                    const SizedBox(height: 10,),
+
+                    // -- History Divider
+                    const SlectivHistoryDivider(),
+                    const SizedBox(height: 10,),
+
+                    // -- Second Paragraph of History
+                    const SlectivSecondParagraphGalleryHistory(),
+                    const SizedBox(height: 10,),
+
+                    // -- History Divider
+                    const SlectivHistoryDivider(),
+                    const SizedBox(height: 10,),
+                    
+                    // -- Third Paragraph of History
+                    const SlectivThirdParagraphGalleryHistory(),
+                    const SizedBox(height: 34,),
+
+                    // -- Lines Divider
+                    const SlectivLinesDivider(),
+                    const SizedBox(height: 24,),
+
+                    // Photo Gallery
+                    SlectivPhotoGallery(controller: controller),
+                    const SizedBox(height: 24,),
                   ],
                 ),
               ),
+              // Footer
               const SlectivFooterWidget(),
             ],
           ),
-        )),
+        )
+      ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

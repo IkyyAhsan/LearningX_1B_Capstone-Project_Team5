@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:slectiv_studio_app/app/modules/onboarding_screen/controllers/onboarding_screen_controller.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 
-class onBoardingNextButton extends StatelessWidget {
-  const onBoardingNextButton({
+class SlectivonBoardingNextButton extends StatelessWidget {
+  const SlectivonBoardingNextButton({
     super.key,
   });
 

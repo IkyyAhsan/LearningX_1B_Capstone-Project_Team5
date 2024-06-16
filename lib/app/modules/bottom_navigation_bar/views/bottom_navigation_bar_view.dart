@@ -2,6 +2,9 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/controllers/bottom_navigation_bar_controller.dart';
+import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/widgets/booking_destination.dart';
+import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/widgets/gallery_destination.dart';
+import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/widgets/home_destination.dart';
 import 'package:slectiv_studio_app/app/modules/profile/controllers/profile_controller.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
@@ -12,10 +15,12 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(BottomNavigationBarController());
-    final profileController = Get.find<ProfileController>(); // Pastikan Anda sudah menginisialisasi ProfileController
+    final profileController = Get.find<ProfileController>();
 
     return Scaffold(
       backgroundColor: SlectivColors.backgroundColor,
+
+      // -- Navigate Destination
       bottomNavigationBar: Obx(
         () => ClipRRect(
           borderRadius: const BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
@@ -26,21 +31,9 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
             indicatorColor: Colors.transparent,
             onDestinationSelected: (index) => controller.selectedIndex.value = index,
             destinations: [
-              const NavigationDestination(
-                icon: Icon(FluentIcons.home_24_regular),
-                label: SlectivTexts.homeLabel,
-                selectedIcon: Icon(FluentIcons.home_24_filled, color: SlectivColors.submitButtonColor,),
-              ),
-              const NavigationDestination(
-                icon: Icon(FluentIcons.camera_add_24_regular),
-                label: SlectivTexts.informationLabel,
-                selectedIcon: Icon(FluentIcons.camera_add_24_filled, color: SlectivColors.submitButtonColor,),
-              ),
-              const NavigationDestination(
-                icon: Icon(FluentIcons.document_bullet_list_24_regular),
-                label: SlectivTexts.portofolioLabel,
-                selectedIcon: Icon(FluentIcons.document_bullet_list_24_filled, color: SlectivColors.submitButtonColor,),
-              ),
+              const SlectivHomeDestination(),
+              const SlectivBookingDestination(),
+              const SlectivGalleryDestination(),
               NavigationDestination(
                 icon: Obx(() => _buildProfileIcon(profileController, false)),
                 label: SlectivTexts.profileLabel,
