@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/controllers/bottom_navigation_bar_controller.dart';
+import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import 'package:slectiv_studio_app/app/modules/login_screen/views/widgets/submit_button.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SlectivSelfPhoto extends StatelessWidget {
   const SlectivSelfPhoto({super.key});
@@ -133,13 +134,11 @@ class SlectivSelfPhoto extends StatelessWidget {
               const SizedBox(height: 30,),
               SlectiveWidgetButton(
                 buttonName: SlectivTexts.selfPhotoButtonName, 
-                onPressed: () async {
-                  if (await canLaunch(SlectivTexts.adminContactUrl)) {
-                    await launch(SlectivTexts.adminContactUrl);
-                  } else {
-                    Get.snackbar(SlectivTexts.buttonExecutionTitle, SlectivTexts.buttonExecutionSubtitle, backgroundColor: SlectivColors.warningColor);
-                  }
-                }, 
+                onPressed: () {
+                  final bottomNavBarController = Get.find<BottomNavigationBarController>();
+                  bottomNavBarController.selectedIndex.value = 1;
+                  Get.to(const BottomNavigationBarView());
+                } ,
                 backgroundColor: SlectivColors.submitButtonColor
               ),
               const SizedBox(height: 5,),
