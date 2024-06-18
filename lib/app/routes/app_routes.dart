@@ -3,7 +3,7 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   Routes._();
-  static const HOME = _Paths.HOME;
+  static const HOME = _Paths.BOOKING_SUCCESS;
   static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
   static const ONBOARDING_SCREEN = _Paths.ONBOARDING_SCREEN;
   static const LOGIN_SCREEN = _Paths.LOGIN_SCREEN;
@@ -12,6 +12,7 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const BOTTOM_NAVIGATION_BAR = _Paths.BOTTOM_NAVIGATION_BAR;
   static const BOOKING = _Paths.BOOKING;
+  static const BOOKING_SUCCESS = _Paths.BOOKING_SUCCESS;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const BOTTOM_NAVIGATION_BAR = '/bottom-navigation-bar';
   static const BOOKING = '/booking';
+  static const BOOKING_SUCCESS = '/booking/widgets/booking_success_screen.dart';
 }

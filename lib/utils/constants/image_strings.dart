@@ -8,10 +8,14 @@ class SlectivImages {
       "assets/logos/slectiv_studio_logo_blue2.png";
 
   // -- Animation
-  static const String onBoardingAnimation1 = "assets/animations/Onboarding1.json";
-  static const String onBoardingAnimation2 = "assets/animations/Onboarding2.json";
-  static const String onBoardingAnimation3 = "assets/animations/Onboarding3.json";
-  static const String waitingToResetPassword = "assets/animations/WaitingToResetPassword.json";
+  static const String onBoardingAnimation1 =
+      "assets/animations/Onboarding1.json";
+  static const String onBoardingAnimation2 =
+      "assets/animations/Onboarding2.json";
+  static const String onBoardingAnimation3 =
+      "assets/animations/Onboarding3.json";
+  static const String waitingToResetPassword =
+      "assets/animations/WaitingToResetPassword.json";
 
   // -- Banners
   static const String newMembershipBanners = "assets/images/hakLoyalty.png";
@@ -27,7 +31,8 @@ class SlectivImages {
   static const String line2 = "assets/lines/line2.png";
 
   // -- video
-  static const String saveIGVideo = "assets/videos/SaveIG.App_3318307591196837453.mp4";
+  static const String saveIGVideo =
+      "assets/videos/SaveIG.App_3318307591196837453.mp4";
 
   // -- Gallery Image
   static const String galeryImage1 = "assets/images/gallery/image1.png";
@@ -39,4 +44,8 @@ class SlectivImages {
   static const String galeryImage7 = "assets/images/gallery/image7.png";
   static const String galeryImage8 = "assets/images/gallery/image8.png";
   static const String galeryImage9 = "assets/images/gallery/image9.png";
+
+  // -- Booking Success Image
+  static const String bookingSuccessImage =
+      "assets/logos/checklist_success.png";
 }

@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:slectiv_studio_app/app/modules/booking/bindings/booking_binding.dart';
+import 'package:slectiv_studio_app/app/modules/booking/bindings/booking_success_screen_binding.dart';
 import 'package:slectiv_studio_app/app/modules/booking/views/booking_view.dart';
+import 'package:slectiv_studio_app/app/modules/booking/views/widgets/booking_success_screen.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/bindings/bottom_navigation_bar_binding.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import '../modules/forget_password_screen/bindings/forget_password_screen_binding.dart';
@@ -23,7 +25,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.BOTTOM_NAVIGATION_BAR;
+  static const INITIAL = Routes.BOOKING_SUCCESS;
 
   static final routes = [
     GetPage(
@@ -71,5 +73,10 @@ class AppPages {
       page: () => const BookingView(),
       binding: BookingBinding(),
     ),
+    GetPage(
+      name: _Paths.BOOKING_SUCCESS,
+      page: () => const BookingSuccessScreen(),
+      binding: BookingSuccessScreenBindings(),
+    )
   ];
 }

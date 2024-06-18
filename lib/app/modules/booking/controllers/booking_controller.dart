@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
+import 'package:slectiv_studio_app/app/modules/home/views/home_view.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
 class BookingController extends GetxController {
@@ -11,6 +12,7 @@ class BookingController extends GetxController {
   var selectedTime = ''.obs;
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final screens = [const HomeView()];
 
   var bookings = <String, List<String>>{}.obs;
 
@@ -24,7 +26,11 @@ class BookingController extends GetxController {
   Future<void> fetchBookings() async {
     var snapshot = await _firestore.collection(SlectivTexts.bookings).get();
     for (var doc in snapshot.docs) {
-      String date = (doc[SlectivTexts.bookingDate] as Timestamp).toDate().toIso8601String().split('T').first;
+      String date = (doc[SlectivTexts.bookingDate] as Timestamp)
+          .toDate()
+          .toIso8601String()
+          .split('T')
+          .first;
       if (!bookings.containsKey(date)) {
         bookings[date] = [];
       }
@@ -53,16 +59,16 @@ class BookingController extends GetxController {
   }
 
   bool isTimePassed(DateTime date, String time) {
-  final now = DateTime.now();
-  if (date.isBefore(DateTime(now.year, now.month, now.day))) {
-    return true;
-  } else if (date.isAtSameMomentAs(DateTime(now.year, now.month, now.day))) {
-    final bookingTime = DateTime(now.year, now.month, now.day, int.parse(time.split(':')[0]), int.parse(time.split(':')[1]));
-    return bookingTime.isBefore(now);
+    final now = DateTime.now();
+    if (date.isBefore(DateTime(now.year, now.month, now.day))) {
+      return true;
+    } else if (date.isAtSameMomentAs(DateTime(now.year, now.month, now.day))) {
+      final bookingTime = DateTime(now.year, now.month, now.day,
+          int.parse(time.split(':')[0]), int.parse(time.split(':')[1]));
+      return bookingTime.isBefore(now);
+    }
+    return false;
   }
-  return false;
-}
-
 
   void _scheduleDailyReset() {
     final now = DateTime.now();
@@ -77,8 +83,11 @@ class BookingController extends GetxController {
   }
 
   Future<void> slectivBookingValidation(BookingController controller) async {
-    if (controller.selectedOption.value.isEmpty || controller.selectedQuantity.value.isEmpty || controller.selectedTime.value.isEmpty) {
-      Get.snackbar(SlectivTexts.errorBookingValidationTitle, SlectivTexts.errorBookingValidationSubtitle);
+    if (controller.selectedOption.value.isEmpty ||
+        controller.selectedQuantity.value.isEmpty ||
+        controller.selectedTime.value.isEmpty) {
+      Get.snackbar(SlectivTexts.errorBookingValidationTitle,
+          SlectivTexts.errorBookingValidationSubtitle);
     } else {
       await controller.saveBooking();
       Get.offAll(const BottomNavigationBarView());
