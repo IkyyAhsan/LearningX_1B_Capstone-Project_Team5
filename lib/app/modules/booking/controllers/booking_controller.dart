@@ -93,4 +93,8 @@ class BookingController extends GetxController {
       Get.offAll(const BottomNavigationBarView());
     }
   }
+
+  bool get isBookingComplete {
+    return selectedOption.isNotEmpty && selectedQuantity.isNotEmpty && selectedTime.isNotEmpty;
+  }
 }

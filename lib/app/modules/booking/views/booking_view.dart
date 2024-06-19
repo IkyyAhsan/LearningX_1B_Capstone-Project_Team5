@@ -8,6 +8,7 @@ import 'package:slectiv_studio_app/app/modules/booking/views/widgets/color_dropd
 import 'package:slectiv_studio_app/app/modules/booking/views/widgets/person_dropdown.dart';
 import 'package:slectiv_studio_app/app/modules/booking/views/widgets/person_dropdown_title.dart';
 import 'package:slectiv_studio_app/app/modules/booking/views/widgets/time_reservation.dart';
+import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import '../controllers/booking_controller.dart';
 
 class BookingView extends GetView<BookingController> {
@@ -19,7 +20,7 @@ class BookingView extends GetView<BookingController> {
     final DateTime now = DateTime.now();
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: SlectivColors.backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),

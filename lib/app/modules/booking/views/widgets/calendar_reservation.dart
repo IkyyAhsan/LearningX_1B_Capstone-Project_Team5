@@ -27,7 +27,7 @@ class SlectivCalendarReservation extends StatelessWidget {
             if (selectedDay.isAfter(DateTime.now().subtract(const Duration(days: 1)))) {
               controller.selectedDay.value = selectedDay;
               controller.focusedDay.value = focusedDay;
-              controller.selectedTime.value = ''; // Reset selected time when date changes
+              controller.selectedTime.value = '';
             }
           },
           enabledDayPredicate: (day) {

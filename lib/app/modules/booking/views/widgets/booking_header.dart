@@ -14,7 +14,7 @@ class SlectivBookingHeader extends StatelessWidget {
       style: TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.w700,
-        color: Colors.black,
+        color: SlectivColors.blackColor,
       ),
     );
   }

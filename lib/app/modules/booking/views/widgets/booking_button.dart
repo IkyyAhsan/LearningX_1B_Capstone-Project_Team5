@@ -17,36 +17,44 @@ class SlectivBookingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: SlectiveWidgetButton(
+      child: Obx(() {
+        final isButtonEnabled = controller.isBookingComplete;
+        return SlectiveWidgetButton(
           buttonName: SlectivTexts.bookingNow,
           onPressed: () async {
-            Get.dialog(
-              const Center(
-                child: SizedBox(
-                  height: 100,
-                  width: 100,
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                        SlectivColors.circularProgressColor),
+            if (isButtonEnabled) {
+              Get.dialog(
+                const Center(
+                  child: SizedBox(
+                    height: 100,
+                    width: 100,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                          SlectivColors.circularProgressColor),
+                    ),
                   ),
                 ),
-              ),
-              barrierDismissible: false,
-            );
-            await Future.delayed(const Duration(seconds: 3));
+                barrierDismissible: false,
+              );
+              await Future.delayed(const Duration(seconds: 3));
 
-            await controller.slectivBookingValidation(controller);
+              await controller.slectivBookingValidation(controller);
 
-            Get.back();
+              Get.back();
 
-            Get.snackbar(SlectivTexts.snackbarSuccessfullyBookingTitle, SlectivTexts.snackbarSuccessfullyBookingSubtitle,
-              backgroundColor: SlectivColors.submitButtonColor, 
-              colorText: SlectivColors.whiteColor
-            );
+              Get.snackbar(
+                SlectivTexts.snackbarSuccessfullyBookingTitle,
+                SlectivTexts.snackbarSuccessfullyBookingSubtitle,
+                backgroundColor: SlectivColors.submitButtonColor,
+                colorText: SlectivColors.whiteColor,
+              );
 
-            Get.offAll(() => const BookingSuccessScreen());
+              Get.offAll(() => const BookingSuccessScreen());
+            }
           },
-          backgroundColor: SlectivColors.submitButtonColor),
+          backgroundColor: isButtonEnabled ? SlectivColors.submitButtonColor : Colors.grey,
+        );
+      }),
     );
   }
 }
