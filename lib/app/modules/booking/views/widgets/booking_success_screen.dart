@@ -1,15 +1,28 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/controllers/bottom_navigation_bar_controller.dart';
-import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
-import 'package:slectiv_studio_app/app/modules/login_screen/views/widgets/submit_button.dart';
+import 'package:slectiv_studio_app/app/routes/app_pages.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
-class BookingSuccessScreen extends StatelessWidget {
+class BookingSuccessScreen extends StatefulWidget {
   const BookingSuccessScreen({Key? key}) : super(key: key);
+
+  @override
+  _BookingSuccessScreenState createState() => _BookingSuccessScreenState();
+}
+
+class _BookingSuccessScreenState extends State<BookingSuccessScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 3), () {
+      Get.offAllNamed(Routes.BOTTOM_NAVIGATION_BAR);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,13 +63,6 @@ class BookingSuccessScreen extends StatelessWidget {
             ),
             const SizedBox(
               height: 10,
-            ),
-            SlectiveWidgetButton(
-              buttonName: SlectivTexts.bookingSuccessButton,
-              onPressed: () {
-                Get.offAll(() => BottomNavigationBarView());
-              },
-              backgroundColor: SlectivColors.submitButtonColor,
             ),
             const SizedBox(
               height: 10,
