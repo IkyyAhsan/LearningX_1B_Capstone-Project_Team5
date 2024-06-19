@@ -39,7 +39,12 @@ class SlectivBookingButton extends StatelessWidget {
 
             Get.back();
 
-            Get.to(() => BookingSuccessScreen());
+            Get.snackbar(SlectivTexts.snackbarSuccessfullyBookingTitle, SlectivTexts.snackbarSuccessfullyBookingSubtitle,
+              backgroundColor: SlectivColors.submitButtonColor, 
+              colorText: SlectivColors.whiteColor
+            );
+
+            Get.offAll(() => const BookingSuccessScreen());
           },
           backgroundColor: SlectivColors.submitButtonColor),
     );

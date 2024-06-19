@@ -16,6 +16,8 @@ class SlectivImages {
       "assets/animations/Onboarding3.json";
   static const String waitingToResetPassword =
       "assets/animations/WaitingToResetPassword.json";
+  static const String bookingSuccessfully =
+      "assets/animations/successBooking.json";
 
   // -- Banners
   static const String newMembershipBanners = "assets/images/hakLoyalty.png";

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:slectiv_studio_app/app/routes/app_pages.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
@@ -33,18 +34,14 @@ class _BookingSuccessScreenState extends State<BookingSuccessScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Center(
-              child: Image(
-                image: AssetImage(SlectivImages.bookingSuccessImage),
-                width: 162,
-                height: 162,
-              ),
+            Center(
+              child: Lottie.asset(SlectivImages.bookingSuccessfully)
             ),
             Text(
               SlectivTexts.bookingSuccessTitle,
               style: GoogleFonts.spaceGrotesk(
                   textStyle: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 32,
                       fontWeight: FontWeight.w700,
                       color: SlectivColors.blackColor)),
             ),
@@ -55,7 +52,7 @@ class _BookingSuccessScreenState extends State<BookingSuccessScreen> {
               SlectivTexts.bookingSuccessDescription,
               style: GoogleFonts.spaceGrotesk(
                 textStyle: const TextStyle(
-                  fontSize: 16,
+                  fontSize: 18,
                   fontWeight: FontWeight.w400,
                 ),
               ),

@@ -87,6 +87,10 @@ class SlectivTexts {
       "Please use a valid email format.";
   static const String snackbarErrorMustConsistsPasswordSubtitle =
       "The password consists of a minimum of 8 characters.";
+  static const String snackbarSuccessfullyBookingTitle =
+      "Reservation successful";
+  static const String snackbarSuccessfullyBookingSubtitle =
+      "Your booking has been confirmed. Thank you for choosing to use our service.";
 
   // -- Home Screen
   static const String newAccountType = "Moment Welcomer";
@@ -223,9 +227,7 @@ class SlectivTexts {
   static const String bookingTime = "time";
   static const String bookingColor = "color";
   static const String bookingPerson = "person";
-
-  // -- Booking Screen
-  static const String bookingSuccessTitle = "Success";
+  static const String bookingSuccessTitle = "Booking Successful";
   static const String bookingSuccessDescription =
       "Your Booking Completed Successfully Placed and We will contact you soon.";
   static const String bookingSuccessButton = "Back to Home";
