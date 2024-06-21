@@ -18,7 +18,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
     final profileController = Get.find<ProfileController>();
 
     return Scaffold(
-      backgroundColor: SlectivColors.backgroundColor,
+      backgroundColor: SlectivColors.bottomNVBackgroundColor,
 
       // -- Navigate Destination
       bottomNavigationBar: Obx(
@@ -28,6 +28,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
           child: NavigationBar(
             height: 80,
             elevation: 0,
+            backgroundColor: SlectivColors.whiteColor,
             selectedIndex: controller.selectedIndex.value,
             indicatorColor: Colors.transparent,
             onDestinationSelected: (index) =>

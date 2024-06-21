@@ -18,42 +18,99 @@ class SlectivExitButton extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ElevatedButton(
           onPressed: () async {
-                  Get.dialog(
-                    const Center(
-                      child: SizedBox(
-                        height: 100,
-                        width: 100,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(SlectivColors.circularProgressColor),
-                        ),
+            bool confirmExit = await showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text(
+                    SlectivTexts.profileExitTitle,
+                    style: GoogleFonts.spaceGrotesk(
+                      textStyle: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: SlectivColors.blackColor,
                       ),
                     ),
-                    barrierDismissible: false,
-                  );
-                  await Future.delayed(const Duration(seconds: 3));
-    
-                  Get.back();
-    
-                  Get.snackbar(
-                    SlectivTexts.profileSuccessLogoutTitleButton, 
-                    SlectivTexts.profileSuccessLogoutSubtitleButton, 
-                    backgroundColor: SlectivColors.positifSnackbarColor, 
-                    colorText: SlectivColors.whiteColor, 
-                    duration: const Duration(
-                      seconds: 4
+                  ),
+                  content: Text(
+                    SlectivTexts.profileConfirmExitMessage,
+                    style: GoogleFonts.spaceGrotesk(
+                      textStyle: const TextStyle(
+                        fontSize: 16,
+                        color: SlectivColors.blackColor,
+                      ),
                     ),
-                  );
-    
-                  Get.offAllNamed(Routes.LOGIN_SCREEN);
-                }, 
+                  ),
+                  actions: <Widget>[
+                    TextButton(
+                      child: Text(
+                        SlectivTexts.profileConfirmCancel,
+                        style: GoogleFonts.spaceGrotesk(
+                          textStyle: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: SlectivColors.submitButtonColor,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        Get.back(result: false);
+                      },
+                    ),
+                    TextButton(
+                      child: Text(
+                        SlectivTexts.profileConfirmExit,
+                        style: GoogleFonts.spaceGrotesk(
+                          textStyle: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: SlectivColors.cancelAndNegatifSnackbarButtonColor,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        Get.back(result: true);
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+
+            if (confirmExit == true) {
+              Get.dialog(
+                const Center(
+                  child: SizedBox(
+                    height: 100,
+                    width: 100,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(SlectivColors.circularProgressColor),
+                    ),
+                  ),
+                ),
+                barrierDismissible: false,
+              );
+              await Future.delayed(const Duration(seconds: 3));
+
+              Get.back();
+
+              Get.snackbar(
+                SlectivTexts.profileSuccessLogoutTitleButton,
+                SlectivTexts.profileSuccessLogoutSubtitleButton,
+                backgroundColor: SlectivColors.positifSnackbarColor,
+                colorText: SlectivColors.whiteColor,
+                duration: const Duration(seconds: 4),
+              );
+
+              Get.offAllNamed(Routes.LOGIN_SCREEN);
+            }
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 24, vertical: 12
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           ),
           child: Text(
-            SlectivTexts.exit, 
+            SlectivTexts.exit,
             style: GoogleFonts.spaceGrotesk(
               textStyle: const TextStyle(
                 fontSize: 16,

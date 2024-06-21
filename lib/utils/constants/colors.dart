@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class SlectivColors{
   // -- Background Colors
   static const Color backgroundColor = Color(0xFFECE7DD);
+  static const Color bottomNVBackgroundColor = Color(0xFFCCCCCC);
 
   // -- Onboarding Colors
   static const Color titleColor = Color(0xFF1A1A1A);
