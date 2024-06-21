@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
-import 'package:slectiv_studio_app/app/modules/home/views/home_view.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
 class BookingController extends GetxController {
@@ -12,7 +11,6 @@ class BookingController extends GetxController {
   var selectedTime = ''.obs;
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  final screens = [const HomeView()];
 
   var bookings = <String, List<String>>{}.obs;
 
@@ -34,7 +32,12 @@ class BookingController extends GetxController {
       if (!bookings.containsKey(date)) {
         bookings[date] = [];
       }
-      bookings[date]?.add(doc[SlectivTexts.bookingTime]);
+      String time = doc[SlectivTexts.bookingTime];
+      String color = doc[SlectivTexts.bookingColor];
+      String person = doc[SlectivTexts.bookingPerson];
+      // Format booking details into a string with delimiter '|'
+      String bookingDetails = "$time|$color|$person";
+      bookings[date]?.add(bookingDetails);
     }
   }
 
@@ -49,13 +52,15 @@ class BookingController extends GetxController {
     if (!bookings.containsKey(date)) {
       bookings[date] = [];
     }
-    bookings[date]?.add(selectedTime.value);
+    // Format booking details into a string with delimiter '|'
+    String bookingDetails = "${selectedTime.value}|${selectedOption.value}|${selectedQuantity.value}";
+    bookings[date]?.add(bookingDetails);
     selectedTime.value = '';
   }
 
   bool isTimeBooked(DateTime date, String time) {
     String dateStr = date.toIso8601String().split('T').first;
-    return bookings[dateStr]?.contains(time) ?? false;
+    return bookings[dateStr]?.any((booking) => booking.split('|')[0] == time) ?? false;
   }
 
   bool isTimePassed(DateTime date, String time) {

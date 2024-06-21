@@ -25,10 +25,10 @@ class SlectivBookingHeader extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 8.0),
+          padding: const EdgeInsets.only(right: 4.0),
           child: IconButton(
-            onPressed: () => Get.to(() => const SlectivBookingHistory()), 
-            icon: const Icon(FluentIcons.shopping_bag_20_filled, size: 35, color: SlectivColors.blackColor,)),
+            onPressed: () => Get.to(() => SlectivBookingHistory()), 
+            icon: const Icon(FluentIcons.cart_20_filled, size: 40, color: SlectivColors.blackColor,)),
         )
       ],
     );

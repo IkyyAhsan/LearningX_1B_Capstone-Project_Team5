@@ -25,7 +25,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.BOOKING_SUCCESS;
+  static const INITIAL = Routes.BOOKING;
 
   static final routes = [
     GetPage(
