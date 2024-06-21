@@ -201,8 +201,11 @@ class SlectivTexts {
       "Your profile photo has been successfully deleted.";
   static const String profileSuccess = "Success";
   static const String profileUpdateNameSubtitle = "Name has been updated";
-  static const String profileUpdatePhoneNumberSubtitle =
-      "Phone Number has been updated";
+  static const String profileUpdatePhoneNumberSubtitle = "Phone Number has been updated";
+  static const String profileExitTitle = "Exit";
+  static const String profileConfirmExitMessage = "Are you sure you want to exit?";
+  static const String profileConfirmExit = "Confirm";
+  static const String profileConfirmCancel = "Cancel";
 
 // -- Booking Screen
   static const String bookingNow = "Booking Now";
