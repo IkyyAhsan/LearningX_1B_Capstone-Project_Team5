@@ -23,13 +23,15 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
       // -- Navigate Destination
       bottomNavigationBar: Obx(
         () => ClipRRect(
-          borderRadius: const BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20)),
           child: NavigationBar(
             height: 80,
             elevation: 0,
             selectedIndex: controller.selectedIndex.value,
             indicatorColor: Colors.transparent,
-            onDestinationSelected: (index) => controller.selectedIndex.value = index,
+            onDestinationSelected: (index) =>
+                controller.selectedIndex.value = index,
             destinations: [
               const SlectivHomeDestination(),
               const SlectivBookingDestination(),
@@ -37,7 +39,8 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
               NavigationDestination(
                 icon: Obx(() => _buildProfileIcon(profileController, false)),
                 label: SlectivTexts.profileLabel,
-                selectedIcon: Obx(() => _buildProfileIcon(profileController, true)),
+                selectedIcon:
+                    Obx(() => _buildProfileIcon(profileController, true)),
               ),
             ],
           ),
@@ -47,7 +50,8 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
     );
   }
 
-  Widget _buildProfileIcon(ProfileController profileController, bool isSelected) {
+  Widget _buildProfileIcon(
+      ProfileController profileController, bool isSelected) {
     final userImage = profileController.profileImageUrl.value;
 
     return userImage.isNotEmpty
@@ -57,7 +61,9 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
             backgroundColor: Colors.transparent,
           )
         : Icon(
-            isSelected ? FluentIcons.person_24_filled : FluentIcons.person_24_regular,
+            isSelected
+                ? FluentIcons.person_24_filled
+                : FluentIcons.person_24_regular,
             color: isSelected ? SlectivColors.submitButtonColor : null,
           );
   }
