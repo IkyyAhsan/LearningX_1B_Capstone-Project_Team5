@@ -49,7 +49,8 @@ class SlectivBookingHistory extends StatelessWidget {
             );
           } else {
             List<String> sortedDates = bookingController.bookings.keys.toList();
-            sortedDates.sort((a, b) => DateTime.parse(b).compareTo(DateTime.parse(a)));
+            sortedDates
+                .sort((a, b) => DateTime.parse(b).compareTo(DateTime.parse(a)));
 
             return ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -89,7 +90,7 @@ class SlectivBookingHistory extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.grey.withOpacity(0.2),
+                                  color: Colors.white,
                                   spreadRadius: 1,
                                   blurRadius: 2,
                                   offset: const Offset(0, 1),

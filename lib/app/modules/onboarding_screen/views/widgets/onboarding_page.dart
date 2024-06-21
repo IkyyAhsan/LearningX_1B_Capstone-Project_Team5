@@ -5,7 +5,10 @@ import 'package:slectiv_studio_app/utils/constants/colors.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({
-    super.key,required this.lottie,required this.title, required this.subtitle, 
+    super.key,
+    required this.lottie,
+    required this.title,
+    required this.subtitle,
   });
 
   final String lottie, title, subtitle;
@@ -17,13 +20,31 @@ class OnBoardingPage extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-              width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.height * 0.6,
-              child: Lottie.asset(lottie),
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: MediaQuery.of(context).size.height * 0.6,
+            child: Lottie.asset(lottie),
           ),
-          Text(title,  style: GoogleFonts.plusJakartaSans(textStyle: const TextStyle(fontSize: 32, fontWeight: FontWeight.w700, color: SlectivColors.titleColor)), textAlign: TextAlign.center,),
-          const SizedBox(height: 16,),
-          Text(subtitle, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: SlectivColors.blackColor)), textAlign: TextAlign.center,),
+          Text(
+            title,
+            style: GoogleFonts.spaceGrotesk(
+                textStyle: const TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w700,
+                    color: SlectivColors.titleColor)),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Text(
+            subtitle,
+            style: GoogleFonts.spaceGrotesk(
+                textStyle: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: SlectivColors.blackColor)),
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
     );

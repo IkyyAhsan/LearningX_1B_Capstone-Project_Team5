@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:slectiv_studio_app/app/modules/profile/views/profile_view.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
@@ -56,8 +57,8 @@ class ProfileController extends GetxController {
       File image = File(pickedFile.path);
       await uploadImage(image);
       Get.back();
-      Get.snackbar(
-          SlectivTexts.profileSuccessFotoChangedTitle, SlectivTexts.profileSuccessFotoChangedSubtitle,
+      Get.snackbar(SlectivTexts.profileSuccessFotoChangedTitle,
+          SlectivTexts.profileSuccessFotoChangedSubtitle,
           backgroundColor: SlectivColors.positifSnackbarColor,
           colorText: SlectivColors.whiteColor);
     } else {
@@ -68,8 +69,8 @@ class ProfileController extends GetxController {
   void deleteImage() {
     profileImageUrl.value = '';
     Get.back();
-    Get.snackbar(
-        SlectivTexts.profileSuccessFotoDeletedTitle, SlectivTexts.profileSuccessFotoDeletedSubtitle,
+    Get.snackbar(SlectivTexts.profileSuccessFotoDeletedTitle,
+        SlectivTexts.profileSuccessFotoDeletedSubtitle,
         backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
         colorText: SlectivColors.whiteColor);
   }
@@ -119,14 +120,19 @@ class ProfileController extends GetxController {
     User? user = _auth.currentUser;
     if (user != null) {
       try {
-        await _userCollection.doc(user.uid).update({SlectivTexts.profileName: newName});
+        await _userCollection
+            .doc(user.uid)
+            .update({SlectivTexts.profileName: newName});
         name.value = newName;
         Get.back();
-        Get.snackbar(SlectivTexts.profileSuccess, SlectivTexts.profileUpdateNameSubtitle,
+        Get.snackbar(
+            SlectivTexts.profileSuccess, SlectivTexts.profileUpdateNameSubtitle,
             backgroundColor: SlectivColors.positifSnackbarColor,
             colorText: SlectivColors.whiteColor);
+        Get.to(ProfileView()); // Navigate to ProfileView
       } catch (e) {
-        Get.snackbar(SlectivTexts.snackbarErrorTitle, "${SlectivTexts.snackbarErrorUpdateNameSubtitle} $e",
+        Get.snackbar(SlectivTexts.snackbarErrorTitle,
+            "${SlectivTexts.snackbarErrorUpdateNameSubtitle} $e",
             backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
             colorText: SlectivColors.whiteColor);
       }
@@ -141,11 +147,13 @@ class ProfileController extends GetxController {
             .doc(user.uid)
             .update({SlectivTexts.profilePhoneNumber: newPhoneNumber});
         phoneNumber.value = newPhoneNumber;
-        Get.snackbar(SlectivTexts.profileSuccess, SlectivTexts.profileUpdatePhoneNumberSubtitle,
+        Get.snackbar(SlectivTexts.profileSuccess,
+            SlectivTexts.profileUpdatePhoneNumberSubtitle,
             backgroundColor: SlectivColors.positifSnackbarColor,
             colorText: SlectivColors.whiteColor);
       } catch (e) {
-        Get.snackbar(SlectivTexts.snackbarErrorTitle, "${SlectivTexts.snackbarErrorUpdateNameSubtitle} $e",
+        Get.snackbar(SlectivTexts.snackbarErrorTitle,
+            "${SlectivTexts.snackbarErrorUpdateNameSubtitle} $e",
             backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
             colorText: SlectivColors.whiteColor);
       }
