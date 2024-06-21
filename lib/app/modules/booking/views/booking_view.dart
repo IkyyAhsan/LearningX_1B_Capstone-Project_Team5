@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:slectiv_studio_app/app/modules/booking/views/widgets/booking_button.dart';
 import 'package:slectiv_studio_app/app/modules/booking/views/widgets/booking_header.dart';
 import 'package:slectiv_studio_app/app/modules/booking/views/widgets/calendar_reservation.dart';
+import 'package:slectiv_studio_app/app/modules/booking/views/widgets/choose_date_title.dart';
 import 'package:slectiv_studio_app/app/modules/booking/views/widgets/color_dropdown.dart';
 import 'package:slectiv_studio_app/app/modules/booking/views/widgets/color_dropdown_title.dart';
 import 'package:slectiv_studio_app/app/modules/booking/views/widgets/person_dropdown.dart';
