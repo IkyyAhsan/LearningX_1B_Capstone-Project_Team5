@@ -42,5 +42,9 @@ flutter:
     - assets/videos/
     - assets/images/
     - assets/images/gallery/
-    - assets/animations/
+    - assets/animations/Onboarding1.json
+    - assets/animations/Onboarding2.json
+    - assets/animations/Onboarding3.json
+    - assets/animations/successBooking.json
+    - assets/animations/WaitingToResetPassword.json
   uses-material-design: true
