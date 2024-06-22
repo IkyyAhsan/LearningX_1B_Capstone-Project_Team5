@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
+import 'package:slectiv_studio_app/app/modules/profile/controllers/profile_controller.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
 class BookingController extends GetxController {
@@ -13,6 +14,8 @@ class BookingController extends GetxController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   var bookings = <String, List<String>>{}.obs;
+
+  final ProfileController profileController = Get.find<ProfileController>();
 
   @override
   void onInit() {
@@ -36,7 +39,10 @@ class BookingController extends GetxController {
       String time = doc[SlectivTexts.bookingTime];
       String color = doc[SlectivTexts.bookingColor];
       String person = doc[SlectivTexts.bookingPerson];
-      String bookingDetails = "$time|$color|$person";
+      String email = doc.data().containsKey(SlectivTexts.email)
+          ? doc[SlectivTexts.email]
+          : SlectivTexts.bookingUnknown;
+      String bookingDetails = "$time|$color|$person|$email";
       bookings[date]?.add(bookingDetails);
     }
   }
@@ -52,13 +58,15 @@ class BookingController extends GetxController {
       SlectivTexts.bookingTime: selectedTime.value,
       SlectivTexts.bookingColor: selectedOption.value,
       SlectivTexts.bookingPerson: selectedQuantity.value,
+      SlectivTexts.email: profileController.email.value,
     });
+
     String date = selectedDay.value.toIso8601String().split('T').first;
     if (!bookings.containsKey(date)) {
       bookings[date] = [];
     }
     
-    String bookingDetails = "${selectedTime.value}|${selectedOption.value}|${selectedQuantity.value}";
+    String bookingDetails = "${selectedTime.value}|${selectedOption.value}|${selectedQuantity.value}|${profileController.email.value}"; // Modify this line
     bookings[date]?.add(bookingDetails);
     selectedTime.value = '';
     bookingCount.value += 1;
@@ -109,7 +117,6 @@ class BookingController extends GetxController {
     return selectedOption.isNotEmpty && selectedQuantity.isNotEmpty && selectedTime.isNotEmpty;
   }
 
-  // Add this method
   String getAccountTypeText() {
     return bookingCount.value >= 5 ? SlectivTexts.oldAccountType : SlectivTexts.newAccountType;
   }
