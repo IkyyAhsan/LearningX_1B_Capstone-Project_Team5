@@ -214,6 +214,7 @@ class SlectivTexts {
   static const String bookingTitle2 = "Select Time";
   static const String bookingTitle3 = "Color";
   static const String bookingTitle4 = "Person";
+  static const String bookingTitleTime = "Time";
   static const String confirmedBookTitle = "Booking Confirmed!";
   static const String confirmedBookSubtitle =
       "Your studio booking has been successfully confirmed. We look forward to seeing you!";
@@ -234,4 +235,8 @@ class SlectivTexts {
   static const String bookingSuccessDescription =
       "Your Booking Completed Successfully Placed and We will contact you soon.";
   static const String bookingSuccessButton = "Back to Home";
+  static const String bookingHistoryTitle = "Bookings History";
+  static const String bookingNotHistory = "No order history yet";
+  static const String bookingUpcoming = "Upcoming Bookings";
+  static const String bookingCompleted = "Completed Bookings";
 }

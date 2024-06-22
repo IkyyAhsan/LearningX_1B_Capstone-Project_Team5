@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:slectiv_studio_app/app/modules/booking/controllers/booking_controller.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
+import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
 class SlectivBookingHistory extends StatelessWidget {
   const SlectivBookingHistory({Key? key});
@@ -28,7 +29,7 @@ class SlectivBookingHistory extends StatelessWidget {
         ),
         backgroundColor: SlectivColors.backgroundColor,
         title: Text(
-          "Bookings History",
+          SlectivTexts.bookingHistoryTitle,
           style: GoogleFonts.spaceGrotesk(
             textStyle: const TextStyle(
               fontSize: 24,
@@ -43,7 +44,7 @@ class SlectivBookingHistory extends StatelessWidget {
           if (bookingController.bookings.isEmpty) {
             return const Center(
               child: Text(
-                "No order history yet",
+                SlectivTexts.bookingNotHistory,
                 style: TextStyle(fontSize: 16, color: SlectivColors.blackColor),
               ),
             );
@@ -67,7 +68,7 @@ class SlectivBookingHistory extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        "Upcoming Bookings",
+                        SlectivTexts.bookingUpcoming,
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -86,7 +87,7 @@ class SlectivBookingHistory extends StatelessWidget {
                     children: [
                       const SizedBox(height: 24),
                       const Text(
-                        "Completed Bookings",
+                        SlectivTexts.bookingCompleted,
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -121,7 +122,7 @@ class SlectivBookingHistory extends StatelessWidget {
         const SizedBox(height: 8),
         if (bookings.isEmpty)
           const Text(
-            "No bookings history yet",
+            SlectivTexts.bookingNotHistory,
             style: TextStyle(fontSize: 16, color: SlectivColors.blackColor),
           )
         else
@@ -156,15 +157,15 @@ class SlectivBookingHistory extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Time : $time",
+                        "${SlectivTexts.bookingTitleTime} : $time",
                         style: const TextStyle(fontSize: 16),
                       ),
                       Text(
-                        "Color : $color",
+                        "${SlectivTexts.bookingTitle3} : $color",
                         style: const TextStyle(fontSize: 16),
                       ),
                       Text(
-                        "Person : $person",
+                        "${SlectivTexts.bookingTitle4} : $person",
                         style: const TextStyle(fontSize: 16),
                       ),
                     ],
