@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
+import 'package:get/get.dart';
+import 'package:slectiv_studio_app/app/modules/booking/controllers/booking_controller.dart';
 
 class SlectiveProfileTypeAccount extends StatelessWidget {
   const SlectiveProfileTypeAccount({
@@ -8,12 +9,14 @@ class SlectiveProfileTypeAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      SlectivTexts.newAccountType,
-      style: TextStyle(
-        fontSize: 16,
-        color: Colors.grey.shade600,
-      ),
-    );
+    final BookingController bookingController = Get.put(BookingController());
+
+    return Obx(() => Text(
+          bookingController.getAccountTypeText(),
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.grey.shade600,
+          ),
+        ));
   }
 }

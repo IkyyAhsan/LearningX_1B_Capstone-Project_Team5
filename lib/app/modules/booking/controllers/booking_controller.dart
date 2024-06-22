@@ -9,6 +9,7 @@ class BookingController extends GetxController {
   var selectedOption = ''.obs;
   var selectedQuantity = ''.obs;
   var selectedTime = ''.obs;
+  var bookingCount = 0.obs; // Add this line
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -18,6 +19,7 @@ class BookingController extends GetxController {
   void onInit() {
     super.onInit();
     fetchBookings();
+    fetchBookingCount(); // Add this line
     _scheduleDailyReset();
   }
 
@@ -41,6 +43,11 @@ class BookingController extends GetxController {
     }
   }
 
+  Future<void> fetchBookingCount() async {
+    var snapshot = await _firestore.collection(SlectivTexts.bookings).get();
+    bookingCount.value = snapshot.docs.length;
+  }
+
   Future<void> saveBooking() async {
     await _firestore.collection(SlectivTexts.bookings).add({
       SlectivTexts.bookingDate: selectedDay.value,
@@ -56,6 +63,7 @@ class BookingController extends GetxController {
     String bookingDetails = "${selectedTime.value}|${selectedOption.value}|${selectedQuantity.value}";
     bookings[date]?.add(bookingDetails);
     selectedTime.value = '';
+    bookingCount.value += 1; // Add this line to update booking count
   }
 
   bool isTimeBooked(DateTime date, String time) {
@@ -101,5 +109,10 @@ class BookingController extends GetxController {
 
   bool get isBookingComplete {
     return selectedOption.isNotEmpty && selectedQuantity.isNotEmpty && selectedTime.isNotEmpty;
+  }
+
+  // Add this method
+  String getAccountTypeText() {
+    return bookingCount.value >= 5 ? SlectivTexts.oldAccountType : SlectivTexts.newAccountType;
   }
 }
