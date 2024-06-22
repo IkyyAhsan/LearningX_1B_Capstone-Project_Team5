@@ -28,7 +28,7 @@ class SlectivBookingHistory extends StatelessWidget {
         ),
         backgroundColor: SlectivColors.backgroundColor,
         title: Text(
-          "Riwayat Pemesanan",
+          "Bookings History",
           style: GoogleFonts.spaceGrotesk(
             textStyle: const TextStyle(
               fontSize: 24,
@@ -43,7 +43,7 @@ class SlectivBookingHistory extends StatelessWidget {
           if (bookingController.bookings.isEmpty) {
             return const Center(
               child: Text(
-                "Belum ada riwayat pemesanan.",
+                "No order history yet",
                 style: TextStyle(fontSize: 16, color: SlectivColors.blackColor),
               ),
             );
@@ -51,11 +51,11 @@ class SlectivBookingHistory extends StatelessWidget {
             List<String> sortedDates = bookingController.bookings.keys.toList();
             DateTime now = DateTime.now();
 
-            // Pisahkan pesanan yang belum jatuh tempo dan yang telah lewat
+            
             List<String> upcomingDates = sortedDates.where((date) => DateTime.parse(date).isAfter(now)).toList();
             List<String> pastDates = sortedDates.where((date) => DateTime.parse(date).isBefore(now)).toList();
 
-            // Urutkan berdasarkan waktu
+            
             upcomingDates.sort((a, b) => DateTime.parse(a).compareTo(DateTime.parse(b)));
             pastDates.sort((a, b) => DateTime.parse(b).compareTo(DateTime.parse(a)));
 
@@ -143,12 +143,12 @@ class SlectivBookingHistory extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: Colors.white,
                         spreadRadius: 1,
                         blurRadius: 2,
-                        offset: const Offset(0, 1),
+                        offset: Offset(0, 1),
                       ),
                     ],
                   ),
