@@ -10,7 +10,6 @@ class SlectiveProfileTypeAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BookingController bookingController = Get.put(BookingController());
-
     return Obx(() => Text(
           bookingController.getAccountTypeText(),
           style: TextStyle(
