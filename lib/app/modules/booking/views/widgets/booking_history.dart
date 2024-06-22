@@ -28,7 +28,7 @@ class SlectivBookingHistory extends StatelessWidget {
         ),
         backgroundColor: SlectivColors.backgroundColor,
         title: Text(
-          "Riwayat Pesanan",
+          "Riwayat Pemesanan",
           style: GoogleFonts.spaceGrotesk(
             textStyle: const TextStyle(
               fontSize: 24,
@@ -43,88 +43,137 @@ class SlectivBookingHistory extends StatelessWidget {
           if (bookingController.bookings.isEmpty) {
             return const Center(
               child: Text(
-                "Belum ada riwayat pesanan.",
+                "Belum ada riwayat pemesanan.",
                 style: TextStyle(fontSize: 16, color: SlectivColors.blackColor),
               ),
             );
           } else {
             List<String> sortedDates = bookingController.bookings.keys.toList();
-            sortedDates
-                .sort((a, b) => DateTime.parse(b).compareTo(DateTime.parse(a)));
+            DateTime now = DateTime.now();
 
-            return ListView.builder(
+            // Pisahkan pesanan yang belum jatuh tempo dan yang telah lewat
+            List<String> upcomingDates = sortedDates.where((date) => DateTime.parse(date).isAfter(now)).toList();
+            List<String> pastDates = sortedDates.where((date) => DateTime.parse(date).isBefore(now)).toList();
+
+            // Urutkan berdasarkan waktu
+            upcomingDates.sort((a, b) => DateTime.parse(a).compareTo(DateTime.parse(b)));
+            pastDates.sort((a, b) => DateTime.parse(b).compareTo(DateTime.parse(a)));
+
+            return ListView(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-              itemCount: sortedDates.length,
-              itemBuilder: (context, index) {
-                String date = sortedDates[index];
-                List<String> bookings = bookingController.bookings[date] ?? [];
-
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      date,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+              children: [
+                if (upcomingDates.isNotEmpty)
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Upcoming Bookings",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: bookings.length,
-                      itemBuilder: (context, idx) {
-                        List<String> bookingDetails = bookings[idx].split('|');
-                        String time = bookingDetails[0];
-                        String color = bookingDetails[1];
-                        String person = bookingDetails[2];
-
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.white,
-                                  spreadRadius: 1,
-                                  blurRadius: 2,
-                                  offset: const Offset(0, 1),
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Waktu : $time",
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                                Text(
-                                  "Warna : $color",
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                                Text(
-                                  "Orang : $person",
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                );
-              },
+                      const SizedBox(height: 8),
+                      ...upcomingDates.map((date) {
+                        List<String> bookings = bookingController.bookings[date] ?? [];
+                        return buildBookingList(date, bookings);
+                      }).toList(),
+                    ],
+                  ),
+                if (pastDates.isNotEmpty)
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 24),
+                      const Text(
+                        "Completed Bookings",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      ...pastDates.map((date) {
+                        List<String> bookings = bookingController.bookings[date] ?? [];
+                        return buildBookingList(date, bookings);
+                      }).toList(),
+                    ],
+                  ),
+              ],
             );
           }
         }),
       ),
+    );
+  }
+
+  Widget buildBookingList(String date, List<String> bookings) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          date,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 8),
+        if (bookings.isEmpty)
+          const Text(
+            "No bookings history yet",
+            style: TextStyle(fontSize: 16, color: SlectivColors.blackColor),
+          )
+        else
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: bookings.length,
+            itemBuilder: (context, idx) {
+              List<String> bookingDetails = bookings[idx].split('|');
+              String time = bookingDetails[0];
+              String color = bookingDetails[1];
+              String person = bookingDetails[2];
+
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.white,
+                        spreadRadius: 1,
+                        blurRadius: 2,
+                        offset: const Offset(0, 1),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Time : $time",
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        "Color : $color",
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        "Person : $person",
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+      ],
     );
   }
 }
