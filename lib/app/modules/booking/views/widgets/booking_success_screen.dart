@@ -1,32 +1,21 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:slectiv_studio_app/app/routes/app_pages.dart';
+import 'package:slectiv_studio_app/app/modules/booking/controllers/booking_controller.dart';
+import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
+import 'package:slectiv_studio_app/app/modules/login_screen/views/widgets/submit_button.dart';
 
-class BookingSuccessScreen extends StatefulWidget {
-  const BookingSuccessScreen({Key? key}) : super(key: key);
-
-  @override
-  _BookingSuccessScreenState createState() => _BookingSuccessScreenState();
-}
-
-class _BookingSuccessScreenState extends State<BookingSuccessScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(const Duration(seconds: 3), () {
-      Get.offAllNamed(Routes.BOTTOM_NAVIGATION_BAR);
-    });
-  }
+class BookingSuccessScreen extends StatelessWidget {
+  const BookingSuccessScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(BookingController());
+
     return Scaffold(
       backgroundColor: SlectivColors.backgroundColor,
       body: Padding(
@@ -62,7 +51,23 @@ class _BookingSuccessScreenState extends State<BookingSuccessScreen> {
               height: 10,
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
+            ),
+            SlectiveWidgetButton(
+              buttonName: SlectivTexts.bookingConfirm,
+              onPressed: () {
+                if (controller.bookingCount.value == 5) {
+                  Get.snackbar(
+                    SlectivTexts.snackbarBookingMembershipTitle,
+                    SlectivTexts.snackbarBookingMembershipSubtitle,
+                    duration: const Duration(seconds: 7),
+                    backgroundColor: SlectivColors.submitButtonColor,
+                    colorText: SlectivColors.whiteColor,
+                  );
+                }
+                Get.offAll(() => const BottomNavigationBarView());
+              },
+              backgroundColor: SlectivColors.submitButtonColor,
             ),
           ],
         ),
