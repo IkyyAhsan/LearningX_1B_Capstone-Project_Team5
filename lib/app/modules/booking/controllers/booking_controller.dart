@@ -9,8 +9,7 @@ class BookingController extends GetxController {
   var selectedOption = ''.obs;
   var selectedQuantity = ''.obs;
   var selectedTime = ''.obs;
-  var bookingCount = 0.obs; // Add this line
-
+  var bookingCount = 0.obs;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   var bookings = <String, List<String>>{}.obs;
@@ -19,7 +18,7 @@ class BookingController extends GetxController {
   void onInit() {
     super.onInit();
     fetchBookings();
-    fetchBookingCount(); // Add this line
+    fetchBookingCount();
     _scheduleDailyReset();
   }
 
@@ -37,7 +36,6 @@ class BookingController extends GetxController {
       String time = doc[SlectivTexts.bookingTime];
       String color = doc[SlectivTexts.bookingColor];
       String person = doc[SlectivTexts.bookingPerson];
-      // Format booking details into a string with delimiter '|'
       String bookingDetails = "$time|$color|$person";
       bookings[date]?.add(bookingDetails);
     }
@@ -59,11 +57,11 @@ class BookingController extends GetxController {
     if (!bookings.containsKey(date)) {
       bookings[date] = [];
     }
-    // Format booking details into a string with delimiter '|'
+    
     String bookingDetails = "${selectedTime.value}|${selectedOption.value}|${selectedQuantity.value}";
     bookings[date]?.add(bookingDetails);
     selectedTime.value = '';
-    bookingCount.value += 1; // Add this line to update booking count
+    bookingCount.value += 1;
   }
 
   bool isTimeBooked(DateTime date, String time) {
