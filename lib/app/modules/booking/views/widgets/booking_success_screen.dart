@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:slectiv_studio_app/app/modules/booking/controllers/booking_controller.dart';
-import 'package:slectiv_studio_app/app/modules/booking/views/widgets/booking_fifth_popup.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/image_strings.dart';
@@ -15,20 +13,6 @@ class BookingSuccessScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final BookingController controller = Get.put(BookingController());
-
-    void handleNavigation() {
-      if (controller.bookingCount.value == 5) {
-        Get.dialog(
-          SlectivFifthBookingPopup(),
-          barrierDismissible: false,
-        ).then((_) {
-          Get.offAll(() => const BottomNavigationBarView());
-        });
-      } else {
-        Get.offAll(() => const BottomNavigationBarView());
-      }
-    }
 
     return Scaffold(
       backgroundColor: SlectivColors.backgroundColor,
@@ -69,7 +53,7 @@ class BookingSuccessScreen extends StatelessWidget {
             ),
             SlectiveWidgetButton(
               buttonName: SlectivTexts.bookingConfirm,
-              onPressed: handleNavigation,
+              onPressed: () => Get.offAll(() => const BottomNavigationBarView()),
               backgroundColor: SlectivColors.submitButtonColor,
             ),
           ],

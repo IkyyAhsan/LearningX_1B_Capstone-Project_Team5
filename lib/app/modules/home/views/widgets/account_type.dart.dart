@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
-class SlectiveProfileTypeAccount extends StatelessWidget {
-  const SlectiveProfileTypeAccount({
+class SlectivTypeAccount extends StatelessWidget {
+  const SlectivTypeAccount({
     super.key,
   });
 
