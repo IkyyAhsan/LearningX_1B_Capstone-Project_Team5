@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
+import 'package:slectiv_studio_app/app/modules/profile/controllers/profile_controller.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 
 class BookingController extends GetxController {
@@ -9,15 +10,18 @@ class BookingController extends GetxController {
   var selectedOption = ''.obs;
   var selectedQuantity = ''.obs;
   var selectedTime = ''.obs;
-
+  var bookingCount = 0.obs;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   var bookings = <String, List<String>>{}.obs;
+
+  final ProfileController profileController = Get.find<ProfileController>();
 
   @override
   void onInit() {
     super.onInit();
     fetchBookings();
+    fetchBookingCount();
     _scheduleDailyReset();
   }
 
@@ -35,10 +39,17 @@ class BookingController extends GetxController {
       String time = doc[SlectivTexts.bookingTime];
       String color = doc[SlectivTexts.bookingColor];
       String person = doc[SlectivTexts.bookingPerson];
-      // Format booking details into a string with delimiter '|'
-      String bookingDetails = "$time|$color|$person";
+      String email = doc.data().containsKey(SlectivTexts.email)
+          ? doc[SlectivTexts.email]
+          : SlectivTexts.bookingUnknown;
+      String bookingDetails = "$time|$color|$person|$email";
       bookings[date]?.add(bookingDetails);
     }
+  }
+
+  Future<void> fetchBookingCount() async {
+    var snapshot = await _firestore.collection(SlectivTexts.bookings).get();
+    bookingCount.value = snapshot.docs.length;
   }
 
   Future<void> saveBooking() async {
@@ -47,15 +58,18 @@ class BookingController extends GetxController {
       SlectivTexts.bookingTime: selectedTime.value,
       SlectivTexts.bookingColor: selectedOption.value,
       SlectivTexts.bookingPerson: selectedQuantity.value,
+      SlectivTexts.profileEmail: profileController.email.value,
     });
+
     String date = selectedDay.value.toIso8601String().split('T').first;
     if (!bookings.containsKey(date)) {
       bookings[date] = [];
     }
-    // Format booking details into a string with delimiter '|'
-    String bookingDetails = "${selectedTime.value}|${selectedOption.value}|${selectedQuantity.value}";
+    
+    String bookingDetails = "${selectedTime.value}|${selectedOption.value}|${selectedQuantity.value}|${profileController.email.value}"; // Modify this line
     bookings[date]?.add(bookingDetails);
     selectedTime.value = '';
+    bookingCount.value += 1;
   }
 
   bool isTimeBooked(DateTime date, String time) {
@@ -101,5 +115,9 @@ class BookingController extends GetxController {
 
   bool get isBookingComplete {
     return selectedOption.isNotEmpty && selectedQuantity.isNotEmpty && selectedTime.isNotEmpty;
+  }
+
+  String getAccountTypeText() {
+    return bookingCount.value >= 5 ? SlectivTexts.oldAccountType : SlectivTexts.newAccountType;
   }
 }

@@ -19,7 +19,6 @@ import '../modules/register_screen/bindings/register_screen_binding.dart';
 import '../modules/register_screen/views/register_screen_view.dart';
 import '../modules/splash_screen/bindings/splash_screen_binding.dart';
 import '../modules/splash_screen/views/splash_screen_view.dart';
-
 part 'app_routes.dart';
 
 class AppPages {
