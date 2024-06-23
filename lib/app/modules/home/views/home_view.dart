@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:slectiv_studio_app/app/modules/booking/controllers/booking_controller.dart';
 import 'package:slectiv_studio_app/app/modules/home/controllers/home_controller.dart';
-import 'package:slectiv_studio_app/app/modules/home/views/widgets/account_type.dart';
+import 'package:slectiv_studio_app/app/modules/home/views/widgets/account_type.dart.dart';
 import 'package:slectiv_studio_app/app/modules/home/views/widgets/membership_banner.dart';
 import 'package:slectiv_studio_app/app/modules/home/views/widgets/tab_bar.dart';
 import 'package:slectiv_studio_app/app/modules/home/views/widgets/welcome_user.dart';

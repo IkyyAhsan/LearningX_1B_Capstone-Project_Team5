@@ -10,7 +10,6 @@ class BookingController extends GetxController {
   var selectedOption = ''.obs;
   var selectedQuantity = ''.obs;
   var selectedTime = ''.obs;
-  var bookingCount = 0.obs;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   var bookings = <String, List<String>>{}.obs;
@@ -21,7 +20,6 @@ class BookingController extends GetxController {
   void onInit() {
     super.onInit();
     fetchBookings();
-    fetchBookingCount();
     _scheduleDailyReset();
   }
 
@@ -49,11 +47,6 @@ class BookingController extends GetxController {
     }
   }
 
-  Future<void> fetchBookingCount() async {
-    var snapshot = await _firestore.collection(SlectivTexts.bookings).get();
-    bookingCount.value = snapshot.docs.length;
-  }
-
   Future<void> saveBooking() async {
     await _firestore.collection(SlectivTexts.bookings).add({
       SlectivTexts.bookingDate: selectedDay.value,
@@ -71,7 +64,6 @@ class BookingController extends GetxController {
     String bookingDetails = "${selectedTime.value}|${selectedOption.value}|${selectedQuantity.value}|${profileController.email.value}";
     bookings[date]?.add(bookingDetails);
     selectedTime.value = '';
-    bookingCount.value += 1;
   }
 
   bool isTimeBooked(DateTime date, String time) {
@@ -80,16 +72,14 @@ class BookingController extends GetxController {
   }
 
   bool isTimePassed(DateTime date, String time) {
-    final now = DateTime.now();
-    if (date.isBefore(DateTime(now.year, now.month, now.day))) {
-      return true;
-    } else if (date.isAtSameMomentAs(DateTime(now.year, now.month, now.day))) {
-      final bookingTime = DateTime(now.year, now.month, now.day,
-          int.parse(time.split(':')[0]), int.parse(time.split(':')[1]));
-      return bookingTime.isBefore(now);
-    }
-    return false;
-  }
+  final now = DateTime.now();
+  final selectedTimeParts = time.split(':');
+  final bookingTime = DateTime(date.year, date.month, date.day,
+      int.parse(selectedTimeParts[0]), int.parse(selectedTimeParts[1]));
+  
+  return bookingTime.isBefore(now);
+}
+
 
   void _scheduleDailyReset() {
     final now = DateTime.now();
@@ -117,9 +107,5 @@ class BookingController extends GetxController {
 
   bool get isBookingComplete {
     return selectedOption.isNotEmpty && selectedQuantity.isNotEmpty && selectedTime.isNotEmpty;
-  }
-
-  String getAccountTypeText() {
-    return bookingCount.value >= 5 ? SlectivTexts.oldAccountType : SlectivTexts.newAccountType;
   }
 }
