@@ -171,15 +171,22 @@ class _SlectivPhotoboothState extends State<SlectivPhotobooth> {
                 height: 30,
               ),
               SlectiveWidgetButton(
-                  buttonName: SlectivTexts.photoboothButtonName,
-                  onPressed: () async {
-                  if (await canLaunch(SlectivTexts.adminContactUrl)) {
-                    await launch(SlectivTexts.adminContactUrl);
-                    } else {
-                      Get.snackbar(SlectivTexts.buttonExecutionTitle, SlectivTexts.buttonExecutionSubtitle, backgroundColor: SlectivColors.warningColor);
-                    }
-                  }, 
-                  backgroundColor: SlectivColors.submitButtonColor),
+                buttonName: SlectivTexts.photoboothButtonName,
+                onPressed: () async {
+                  Uri adminContactUri = Uri.parse(SlectivTexts.adminContactUrl);
+                  if (await canLaunchUrl(adminContactUri)) {
+                    await launchUrl(adminContactUri);
+                  } else {
+                    Get.snackbar(
+                      SlectivTexts.buttonExecutionTitle,
+                      SlectivTexts.buttonExecutionSubtitle,
+                      backgroundColor: SlectivColors.warningColor,
+                      colorText: SlectivColors.whiteColor,
+                    );
+                  }
+                }, 
+                backgroundColor: SlectivColors.submitButtonColor
+              ),
               const SizedBox(
                 height: 40,
               ),
