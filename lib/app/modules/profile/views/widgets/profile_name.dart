@@ -40,8 +40,7 @@ class SlectivProfileName extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      profileController
-                          .updateName(profileController.name.value);
+                      profileController.updateName(profileController.name.value);
                       Get.back();
                     },
                     child: const Text(SlectivTexts.save),

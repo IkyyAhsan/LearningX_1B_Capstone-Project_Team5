@@ -1,11 +1,11 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import 'package:slectiv_studio_app/app/modules/profile/views/profile_view.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
@@ -57,12 +57,16 @@ class ProfileController extends GetxController {
       File image = File(pickedFile.path);
       await uploadImage(image);
       Get.back();
-      Get.snackbar(SlectivTexts.profileSuccessFotoChangedTitle,
-          SlectivTexts.profileSuccessFotoChangedSubtitle,
-          backgroundColor: SlectivColors.positifSnackbarColor,
-          colorText: SlectivColors.whiteColor);
+      Get.snackbar(
+        SlectivTexts.profileSuccessFotoChangedTitle,
+        SlectivTexts.profileSuccessFotoChangedSubtitle,
+        backgroundColor: SlectivColors.positifSnackbarColor,
+        colorText: SlectivColors.whiteColor
+      );
     } else {
-      print(SlectivTexts.profileNoImageSelected);
+      print(
+        SlectivTexts.profileNoImageSelected
+      );
     }
   }
 
@@ -129,7 +133,6 @@ class ProfileController extends GetxController {
             SlectivTexts.profileSuccess, SlectivTexts.profileUpdateNameSubtitle,
             backgroundColor: SlectivColors.positifSnackbarColor,
             colorText: SlectivColors.whiteColor);
-        Get.to(ProfileView()); // Navigate to ProfileView
       } catch (e) {
         Get.snackbar(SlectivTexts.snackbarErrorTitle,
             "${SlectivTexts.snackbarErrorUpdateNameSubtitle} $e",
