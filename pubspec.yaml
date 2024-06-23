@@ -11,6 +11,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   firebase_auth: ^4.20.0
   firebase_core: ^2.32.0
+  firebase_messaging: ^14.9.4
   firebase_storage: ^11.7.7
   fluentui_system_icons: ^1.0.0
   flutter:
