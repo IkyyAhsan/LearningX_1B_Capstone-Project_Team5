@@ -10,25 +10,20 @@ class SplashScreenView extends GetView<SplashScreenController> {
   const SplashScreenView({super.key});
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SplashScreenController>(
-      initState: (_){
-        Timer(const Duration(seconds: 3), () {
-          Get.offAllNamed(Routes.ONBOARDING_SCREEN);
-        });
-      },
-      builder: (context){
-        return const Scaffold(
-          backgroundColor: SlectivColors.backgroundColor,
+    return GetBuilder<SplashScreenController>(initState: (_) {
+      Timer(const Duration(seconds: 10), () {
+        Get.offAllNamed(Routes.ONBOARDING_SCREEN);
+      });
+    }, builder: (context) {
+      return const Scaffold(
+        backgroundColor: SlectivColors.backgroundColor,
 
-          // -- Display of Splash Screen
-          body: Padding(
-            padding: EdgeInsets.only(bottom: 100),
-            child: SlectivSplashDisplay(),
-          ),
-        );
-      }
-    );
+        // -- Display of Splash Screen
+        body: Padding(
+          padding: EdgeInsets.only(bottom: 100),
+          child: SlectivSplashDisplay(),
+        ),
+      );
+    });
   }
 }
-
-

@@ -13,6 +13,10 @@ abstract class Routes {
   static const BOTTOM_NAVIGATION_BAR = _Paths.BOTTOM_NAVIGATION_BAR;
   static const BOOKING = _Paths.BOOKING;
   static const BOOKING_SUCCESS = _Paths.BOOKING_SUCCESS;
+  static const SELFPHOTO = _Paths.SELFPHOTO;
+  static const WIDEPHOTO = _Paths.WIDEPHOTO;
+  static const PHOTOBOOTH = _Paths.PHOTOBOOTH;
+  static const POTRAIT = _Paths.POTRAIT;
 }
 
 abstract class _Paths {
@@ -27,4 +31,8 @@ abstract class _Paths {
   static const BOTTOM_NAVIGATION_BAR = '/bottom-navigation-bar';
   static const BOOKING = '/booking';
   static const BOOKING_SUCCESS = '/booking/widgets/booking_success_screen.dart';
+  static const SELFPHOTO = '/home/widgets/tab/self_photo.dart';
+  static const WIDEPHOTO = '/home/widgets/tab/wide_photobox.dart';
+  static const PHOTOBOOTH = '/home/widgets/tab/photobooth.dart';
+  static const POTRAIT = '/home/widgets/tab/potrait.dart';
 }

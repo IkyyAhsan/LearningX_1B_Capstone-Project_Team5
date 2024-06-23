@@ -5,6 +5,10 @@ import 'package:slectiv_studio_app/app/modules/booking/views/booking_view.dart';
 import 'package:slectiv_studio_app/app/modules/booking/views/widgets/booking_success_screen.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/bindings/bottom_navigation_bar_binding.dart';
 import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
+import 'package:slectiv_studio_app/app/modules/home/views/widgets/Tab/self_photo.dart';
+import 'package:slectiv_studio_app/app/modules/home/views/widgets/Tab/wide_photobox.dart';
+import 'package:slectiv_studio_app/app/modules/home/views/widgets/tab/photobooth.dart';
+import 'package:slectiv_studio_app/app/modules/home/views/widgets/tab/potrait.dart';
 import '../modules/forget_password_screen/bindings/forget_password_screen_binding.dart';
 import '../modules/forget_password_screen/views/forget_password_screen_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -24,7 +28,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH_SCREEN;
+  static const INITIAL = Routes.BOTTOM_NAVIGATION_BAR;
 
   static final routes = [
     GetPage(
@@ -76,6 +80,26 @@ class AppPages {
       name: _Paths.BOOKING_SUCCESS,
       page: () => const BookingSuccessScreen(),
       binding: BookingSuccessScreenBindings(),
-    )
+    ),
+    GetPage(
+      name: _Paths.SELFPHOTO,
+      page: () => const SlectivSelfPhoto(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.WIDEPHOTO,
+      page: () => const SlectivWidePhotobox(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.PHOTOBOOTH,
+      page: () => const SlectivPhotobooth(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.POTRAIT,
+      page: () => const SlectivPortrait(),
+      binding: HomeBinding(),
+    ),
   ];
 }
