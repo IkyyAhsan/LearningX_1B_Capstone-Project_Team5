@@ -38,7 +38,7 @@ class SlectivFifthBookingPopup extends StatelessWidget {
                   color: SlectivColors.blackColor,
                 ),
               ),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.justify,
             ),
             const SizedBox(height: 24),
             SlectiveWidgetButton(

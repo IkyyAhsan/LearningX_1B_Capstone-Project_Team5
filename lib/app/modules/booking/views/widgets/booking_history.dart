@@ -5,6 +5,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:slectiv_studio_app/app/modules/booking/controllers/booking_controller.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
+import 'package:slectiv_studio_app/app/modules/profile/controllers/profile_controller.dart';
 
 class SlectivBookingHistory extends StatefulWidget {
   const SlectivBookingHistory({Key? key}) : super(key: key);
@@ -19,7 +20,8 @@ class _SlectivBookingHistoryState extends State<SlectivBookingHistory> {
 
   @override
   Widget build(BuildContext context) {
-    final BookingController bookingController = Get.find();
+    final BookingController bookingController = Get.put(BookingController());
+    final ProfileController profileController = Get.put(ProfileController());
 
     return Scaffold(
       backgroundColor: SlectivColors.backgroundColor,
@@ -57,6 +59,8 @@ class _SlectivBookingHistoryState extends State<SlectivBookingHistory> {
               ),
             );
           } else {
+            String userEmail = profileController.email.value;
+            print("${SlectivTexts.bookingUserEmail} $userEmail");
             List<String> sortedDates = bookingController.bookings.keys.toList();
             DateTime now = DateTime.now();
 
@@ -68,16 +72,23 @@ class _SlectivBookingHistoryState extends State<SlectivBookingHistory> {
               List<String> bookings = bookingController.bookings[date] ?? [];
               for (String booking in bookings) {
                 List<String> bookingDetails = booking.split('|');
-                String time = bookingDetails[0];
-                DateTime bookingTime = DateTime(parsedDate.year, parsedDate.month, parsedDate.day, int.parse(time.split(':')[0]), int.parse(time.split(':')[1]));
+                String email = bookingDetails[3];
 
-                if (bookingTime.isAfter(now)) {
-                  upcomingBookings.add({SlectivTexts.bookingDate: date, SlectivTexts.bookingDetails: booking});
-                } else {
-                  completedBookings.add({SlectivTexts.bookingDate: date, SlectivTexts.bookingDetails: booking});
+                if (email == userEmail) {
+                  String time = bookingDetails[0];
+                  DateTime bookingTime = DateTime(parsedDate.year, parsedDate.month, parsedDate.day, int.parse(time.split(':')[0]), int.parse(time.split(':')[1]));
+
+                  if (bookingTime.isAfter(now)) {
+                    upcomingBookings.add({SlectivTexts.bookingDate: date, SlectivTexts.bookingDetails: booking});
+                  } else {
+                    completedBookings.add({SlectivTexts.bookingDate: date, SlectivTexts.bookingDetails: booking});
+                  }
                 }
               }
             }
+
+            print("${SlectivTexts.bookingUpcoming}: $upcomingBookings");
+            print("${SlectivTexts.bookingCompleted}: $completedBookings");
 
             upcomingBookings.sort((a, b) {
               DateTime dateTimeA = DateTime.parse(a[SlectivTexts.bookingDate]);

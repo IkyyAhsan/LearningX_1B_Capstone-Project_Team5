@@ -15,7 +15,7 @@ class BookingController extends GetxController {
 
   var bookings = <String, List<String>>{}.obs;
 
-  final ProfileController profileController = Get.find<ProfileController>();
+  final ProfileController profileController = Get.put(ProfileController());
 
   @override
   void onInit() {
@@ -27,6 +27,7 @@ class BookingController extends GetxController {
 
   Future<void> fetchBookings() async {
     var snapshot = await _firestore.collection(SlectivTexts.bookings).get();
+    bookings.clear();
     for (var doc in snapshot.docs) {
       String date = (doc[SlectivTexts.bookingDate] as Timestamp)
           .toDate()
@@ -39,11 +40,12 @@ class BookingController extends GetxController {
       String time = doc[SlectivTexts.bookingTime];
       String color = doc[SlectivTexts.bookingColor];
       String person = doc[SlectivTexts.bookingPerson];
-      String email = doc.data().containsKey(SlectivTexts.email)
-          ? doc[SlectivTexts.email]
+      String email = doc.data().containsKey(SlectivTexts.profileEmail)
+          ? doc[SlectivTexts.profileEmail]
           : SlectivTexts.bookingUnknown;
       String bookingDetails = "$time|$color|$person|$email";
       bookings[date]?.add(bookingDetails);
+      print("${SlectivTexts.bookingFetched} $bookingDetails ${SlectivTexts.bookingForDate} $date");
     }
   }
 
@@ -66,7 +68,7 @@ class BookingController extends GetxController {
       bookings[date] = [];
     }
     
-    String bookingDetails = "${selectedTime.value}|${selectedOption.value}|${selectedQuantity.value}|${profileController.email.value}"; // Modify this line
+    String bookingDetails = "${selectedTime.value}|${selectedOption.value}|${selectedQuantity.value}|${profileController.email.value}";
     bookings[date]?.add(bookingDetails);
     selectedTime.value = '';
     bookingCount.value += 1;
