@@ -6,7 +6,7 @@ import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
 import 'package:slectiv_studio_app/app/modules/login_screen/views/widgets/submit_button.dart';
 
-class FifthBookingPopup extends StatelessWidget {
+class SlectivFifthBookingPopup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(

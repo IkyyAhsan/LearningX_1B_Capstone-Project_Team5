@@ -20,7 +20,7 @@ class BookingSuccessScreen extends StatelessWidget {
     void handleNavigation() {
       if (controller.bookingCount.value == 5) {
         Get.dialog(
-          FifthBookingPopup(),
+          SlectivFifthBookingPopup(),
           barrierDismissible: false,
         ).then((_) {
           Get.offAll(() => const BottomNavigationBarView());
