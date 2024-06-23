@@ -11,7 +11,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SplashScreenController>(initState: (_) {
-      Timer(const Duration(seconds: 10), () {
+      Timer(const Duration(seconds: 3), () {
         Get.offAllNamed(Routes.ONBOARDING_SCREEN);
       });
     }, builder: (context) {

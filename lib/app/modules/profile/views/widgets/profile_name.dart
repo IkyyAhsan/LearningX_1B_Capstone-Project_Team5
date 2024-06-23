@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:slectiv_studio_app/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import 'package:slectiv_studio_app/app/modules/profile/controllers/profile_controller.dart';
 import 'package:slectiv_studio_app/utils/constants/colors.dart';
 import 'package:slectiv_studio_app/utils/constants/text_strings.dart';
@@ -42,7 +43,7 @@ class SlectivProfileName extends StatelessWidget {
                     onPressed: () {
                       profileController
                           .updateName(profileController.name.value);
-                      Get.back();
+                      Get.to(BottomNavigationBarView());
                     },
                     child: const Text(SlectivTexts.save),
                   ),
