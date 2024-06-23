@@ -209,7 +209,9 @@ class SlectivTexts {
   static const String bookingConfirm = "Confirm";
   static const String bookingShowLess = "Show less";
   static const String bookingShowMore = "Show more";
-
+  static const String bookingUserEmail = "User Email:";
+  static const String bookingFetched = "Fetched Booking:";
+  static const String bookingForDate = "for date:";
   static const String bookingChangeMembershipTitle = "You are a Memory Creator!";
   static const String bookingChangeMembershipSubtitle = "Congratulations! You have reached a milestone and transitioned from a Moment Welcomer to a Memory Creator. Enjoy exclusive benefits and continue creating unforgettable memories with us.";
 }
