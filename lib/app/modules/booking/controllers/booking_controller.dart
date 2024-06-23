@@ -58,7 +58,7 @@ class BookingController extends GetxController {
       SlectivTexts.bookingTime: selectedTime.value,
       SlectivTexts.bookingColor: selectedOption.value,
       SlectivTexts.bookingPerson: selectedQuantity.value,
-      SlectivTexts.email: profileController.email.value,
+      SlectivTexts.profileEmail: profileController.email.value,
     });
 
     String date = selectedDay.value.toIso8601String().split('T').first;

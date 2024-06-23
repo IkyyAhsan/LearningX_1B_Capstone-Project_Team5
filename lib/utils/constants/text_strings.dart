@@ -195,6 +195,7 @@ class SlectivTexts {
   static const String bookings = "bookings";
   static const String bookingDate = "date";
   static const String bookingTime = "time";
+  static const String bookingDetails = "details";
   static const String bookingColor = "color";
   static const String bookingPerson = "person";
   static const String bookingSuccessTitle = "Booking Successful";
@@ -206,6 +207,8 @@ class SlectivTexts {
   static const String bookingCompleted = "Completed Bookings";
   static const String bookingUnknown = "Unknown";
   static const String bookingConfirm = "Confirm";
+  static const String bookingShowLess = "Show less";
+  static const String bookingShowMore = "Show more";
 
   static const String bookingChangeMembershipTitle = "You are a Memory Creator!";
   static const String bookingChangeMembershipSubtitle = "Congratulations! You have reached a milestone and transitioned from a Moment Welcomer to a Memory Creator. Enjoy exclusive benefits and continue creating unforgettable memories with us.";
