@@ -3,7 +3,7 @@ class SlectivTexts {
   static const String mobileApplicationMainTitle = "Slectiv Studio App";
 
   // -- Admin Contact
-  static const String adminContactUrl = "https://wa.me/+6281345383641";
+  static const String adminContactUrl = "https://wa.me/6281345383641";
 
   // -- Splash Text
   static const String splashTextDesc = "Balikpapan 1st Wide Self Photo Studio";

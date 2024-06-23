@@ -117,16 +117,13 @@ class SlectivPortrait extends StatelessWidget {
             ),
             const SizedBox(height: 30,),
             SlectiveWidgetButton(
-              buttonName: SlectivTexts.potraitButtonName, 
-              onPressed: () async {
-                  if (await canLaunch(SlectivTexts.adminContactUrl)) {
-                    await launch(SlectivTexts.adminContactUrl);
-                  } else {
-                    Get.snackbar(SlectivTexts.buttonExecutionTitle, SlectivTexts.buttonExecutionSubtitle, backgroundColor: SlectivColors.warningColor);
-                  }
+                buttonName: SlectivTexts.photoboothButtonName,
+                onPressed: () async {
+                    final Uri adminContactUrl = Uri.parse('https://wa.me/6281345383641?text=Halo,%20saya%20ingin%20mengajukan%20pertanyaan.');
+                  launchUrl(adminContactUrl);
                 }, 
-              backgroundColor: SlectivColors.submitButtonColor
-            ),
+                backgroundColor: SlectivColors.submitButtonColor
+              ),
             const SizedBox(height: 5,),
           ],
         ),
