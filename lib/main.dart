@@ -8,7 +8,13 @@ import 'app/routes/app_pages.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting(SlectivTexts.profileId, null);
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: 'AIzaSyAjUU6-7vmZj6Pom-JBxHeQVluJGRnDigA',
+          appId: '1:765394348193:android:95cc43c5f923e3d5d2e8e0',
+          messagingSenderId: '765394348193',
+          projectId: 'slectiv-studio-project',
+          storageBucket: 'slectiv-studio-project.appspot.com'));
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,

@@ -15,7 +15,6 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     final profileController = Get.put(ProfileController());
-    final bookingController = Get.put(BookingController());
     return Scaffold(
       backgroundColor: SlectivColors.backgroundColor,
       body: SafeArea(
@@ -56,9 +55,3 @@ class HomeView extends GetView<HomeController> {
     );
   }
 }
-
-
-
-
-
-

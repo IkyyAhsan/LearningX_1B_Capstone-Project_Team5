@@ -71,8 +71,6 @@ class SlectivTexts {
   static const String snackbarErrorMustConsistsPasswordSubtitle = "The password consists of a minimum of 8 characters.";
   static const String snackbarSuccessfullyBookingTitle = "Reservation successful";
   static const String snackbarSuccessfullyBookingSubtitle = "Your booking has been confirmed. Thank you for choosing to use our service.";
-  static const String snackbarBookingMembershipTitle = "You are a Memory Creator!";
-  static const String snackbarBookingMembershipSubtitle = "Congratulations! You have reached a milestone and transitioned from a Moment Saver to a Memory Creator. Enjoy exclusive benefits and continue creating unforgettable memories with us.";
 
   // -- Home Screen
   static const String newAccountType = "Moment Welcomer";
@@ -208,4 +206,7 @@ class SlectivTexts {
   static const String bookingCompleted = "Completed Bookings";
   static const String bookingUnknown = "Unknown";
   static const String bookingConfirm = "Confirm";
+
+  static const String bookingChangeMembershipTitle = "You are a Memory Creator!";
+  static const String bookingChangeMembershipSubtitle = "Congratulations! You have reached a milestone and transitioned from a Moment Welcomer to a Memory Creator. Enjoy exclusive benefits and continue creating unforgettable memories with us.";
 }
