@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
@@ -174,6 +175,17 @@ class _SlectivPhotoboothState extends State<SlectivPhotobooth> {
                 onPressed: () async {
                     final Uri adminContactUrl = Uri.parse('https://wa.me/6281345383641?text=Halo,%20saya%20ingin%20mengajukan%20pertanyaan.');
                   launchUrl(adminContactUrl);
+                  // Uri adminContactUri = Uri.parse(SlectivTexts.adminContactUrl);
+                  // if (await canLaunchUrl(adminContactUri)) {
+                  //   await launchUrl(adminContactUri);
+                  // } else {
+                  //   Get.snackbar(
+                  //     SlectivTexts.buttonExecutionTitle,
+                  //     SlectivTexts.buttonExecutionSubtitle,
+                  //     backgroundColor: SlectivColors.warningColor,
+                  //     colorText: SlectivColors.whiteColor,
+                  //   );
+                  // }
                 }, 
                 backgroundColor: SlectivColors.submitButtonColor
               ),
