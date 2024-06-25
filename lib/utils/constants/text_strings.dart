@@ -134,7 +134,7 @@ class SlectivTexts {
       "Step into our Photobooth and let the fun begin! Perfect for any event, our Photobooth captures spontaneous moments and candid smiles. With a variety of props and backdrops, you and your guests can create unforgettable memories. Strike a pose and take home a keepsake that will make you smile every time you see it.";
   static const String photoboothFeature = "• Photobooth";
 
-  // -- Photobooth
+  // -- portrait
   static const String potraitTitle = "Potrait";
   static const String potraitButtonName = "Contact Us";
   static const String potraitDescription =
