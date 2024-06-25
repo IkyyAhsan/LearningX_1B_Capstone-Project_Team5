@@ -43,7 +43,7 @@ class SlectivProfileName extends StatelessWidget {
                     onPressed: () {
                       profileController
                           .updateName(profileController.name.value);
-                      Get.to(BottomNavigationBarView());
+                      Get.to(const BottomNavigationBarView());
                     },
                     child: const Text(SlectivTexts.save),
                   ),
