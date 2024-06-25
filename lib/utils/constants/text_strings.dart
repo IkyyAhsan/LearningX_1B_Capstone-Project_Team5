@@ -138,7 +138,7 @@ class SlectivTexts {
   static const String potraitTitle = "Potrait";
   static const String potraitButtonName = "Contact Us";
   static const String potraitDescription =
-      "Step into our Photobooth and let the fun begin! Perfect for any event, our Photobooth captures spontaneous moments and candid smiles. With a variety of props and backdrops, you and your guests can create unforgettable memories. Strike a pose and take home a keepsake that will make you smile every time you see it.";
+      "Unveil your essence with our portrait service. Whether it's a professional headshot, a cherished family portrait, or a personal photoshoot, we capture the depth of your personality in every frame. From striking angles to genuine expressions, each portrait tells a unique story that reflects your true self.";
   static const String hours1SessionFeature = "• 1 Hours Session";
   static const String allSoftliteFeature = "• All Softlite";
   static const String printed4RPhotoFeature = "• 4r Printed Photo";
