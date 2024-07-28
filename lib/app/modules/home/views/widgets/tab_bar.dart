@@ -50,6 +50,7 @@ class _TabSectionState extends State<SlectivTabSection> with TickerProviderState
           height: 400,
           child: TabBarView(
             controller: _tabController,
+            physics: const NeverScrollableScrollPhysics(),
             children: const [
               SlectivSelfPhoto(),
               SlectivWidePhotobox(),

@@ -19,22 +19,24 @@ class LoginScreenView extends GetView<LoginScreenController> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // -- Authentication Header
-              const SizedBox(height: 24,),
-              const SlectivAuthenticationHeader(),
-              
-              // -- Header Text
-              const SizedBox(height: 36,),
-              const SlectivLoginHeaderText(title: SlectivTexts.loginTitle, subtitle: SlectivTexts.loginSubtitle,),
-              
-              // -- Login Form
-              const SizedBox(height: 24,),
-              SlectivLoginForm(loginFormKey: loginFormKey, loginController: loginController)
-              
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // -- Authentication Header
+                const SizedBox(height: 24,),
+                const SlectivAuthenticationHeader(),
+                
+                // -- Header Text
+                const SizedBox(height: 36,),
+                const SlectivLoginHeaderText(title: SlectivTexts.loginTitle, subtitle: SlectivTexts.loginSubtitle,),
+                
+                // -- Login Form
+                const SizedBox(height: 24,),
+                SlectivLoginForm(loginFormKey: loginFormKey, loginController: loginController)
+                
+              ],
+            ),
           ),
         ),
       )
