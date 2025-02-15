@@ -171,24 +171,24 @@ class _SlectivPhotoboothState extends State<SlectivPhotobooth> {
                 height: 30,
               ),
               SlectiveWidgetButton(
-                buttonName: SlectivTexts.photoboothButtonName,
-                onPressed: () async {
-                    final Uri adminContactUrl = Uri.parse('https://wa.me/6281345383641?text=Halo,%20saya%20ingin%20mengajukan%20pertanyaan.');
-                  launchUrl(adminContactUrl);
-                  // Uri adminContactUri = Uri.parse(SlectivTexts.adminContactUrl);
-                  // if (await canLaunchUrl(adminContactUri)) {
-                  //   await launchUrl(adminContactUri);
-                  // } else {
-                  //   Get.snackbar(
-                  //     SlectivTexts.buttonExecutionTitle,
-                  //     SlectivTexts.buttonExecutionSubtitle,
-                  //     backgroundColor: SlectivColors.warningColor,
-                  //     colorText: SlectivColors.whiteColor,
-                  //   );
-                  // }
-                }, 
-                backgroundColor: SlectivColors.submitButtonColor
-              ),
+                  buttonName: SlectivTexts.photoboothButtonName,
+                  onPressed: () async {
+                    final Uri adminContactUrl = Uri.parse(
+                        'https://wa.me/6281345383641?text=Halo,%20saya%20ingin%20mengajukan%20pertanyaan.');
+                    launchUrl(adminContactUrl);
+                    // Uri adminContactUri = Uri.parse(SlectivTexts.adminContactUrl);
+                    // if (await canLaunchUrl(adminContactUri)) {
+                    //   await launchUrl(adminContactUri);
+                    // } else {
+                    //   Get.snackbar(
+                    //     SlectivTexts.buttonExecutionTitle,
+                    //     SlectivTexts.buttonExecutionSubtitle,
+                    //     backgroundColor: SlectivColors.warningColor,
+                    //     colorText: SlectivColors.whiteColor,
+                    //   );
+                    // }
+                  },
+                  backgroundColor: SlectivColors.submitButtonColor),
               const SizedBox(
                 height: 40,
               ),

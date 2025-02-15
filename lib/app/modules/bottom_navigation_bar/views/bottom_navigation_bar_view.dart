@@ -15,17 +15,22 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(BottomNavigationBarController());
+
+    // Pastikan ProfileController sudah terdaftar
+    if (!Get.isRegistered<ProfileController>()) {
+      Get.lazyPut(() => ProfileController());
+    }
     final profileController = Get.find<ProfileController>();
 
     return Scaffold(
       backgroundColor: SlectivColors.bottomNVBackgroundColor,
 
-      // -- Navigate Destination
-      bottomNavigationBar: Obx(
-        () => ClipRRect(
-          borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-          child: NavigationBar(
+      // Bottom Navigation Bar
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+        child: Obx(
+          () => NavigationBar(
             height: 80,
             elevation: 0,
             backgroundColor: SlectivColors.whiteColor,
@@ -47,6 +52,8 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
           ),
         ),
       ),
+
+      // Body dari masing-masing tab
       body: Obx(() => controller.screens[controller.selectedIndex.value]),
     );
   }

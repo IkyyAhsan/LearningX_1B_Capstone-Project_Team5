@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:slectiv_studio_app/app/modules/gallery/controllers/gallery_controller.dart';
@@ -40,38 +39,38 @@ class SlectivPhotoGallery extends StatelessWidget {
         Obx(() {
           return Stack(
             children: [
-              CarouselSlider(
-                carouselController: controller.carouselController,
-                options: CarouselOptions(
-                  autoPlay: true,
-                  viewportFraction: 1,
-                  enlargeCenterPage: true,
-                  height: 330,
-                  initialPage: 0,
-                  onPageChanged: (index, reason) {
+              SizedBox(
+                height: 330,
+                child: PageView.builder(
+                  controller: controller.pageController,
+                  onPageChanged: (index) {
                     controller.currentSlideIndex.value = index;
                   },
-                ),
-                items: controller.imageList.map((item) {
-                  return Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 1),
-                    margin: const EdgeInsets.symmetric(horizontal: 1),
-                    child: Center(
-                      child: Image.asset(
-                        item,
+                  itemCount: controller.imageList.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 1),
+                      margin: const EdgeInsets.symmetric(horizontal: 1),
+                      child: Center(
+                        child: Image.asset(
+                          controller.imageList[index],
+                        ),
                       ),
-                    ),
-                  );
-                }).toList(),
+                    );
+                  },
+                ),
               ),
               Positioned(
                 left: 0,
                 top: 0,
                 bottom: 0,
                 child: IconButton(
-                  icon: const Icon(Icons.arrow_left, size: 40, color: SlectivColors.titleColor),
+                  icon: const Icon(Icons.arrow_left,
+                      size: 40, color: SlectivColors.titleColor),
                   onPressed: () {
-                    controller.carouselController.previousPage();
+                    controller.pageController.previousPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeInOut);
                   },
                 ),
               ),
@@ -80,9 +79,12 @@ class SlectivPhotoGallery extends StatelessWidget {
                 top: 0,
                 bottom: 0,
                 child: IconButton(
-                  icon: const Icon(Icons.arrow_right, size: 40, color: SlectivColors.titleColor),
+                  icon: const Icon(Icons.arrow_right,
+                      size: 40, color: SlectivColors.titleColor),
                   onPressed: () {
-                    controller.carouselController.nextPage();
+                    controller.pageController.nextPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeInOut);
                   },
                 ),
               ),

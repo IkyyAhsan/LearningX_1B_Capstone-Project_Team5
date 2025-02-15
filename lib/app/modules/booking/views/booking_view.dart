@@ -29,7 +29,6 @@ class BookingView extends GetView<BookingController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 // -- Header
                 const SizedBox(height: 24),
                 const SlectivBookingHeader(),

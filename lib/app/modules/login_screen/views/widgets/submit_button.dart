@@ -4,10 +4,10 @@ import 'package:slectiv_studio_app/utils/constants/colors.dart';
 
 class SlectiveWidgetButton extends StatelessWidget {
   const SlectiveWidgetButton({
-    super.key, 
+    super.key,
     required this.buttonName,
-    required this.onPressed, 
-    required this.backgroundColor, 
+    required this.onPressed,
+    required this.backgroundColor,
   });
   final String buttonName;
   final VoidCallback onPressed;
@@ -22,13 +22,17 @@ class SlectiveWidgetButton extends StatelessWidget {
         onPressed: onPressed,
         style: ButtonStyle(
           shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10)
-            ),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
           backgroundColor: MaterialStatePropertyAll(backgroundColor),
         ),
-        child: Text(buttonName, style: GoogleFonts.spaceGrotesk(textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: SlectivColors.whiteColor)),
+        child: Text(
+          buttonName,
+          style: GoogleFonts.spaceGrotesk(
+              textStyle: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  color: SlectivColors.whiteColor)),
         ),
       ),
     );

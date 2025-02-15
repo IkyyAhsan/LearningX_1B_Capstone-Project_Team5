@@ -15,11 +15,11 @@ class LoginScreenController extends GetxController {
   //     FirebaseFirestore.instance.collection('user');
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void clearForm(){
+  void clearForm() {
     emailController.clear();
     passwordController.clear();
   }
-  
+
   Future<bool> checkCredentials(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(
@@ -37,9 +37,11 @@ class LoginScreenController extends GetxController {
     String password = passwordController.text;
 
     if (email.isEmpty || password.isEmpty) {
-      Get.snackbar(SlectivTexts.snackbarErrorTitle, SlectivTexts.snackbarErrorSubtitle,
-          backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor, 
-          colorText: SlectivColors.whiteColor,
+      Get.snackbar(
+        SlectivTexts.snackbarErrorTitle,
+        SlectivTexts.snackbarErrorSubtitle,
+        backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
+        colorText: SlectivColors.whiteColor,
       );
       return;
     }
@@ -48,13 +50,11 @@ class LoginScreenController extends GetxController {
 
     if (isValidCredentials) {
       Get.snackbar(
-        SlectivTexts.snackbarLoginSuccessfulTitle, 
-        SlectivTexts.snackbarLoginSuccessfulSubtitle, 
-        backgroundColor: SlectivColors.positifSnackbarColor, 
-        colorText: SlectivColors.whiteColor, 
-        duration: const Duration(
-          seconds: 4
-        ),
+        SlectivTexts.snackbarLoginSuccessfulTitle,
+        SlectivTexts.snackbarLoginSuccessfulSubtitle,
+        backgroundColor: SlectivColors.positifSnackbarColor,
+        colorText: SlectivColors.whiteColor,
+        duration: const Duration(seconds: 4),
       );
 
       Get.off(
@@ -65,10 +65,10 @@ class LoginScreenController extends GetxController {
 
       clearForm();
     } else {
-      Get.snackbar(SlectivTexts.snackbarErrorTitle, SlectivTexts.snackbarIncorrectEmailSubtitle,
-        backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor, 
-        colorText: SlectivColors.whiteColor
-      );
+      Get.snackbar(SlectivTexts.snackbarErrorTitle,
+          SlectivTexts.snackbarIncorrectEmailSubtitle,
+          backgroundColor: SlectivColors.cancelAndNegatifSnackbarButtonColor,
+          colorText: SlectivColors.whiteColor);
     }
   }
 }

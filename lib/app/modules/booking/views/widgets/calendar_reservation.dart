@@ -16,22 +16,31 @@ class SlectivCalendarReservation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime lastDay = DateTime.utc(2026, 12, 31);
+    DateTime firstDay =
+        now.isBefore(lastDay) ? now : lastDay.subtract(const Duration(days: 1));
+
     return Obx(() => TableCalendar(
-          focusedDay: controller.focusedDay.value,
-          firstDay: now,
-          lastDay: DateTime.utc(2024, 12, 31),
+          focusedDay: controller.focusedDay.value.isBefore(lastDay)
+              ? controller.focusedDay.value
+              : lastDay,
+          firstDay: firstDay,
+          lastDay: lastDay,
           selectedDayPredicate: (day) {
             return isSameDay(controller.selectedDay.value, day);
           },
           onDaySelected: (selectedDay, focusedDay) {
-            if (selectedDay.isAfter(DateTime.now().subtract(const Duration(days: 1)))) {
+            if (selectedDay
+                .isAfter(DateTime.now().subtract(const Duration(days: 1)))) {
               controller.selectedDay.value = selectedDay;
-              controller.focusedDay.value = focusedDay;
+              controller.focusedDay.value =
+                  focusedDay.isBefore(lastDay) ? focusedDay : lastDay;
               controller.selectedTime.value = '';
             }
           },
           enabledDayPredicate: (day) {
-            return day.isAfter(DateTime.now().subtract(const Duration(days: 1)));
+            return day
+                .isAfter(DateTime.now().subtract(const Duration(days: 1)));
           },
           calendarStyle: const CalendarStyle(
             todayTextStyle: TextStyle(color: SlectivColors.whiteColor),
@@ -57,7 +66,8 @@ class SlectivCalendarReservation extends StatelessWidget {
             ),
           ),
           daysOfWeekStyle: const DaysOfWeekStyle(
-            weekendStyle: TextStyle(color: SlectivColors.cancelAndNegatifSnackbarButtonColor),
+            weekendStyle: TextStyle(
+                color: SlectivColors.cancelAndNegatifSnackbarButtonColor),
           ),
           headerStyle: const HeaderStyle(
             formatButtonVisible: false,
@@ -67,7 +77,8 @@ class SlectivCalendarReservation extends StatelessWidget {
           ),
           onFormatChanged: (format) {},
           onPageChanged: (focusedDay) {
-            controller.focusedDay.value = focusedDay;
+            controller.focusedDay.value =
+                focusedDay.isBefore(lastDay) ? focusedDay : lastDay;
           },
           calendarBuilders: CalendarBuilders(
             defaultBuilder: (context, day, focusedDay) {
